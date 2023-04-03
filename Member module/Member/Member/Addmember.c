@@ -30,7 +30,7 @@ void addMember()
 		exit(-1);
 	}
 
-	Member memberinfo;
+	Member memberInfo;
 	char uplineYesNo;  
 
 	for (int i = 0; i <1; i++) 
@@ -38,19 +38,19 @@ void addMember()
 		//basic info
 		printf("Enter Name:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberinfo.name);
+		scanf("%[^\n]", &memberInfo.name);
 
 		printf("Enter Member id:");
 		rewind(stdin);
-		scanf("%s", &memberinfo.memberId);
+		scanf("%s", &memberInfo.memberId);
 
 		printf("Gender:");
 		rewind(stdin);
-		scanf("%c", &memberinfo.gender);
+		scanf("%c", &memberInfo.gender);
 
 		printf("Phone number:");
 		rewind(stdin);
-		scanf("%c", &memberinfo.gender);
+		scanf("%s", &memberInfo.memberPhone);
 
 		printf("Member got a upline id?");
 		rewind(stdin);
@@ -60,35 +60,35 @@ void addMember()
 		{
 			printf("Upline id:");
 			rewind(stdin);
-			scanf("%s", &memberinfo.uplineId);
+			scanf("%s", &memberInfo.uplineId);
 		}
 
 		printf("Date join(day month year):");
 		rewind(stdin);
-		scanf("%d %d %d", &memberinfo.joinDate.day, &memberinfo.joinDate.month, &memberinfo.joinDate.year);
+		scanf("%d %d %d", &memberInfo.joinDate.day, &memberInfo.joinDate.month, &memberInfo.joinDate.year);
 
 		printf("Member address1:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberinfo.memberAdd.add1);
+		scanf("%[^\n]", &memberInfo.memberAdd.add1);
 
 		printf("Member address2:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberinfo.memberAdd.add2);
+		scanf("%[^\n]", &memberInfo.memberAdd.add2);
 
 		printf("Postcode:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberinfo.memberAdd.postcode);
+		scanf("%[^\n]", &memberInfo.memberAdd.postcode);
 
 		printf("Member city:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberinfo.memberAdd.city);
+		scanf("%[^\n]", &memberInfo.memberAdd.city);
 
 		printf("Member state:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberinfo.memberAdd.state);
+		scanf("%[^\n]", &memberInfo.memberAdd.state);
 
 
-		fwrite(&memberinfo, sizeof memberinfo, 1, ptr);
+		fwrite(&memberInfo, sizeof memberInfo, 1, ptr);
 	}
 
 	fclose(ptr);

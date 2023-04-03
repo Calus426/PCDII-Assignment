@@ -5,11 +5,11 @@
 #pragma warning (disable:4996)
 
 void addMember();
+void display();
 
 void main() 
 { 
 	
-
-	
+	display();
 }
 

@@ -21,6 +21,9 @@
     <ClCompile Include="Addmember.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Display.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin">

@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Addmember.c" />
+    <ClCompile Include="Display.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
