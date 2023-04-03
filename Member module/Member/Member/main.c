@@ -10,6 +10,6 @@ void display();
 void main() 
 { 
 	
-	display();
+	addMember();
 }
 
