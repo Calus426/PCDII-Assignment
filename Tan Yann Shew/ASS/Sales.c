@@ -23,6 +23,8 @@ void modifySReccord(SALES salesOrder[], int salesN);
 int addSRecord(SALES salesOrder[], int salesN);
 void popularItem(SALES salesOrder[], int salesN);
 void salesReport(SALES salesOrder[], int salesN);
+void header();
+void validation(int matchSearch);
 
 void main() {
 	SALES salesOrder[MAX_SALES];
@@ -122,25 +124,26 @@ void main() {
 }
 
 void displaySRecord(SALES salesOrder[],int salesN) {
-	printf("\nSALES ORDER ID    ITEM CODE    QUANTITY     PRICE    MEMBER ID   SALES DATE\n");
+	header();
 	for (int i = 0; i < salesN; i++) {
 		
 		printf("%s \t %14s \t %3d\t    $%-3.2f \t %s \t %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 			salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
 	}
-
+	printf("================================================================================\n");
 	system("pause");
 }
 
 void searchSRecord(SALES salesOrder[], int salesN) {
-	int opt, i, matchSearch = 0;
+	int opt, i, matchSearch = -1;
 
 	printf("\nSearch Record by : \n");
+	printf("======================\n");
 	printf("1) ID\n");
 	printf("2) Item Code\n");
 	printf("3) Date\n");
 	printf("4) Return\n");
-
+	printf("======================\n");
 	do {
 		printf("\nPLEASE ENTER AN OPTION : ");
 		rewind(stdin);
@@ -159,10 +162,7 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 					matchSearch = i;
 				}
 			}
-			if (matchSearch == -1) {
-				printf("No matching result found, please enter again.\n");
-			}
-			system("pause");
+			validation(matchSearch);
 			break;
 
 		case 2: 
@@ -176,10 +176,7 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 					matchSearch = i;
 				}
 			}
-			if (matchSearch == -1) {
-				printf("No matching result found, please enter again.\n");
-			}
-			system("pause");
+			validation(matchSearch);
 			break;
 
 		case 3:
@@ -193,10 +190,7 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 					matchSearch = i;
 				}
 			}
-			if (matchSearch == -1) {
-				printf("No matching result found, please enter again.\n");
-			}
-			system("pause");
+			validation(matchSearch);
 			break;
 
 		case 4: 
@@ -302,14 +296,50 @@ int addSRecord(SALES salesOrder[], int salesN) {
 }
 
 void popularItem(SALES salesOrder[], int salesN) {
-
+	int itemSold[20], popular = -99;
+	char popularItem[6];
+	
+	for (int i = 0; i < salesN; i++) {
+		for (int j = 0; j </*get from terence*/; j++) {
+			if (strcmp(salesOrder[j].itemCode,/*get from terence */) == 0) {
+				itemSold[i] += salesOrder[j].qtySold;
+			}
+		}
+	}
+	printf("\nItem Sold List\n");
+	printf("Item Code\t\tUnit Sold\n");
+	printf("=========\t\t==========\n");
+	for (int i = 0; i < 10; i++) {
+		printf("%s \t %d\n", /*get from terence item 1*/, itemSold[i]);
+		if (itemSold[i] > popular) {
+			popular = itemSold[i];
+			strcpy(popularItem,/*get from terence*/);
+		}
+	}
+	printf("\nThe most popular item sold is %s which sold %d unit.\n",/*get from terence*/, popular);
+	system("pause");
 }
 
-
 void salesReport(SALES salesOrder[], int salesN) {
-	printf("you are in sales\n");
+	header();
 	for (int i = 0; i < salesN; i++) {
+		for (int j = 0; j </*get from lucas*/; j++) {
+			if (strcmp(salesOrder[j].memberId,/*get from lucas*/) == 0) {
 
+			}
+		}
+	}
+	system("pause");
+}
+
+void header() {
+	printf("\nSALES ORDER ID    ITEM CODE    QUANTITY     PRICE    MEMBER ID   SALES DATE\n");
+	printf("================================================================================\n");
+}
+
+void validation(int matchSearch) {
+	if (matchSearch == -1) {
+		printf("\nNo matching result found, please enter again.\n\n");
 	}
 	system("pause");
 }
