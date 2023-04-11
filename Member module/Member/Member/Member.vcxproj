@@ -142,6 +142,8 @@
     <ClCompile Include="Addmember.c" />
     <ClCompile Include="Display.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="menu.c" />
+    <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin" />

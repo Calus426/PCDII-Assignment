@@ -6,10 +6,10 @@
 
 void addMember();
 void display();
+void menu();
 
 void main() 
 { 
-	
-	addMember();
+	menu();
 }
 

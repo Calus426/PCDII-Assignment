@@ -22,7 +22,9 @@ typedef struct
 
 void addMember()
 {
-	FILE* ptr = fopen("member.bin", "ab");
+
+	system("cls");
+	FILE* ptr = fopen("member.bin", "wb");
 
 	if (ptr == NULL)  //ensure the file can be opened
 	{
@@ -65,6 +67,9 @@ void addMember()
 			rewind(stdin);
 			scanf("%s", &memberInfo.uplineId);
 		}
+
+		else
+			strcpy(memberInfo.uplineId, "     -");
 
 		do {
 			printf("Date join(day month year):");

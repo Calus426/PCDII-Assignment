@@ -1,2 +1,3 @@
 ﻿  Addmember.c
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\Addmember.c(72,10): warning C4013: 'strcpy' undefined; assuming extern returning int
   Member.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Debug\Member.exe
