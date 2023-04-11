@@ -1,0 +1,5 @@
+﻿  add.c
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\PCD2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\add.c(14,2): error C2146: syntax error: missing ';' before identifier 'fclose'
+  Main.c
+  Menu.c
+  Generating Code...
