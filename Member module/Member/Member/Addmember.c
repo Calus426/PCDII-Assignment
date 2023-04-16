@@ -15,16 +15,17 @@ typedef struct {
 
 typedef struct
 {
-	char name[40], memberId[7], gender, memberPhone[12], uplineId[6];
+	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[6];
 	Date joinDate;
 	Address memberAdd;
 }Member;
 
-void addMember(int *memberSize)
+void addMember()
 {
-
+	char c;
+	int i = 0;
 	system("cls");
-	FILE* ptr = fopen("member.bin", "ab");
+	FILE* ptr = fopen("member.txt", "ab");
 
 	if (ptr == NULL)  //ensure the file can be opened
 	{
@@ -45,6 +46,10 @@ void addMember(int *memberSize)
 		printf("Enter Member id:");
 		rewind(stdin);
 		scanf("%s", &newMemberInfo.memberId);
+
+		printf("Enter IC Number:");
+		rewind(stdin);
+		scanf("%s", &newMemberInfo.memberIC);
 
 		do {
 			printf("Gender:");
@@ -69,7 +74,7 @@ void addMember(int *memberSize)
 		}
 
 		else
-			strcpy(newMemberInfo.uplineId, "     -");
+			strcpy(newMemberInfo.uplineId, "    -");
 
 		do {
 			printf("Date join(day month year):");

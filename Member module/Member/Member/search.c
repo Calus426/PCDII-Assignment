@@ -15,30 +15,92 @@ typedef struct {
 
 typedef struct
 {
-	char name[40], memberId[7], gender, memberPhone[12], uplineId[6];
+	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[6];
 	Date joinDate;
 	Address memberAdd;
 }Member;
 
 
-void search(Member memberInfo[],int memberSize)
+void search(Member memberInfo[], int memberSize)
 {
 	Member matchMember[100];
-	int matchcount = 0;
+	int matchcount = 0, yearJoin;
+	char mID[10], ulID[10];
+	int choice = searchMenu();
 
-	char mID[10];
-	printf("Enter member ID:");
-	scanf("%s", &mID);
-
-	for (int i = 0; i < memberSize; i++) 
+	switch (choice)
 	{
+	case 1:
 
-		if (((strcmp(mID, memberInfo[i].memberId) == 0)))
+		printf("Enter member ID:");
+		rewind(stdin);
+		scanf("%s", &mID);
+
+		for (int i = 0; i < memberSize; i++)
 		{
-			matchMember[matchcount] = memberInfo[i];
-			matchcount++;
+
+			if (((strcmp(mID, memberInfo[i].memberId) == 0)))
+			{
+				matchMember[matchcount] = memberInfo[i];
+				matchcount++;
+			}
+
 		}
-	
+		detailDisplay(matchMember, matchcount);
+		break;
+
+
+
+	case 2:
+		printf("Enter upline ID:");
+		rewind(stdin);
+		scanf("%s", &ulID);
+
+		for (int i = 0; i < memberSize; i++)
+		{
+
+			if (((strcmp(ulID, memberInfo[i].memberId) == 0)))
+			{
+				matchMember[matchcount] = memberInfo[i];
+				matchcount++;
+			}
+
+		}
+		detailDisplay(matchMember, matchcount);
+		break;
+
+	case 3:
+		printf("Enter Year of joinning:");
+		rewind(stdin);
+		scanf("%d", &yearJoin);
+
+		for (int i = 0; i < memberSize; i++)
+		{
+
+			if (yearJoin == memberInfo[i].joinDate.year)
+			{
+				matchMember[matchcount] = memberInfo[i];
+				matchcount++;
+			}
+
+		}
+		detailDisplay(matchMember, matchcount);
+		break;
+
 	}
-	display(matchMember,matchcount);
+}
+
+int searchMenu()
+{
+	int choice;
+	printf("======================================\n");
+	printf("\t\tSearch function\n");
+	printf("======================================\n");
+	printf("1. Search by Member ID\n");
+	printf("2. Search by UpLine ID\n");
+	printf("3. Search by Year join\n");
+	printf("Enter choice(1-3):");
+	scanf("%d", &choice);
+	return choice;
+
 }

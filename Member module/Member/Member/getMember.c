@@ -15,7 +15,7 @@ typedef struct {
 
 typedef struct
 {
-	char name[40], memberId[7], gender, memberPhone[12], uplineId[6];
+	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[6];
 	Date joinDate;
 	Address memberAdd;
 }Member;
@@ -23,7 +23,7 @@ typedef struct
 void getMember(Member memberInfo[], int *memberSize)
 {
 
-	FILE* getPtr = fopen("member.bin", "rb");
+	FILE* getPtr = fopen("member.txt", "rb");
 
 	*memberSize = 0;
 

@@ -140,13 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Addmember.c" />
+    <ClCompile Include="Delete.c" />
     <ClCompile Include="Display.c" />
     <ClCompile Include="getMember.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Modify.c" />
     <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="member.bin" />
+    <Text Include="member.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

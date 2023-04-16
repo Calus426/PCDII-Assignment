@@ -15,15 +15,19 @@ typedef struct {
 
 typedef struct
 {
-	char name[40], memberId[7], gender, memberPhone[12], uplineId[6];
+	char name[40], memberId[7],memberIC[13],gender, memberPhone[12], uplineId[6];
 	Date joinDate;
 	Address memberAdd;
 }Member;
 
-void addMember(int *);
+void addMember();
 void display (Member[], int );
 void getMember(Member[], int *);
 void search(Member[],int);
+void detailDisplay(Member memberInfo[], int memberSize);
+int searchMenu();
+void modifyMember(Member memberInfo[], int memberSize);
+void deleteMember(Member memberInfo[], int *memberSize);
 
 void main() 
 { 
@@ -51,13 +55,13 @@ void main()
 		switch (choice)
 		{
 		case 1:  display(member,memberSize); break;
-		case 2:  addMember(&memberSize); getMember(member, &memberSize); break;
+		case 2:  addMember(); getMember(member, &memberSize); break;
 		case 3:  search(member, memberSize); break;
-		case 4:break;
-		case 5:break;
+		case 4:  modifyMember(member, memberSize); break;
+		case 5:  deleteMember(member, &memberSize); break;
 		case 6:break;
 		case 7:break;
-		default:printf("Enter valid choice!\n");
+		default:printf("Enter valid choice!(1-7)\n"); system("pause");
 		}
 	} while (choice != 7);
 
