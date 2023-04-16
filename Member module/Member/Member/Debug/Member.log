@@ -1,3 +1,4 @@
-﻿  Addmember.c
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\Addmember.c(72,10): warning C4013: 'strcpy' undefined; assuming extern returning int
-  Member.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Debug\Member.exe
+﻿  search.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\search.c(36,15): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\search.c(43,9): warning C4013: 'display' undefined; assuming extern returning int
+  Member.vcxproj -> C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Debug\Member.exe

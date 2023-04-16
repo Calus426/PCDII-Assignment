@@ -24,10 +24,10 @@
     <ClCompile Include="Display.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu.c">
+    <ClCompile Include="search.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="search.c">
+    <ClCompile Include="getMember.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

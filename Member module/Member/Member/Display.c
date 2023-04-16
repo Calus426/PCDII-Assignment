@@ -20,35 +20,17 @@ typedef struct
 	Address memberAdd;
 }Member;
 
-void display()
+void display(Member memberInfo[],int memberSize)
 {
-	FILE* dPtr = fopen("member.bin", "rb");
 
-
-	if (dPtr == NULL)  //ensure the file can be opened
-	{
-		printf("Unable to open file");
-		exit(-1);
-	}
-
-	Member memberInfo[30];
-	int pCount = 0;
-
-
-	while (fread(&memberInfo[pCount], sizeof memberInfo[pCount], 1, dPtr))
-	{
-		pCount++;
-	}
 
 	printf("    %-20s %-10s %-7s %-13s %-10s %s\n", "Name", "Member Id", "Gender", "Phone Number", "Upline Id","Join Date");
 	printf("    %-20s %-10s %-7s %-13s %-10s %s\n","==============","=========","======","============","=========","==========");
 
-	for (int i = 0; i < pCount; i++) {
+	for (int i = 0; i < memberSize; i++) {
 		printf("%d.  %-20s %-10s %-7c %-13s %-10s %.2d-%.2d-%d\n",i+1, memberInfo[i].name, memberInfo[i].memberId, memberInfo[i].gender, memberInfo[i].memberPhone, memberInfo[i].uplineId,
 			memberInfo[i].joinDate.day, memberInfo[i].joinDate.month, memberInfo[i].joinDate.year);
 	}
 	
-
-	fclose(dPtr);
 	system("pause");
 }

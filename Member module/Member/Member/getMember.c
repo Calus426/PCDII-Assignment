@@ -20,25 +20,18 @@ typedef struct
 	Address memberAdd;
 }Member;
 
-
-void search(Member memberInfo[],int memberSize)
+void getMember(Member memberInfo[], int *memberSize)
 {
-	Member matchMember[100];
-	int matchcount = 0;
 
-	char mID[10];
-	printf("Enter member ID:");
-	scanf("%s", &mID);
+	FILE* getPtr = fopen("member.bin", "rb");
 
-	for (int i = 0; i < memberSize; i++) 
+	*memberSize = 0;
+
+	while (fread(&memberInfo[*memberSize], sizeof memberInfo[*memberSize], 1, getPtr))
 	{
+		(*memberSize)++;
 
-		if (((strcmp(mID, memberInfo[i].memberId) == 0)))
-		{
-			matchMember[matchcount] = memberInfo[i];
-			matchcount++;
-		}
-	
 	}
-	display(matchMember,matchcount);
+
+	fclose(getPtr);
 }

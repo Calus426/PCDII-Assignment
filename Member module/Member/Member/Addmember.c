@@ -20,11 +20,11 @@ typedef struct
 	Address memberAdd;
 }Member;
 
-void addMember()
+void addMember(int *memberSize)
 {
 
 	system("cls");
-	FILE* ptr = fopen("member.bin", "wb");
+	FILE* ptr = fopen("member.bin", "ab");
 
 	if (ptr == NULL)  //ensure the file can be opened
 	{
@@ -32,7 +32,7 @@ void addMember()
 		exit(-1);
 	}
 
-	Member memberInfo;
+	Member newMemberInfo;
 	char uplineYesNo;  
 
 	for (int i = 0; i <1; i++) 
@@ -40,22 +40,22 @@ void addMember()
 		//basic info
 		printf("Enter Name:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberInfo.name);
+		scanf("%[^\n]", &newMemberInfo.name);
 
 		printf("Enter Member id:");
 		rewind(stdin);
-		scanf("%s", &memberInfo.memberId);
+		scanf("%s", &newMemberInfo.memberId);
 
 		do {
 			printf("Gender:");
 			rewind(stdin);
-			scanf("%c", &memberInfo.gender);
-		} while ((tolower(memberInfo.gender)) != 'f'&& (tolower(memberInfo.gender)) != 'm');
+			scanf("%c", &newMemberInfo.gender);
+		} while ((tolower(newMemberInfo.gender)) != 'f'&& (tolower(newMemberInfo.gender)) != 'm');
 		
 
 		printf("Phone number:");
 		rewind(stdin);
-		scanf("%s", &memberInfo.memberPhone);
+		scanf("%s", &newMemberInfo.memberPhone);
 
 		printf("Member got a upline id?");
 		rewind(stdin);
@@ -65,29 +65,29 @@ void addMember()
 		{
 			printf("Upline id:");
 			rewind(stdin);
-			scanf("%s", &memberInfo.uplineId);
+			scanf("%s", &newMemberInfo.uplineId);
 		}
 
 		else
-			strcpy(memberInfo.uplineId, "     -");
+			strcpy(newMemberInfo.uplineId, "     -");
 
 		do {
 			printf("Date join(day month year):");
 			rewind(stdin);
-			scanf("%d %d %d", &memberInfo.joinDate.day, &memberInfo.joinDate.month, &memberInfo.joinDate.year);
+			scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 
-			if (memberInfo.joinDate.month == 2) 
+			if (newMemberInfo.joinDate.month == 2) 
 			{
-				if (memberInfo.joinDate.year % 4 == 0)
+				if (newMemberInfo.joinDate.year % 4 == 0)
 				{
-					if (memberInfo.joinDate.day > 29)
+					if (newMemberInfo.joinDate.day > 29)
 					{
-						while (memberInfo.joinDate.day > 29)
+						while (newMemberInfo.joinDate.day > 29)
 						{
-							printf("February in year %d only have 29 days!Please reenter.\n", memberInfo.joinDate.year);
+							printf("February in year %d only have 29 days!Please reenter.\n", newMemberInfo.joinDate.year);
 							printf("Date join(day):");
 							rewind(stdin);
-							scanf("%d", &memberInfo.joinDate.day);
+							scanf("%d", &newMemberInfo.joinDate.day);
 						}
 						
 						
@@ -95,13 +95,13 @@ void addMember()
 				}
 				else 
 				{
-					if (memberInfo.joinDate.day > 28) {
-						while (memberInfo.joinDate.day > 28) 
+					if (newMemberInfo.joinDate.day > 28) {
+						while (newMemberInfo.joinDate.day > 28) 
 					{
-						printf("February in year %d only have 28 days!Please reenter.\n", memberInfo.joinDate.year);
+						printf("February in year %d only have 28 days!Please reenter.\n", newMemberInfo.joinDate.year);
 						printf("Date join(day):");
 						rewind(stdin);
-						scanf("%d", &memberInfo.joinDate.day);
+						scanf("%d", &newMemberInfo.joinDate.day);
 					}
 					
 					}
@@ -113,39 +113,40 @@ void addMember()
 					
 							
 
-		    if (memberInfo.joinDate.day <= 0 || memberInfo.joinDate.day > 31)
+		    if (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 31)
 			{
 				printf("Day cannot less than 0 or more than 31 and Month cannot less than 1 or more than 12!Please reenter.\n");
 				printf("Date join(day month year):");
 				rewind(stdin);
-				scanf("%d %d %d", &memberInfo.joinDate.day, &memberInfo.joinDate.month, &memberInfo.joinDate.year);
+				scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 			}
 
-		} while (memberInfo.joinDate.day<=0|| memberInfo.joinDate.day>31|| memberInfo.joinDate.month<1 || memberInfo.joinDate.month>12);
+		} while (newMemberInfo.joinDate.day<=0|| newMemberInfo.joinDate.day>31|| newMemberInfo.joinDate.month<1 || newMemberInfo.joinDate.month>12);
 		
 
 		printf("Member address1:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberInfo.memberAdd.add1);
+		scanf("%[^\n]", &newMemberInfo.memberAdd.add1);
 
 		printf("Member address2:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberInfo.memberAdd.add2);
+		scanf("%[^\n]", &newMemberInfo.memberAdd.add2);
 
 		printf("Postcode:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberInfo.memberAdd.postcode);
+		scanf("%[^\n]", &newMemberInfo.memberAdd.postcode);
 
 		printf("Member city:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberInfo.memberAdd.city);
+		scanf("%[^\n]", &newMemberInfo.memberAdd.city);
 
 		printf("Member state:");
 		rewind(stdin);
-		scanf("%[^\n]", &memberInfo.memberAdd.state);
+		scanf("%[^\n]", &newMemberInfo.memberAdd.state);
 
 
-		fwrite(&memberInfo, sizeof memberInfo, 1, ptr);
+		fwrite(&newMemberInfo, sizeof newMemberInfo, 1, ptr);
+
 	}
 
 	fclose(ptr);
