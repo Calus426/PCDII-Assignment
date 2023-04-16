@@ -1,5 +1,3 @@
-﻿  add.c
-C:\Users\teren\OneDrive\桌面\DCS1S1G2\PCD2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\add.c(14,2): error C2146: syntax error: missing ';' before identifier 'fclose'
-  Main.c
-  Menu.c
-  Generating Code...
+﻿  Menu.c
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\Menu.c(34,11): warning C4013: 'addNew' undefined; assuming extern returning int
+  Stock_Module.vcxproj -> C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Debug\Stock_Module.exe

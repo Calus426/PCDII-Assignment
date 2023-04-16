@@ -4,14 +4,7 @@
 
 #pragma warning(disable:4996)
 
+void search()
+{
 
-void menu();
-void addNew();
-void search();
-
-void main() {
-
-	menu();
-
-	system("pause");
 }

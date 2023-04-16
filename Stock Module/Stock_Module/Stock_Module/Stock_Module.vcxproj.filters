@@ -24,6 +24,9 @@
     <ClCompile Include="add.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="search.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="stock.txt">

@@ -142,6 +142,7 @@
     <ClCompile Include="add.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Menu.c" />
+    <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="stock.txt" />

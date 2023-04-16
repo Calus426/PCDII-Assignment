@@ -9,8 +9,8 @@ int mChoice;
 void menu()
 {
 
-	while (mChoice != 7)
-	{
+	
+	do{
 
 	
 	 printf("\n\n================================\n"
@@ -28,45 +28,48 @@ void menu()
 
 	 printf("\n\n");
 
-	 switch (mChoice)
-	 {
-	  case 1 :
+	  switch (mChoice)
+	  {
+	    case 1 :
+
+		addNew();
+		break;
+
+		case 2:
 
 		
 		break;
 
-	  case 2:
-
+		case 3:
 		
 		break;
 
-	  case 3:
+		case 4:
 		
+		search();
 		break;
 
-	  case 4:
-		
-		break;
-
-	  case 5:
+		case 5:
 		
 		break;
 
 
-	  case 6:
+		case 6:
 		
 		break;
 
-	  case 7:
+		case 7:
 
-		  printf("Bye Bye!!!");
-	  default:
+		  printf("Bye Bye!!!\n\n");
+		  break;
+
+	   default:
 
 		printf("Unknow Value Please Try Agian\n"
-		       "===============================================================================================================");
+		       "============================================================================================================");
 		
 		
 	 }
 
-	} 
+	} while (mChoice != 7);
 }
