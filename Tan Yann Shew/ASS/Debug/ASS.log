@@ -1,7 +1,0 @@
-﻿  Sales.c
-C:\Users\Ai\Desktop\ASS\Sales.c(64,3): warning C4098: 'main': 'void' function returning a value
-C:\Users\Ai\Desktop\ASS\Sales.c(110,5): warning C4098: 'main': 'void' function returning a value
-C:\Users\Ai\Desktop\ASS\Sales.c(159,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\ASS\Sales.c(197,12): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\ASS\Sales.c(256,20): warning C4098: 'modifySReccord': 'void' function returning a value
-  ASS.vcxproj -> C:\Users\Ai\Desktop\ASS\Debug\ASS.exe

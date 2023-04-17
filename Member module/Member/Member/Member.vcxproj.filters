@@ -21,10 +21,25 @@
     <ClCompile Include="Addmember.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Display.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="search.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getMember.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modify.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Delete.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="member.bin">
+    <Text Include="member.txt">
       <Filter>Source Files</Filter>
-    </None>
+    </Text>
   </ItemGroup>
 </Project>
