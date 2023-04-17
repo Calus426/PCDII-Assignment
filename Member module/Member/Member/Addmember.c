@@ -16,14 +16,14 @@ typedef struct {
 
 typedef struct
 {
-	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[6];
+	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[7];
 	Date joinDate;
 	Address memberAdd;
 }Member;
 
 void addMember(Member memberInfo[], int memberSize)
 {
-	char upperchar,continueAdd,confirm,count=0;
+	char upperchar[4],continueAdd,confirm,count=0;
 	int i = 0;
 	system("cls");
 	FILE* ptr = fopen("member.txt", "ab");
@@ -65,7 +65,7 @@ void addMember(Member memberInfo[], int memberSize)
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.memberId);
 		}
-		upperchar=newMemberInfo.memberId[0];
+		upperchar[0]=newMemberInfo.memberId[0];
 		newMemberInfo.memberId[0] = toupper(upperchar);
 		
 		for (int j = 0; j < memberSize; j++)//member id validation, 1 member id for 1 person only.
@@ -132,6 +132,26 @@ void addMember(Member memberInfo[], int memberSize)
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.uplineId);
 			
+			while (strlen(newMemberInfo.uplineId) > 6 || strlen(newMemberInfo.uplineId) < 2)
+			{
+				printf("Upline ID at least 2 character and maximun 6.Please reenter!\n");
+				printf("Enter Upline id:");
+				rewind(stdin);
+				scanf("%s", &newMemberInfo.uplineId);
+			}
+
+			while (newMemberInfo.uplineId[0] != 'U' && newMemberInfo.uplineId[0] != 'u' || newMemberInfo.uplineId[1] != 'l' && newMemberInfo.uplineId[1] != 'L')
+			{
+				printf("Upline ID should be start with character \'UL\'.Please reenter!\n");
+				printf("Enter Upline id:");
+				rewind(stdin);
+				scanf("%s", &newMemberInfo.memberId);
+			}
+			upperchar[1] = newMemberInfo.uplineId[0];
+			newMemberInfo.uplineId[0] = toupper(upperchar[1]);
+
+			upperchar[2] = newMemberInfo.uplineId[1];
+			newMemberInfo.uplineId[1] = toupper(upperchar[2]);
 		}
 
 		else

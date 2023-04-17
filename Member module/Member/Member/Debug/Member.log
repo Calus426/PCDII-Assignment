@@ -1,4 +1,4 @@
-﻿  Delete.c
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Delete.c(36,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Delete.c(44,15): warning C4013: 'detailDisplay' undefined; assuming extern returning int
+﻿  Addmember.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Addmember.c(69,48): warning C4047: 'function': 'int' differs in levels of indirection from 'char [4]'
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Addmember.c(69,39): warning C4024: 'toupper': different types for formal and actual parameter 1
   Member.vcxproj -> C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Debug\Member.exe

@@ -15,7 +15,7 @@ typedef struct {
 
 typedef struct
 {
-	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[6];
+	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[7];
 	Date joinDate;
 	Address memberAdd;
 }Member;
