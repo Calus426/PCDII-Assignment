@@ -1,6 +1,2 @@
-﻿  Delete.c
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Delete.c(36,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Delete.c(44,15): warning C4013: 'detailDisplay' undefined; assuming extern returning int
-  getMember.c
-  Generating Code...
+﻿  Display.c
   Member.vcxproj -> C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Debug\Member.exe

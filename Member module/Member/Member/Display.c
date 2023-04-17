@@ -38,7 +38,7 @@ void detailDisplay(Member memberInfo[], int memberSize)
 {
 
 	printf("    %-20s %-10s %-13s %-7s %-13s %-10s %-12s % s\n", "Name", "Member Id","IC", "Gender", "Phone Number", "Upline Id", "Join Date","Address");
-	printf("    %-20s %-10s %-13s %-7s %-13s %-10s %-12s %s\n", "==============", "=========", "=============","======", "============", "=========", "==========", "===============================");
+	printf("    %-20s %-10s %-13s %-7s %-13s %-10s %-12s %s\n", "==============", "=========", "=============","======", "============", "=========", "==========", "============================================================");
 
 	for (int i = 0; i < memberSize; i++) {
 		printf("%d.  %-20s %-10s %-13s %-7c %-13s %-10s %.2d-%.2d-%d   %s,%s,%s,%s,%s\n", i + 1, memberInfo[i].name, memberInfo[i].memberId,memberInfo[i].memberIC, toupper(memberInfo[i].gender), memberInfo[i].memberPhone, memberInfo[i].uplineId,
