@@ -31,7 +31,7 @@ void search(Member memberInfo[], int memberSize)
 	switch (choice)
 	{
 	case 1:
-
+		system("cls");
 		printf("Enter member ID:");
 		rewind(stdin);
 		scanf("%s", &mID);
@@ -46,12 +46,22 @@ void search(Member memberInfo[], int memberSize)
 			}
 
 		}
-		detailDisplay(matchMember, matchcount);
+		if (matchcount == 0)
+		{
+			printf("No member found!\n\n");
+			system("pause");
+		}
+		else
+		{
+			detailDisplay(matchMember, matchcount);
+		}
+		
 		break;
 
 
 
 	case 2:
+		system("cls");
 		printf("Enter upline ID:");
 		rewind(stdin);
 		scanf("%s", &ulID);
@@ -66,10 +76,20 @@ void search(Member memberInfo[], int memberSize)
 			}
 
 		}
-		detailDisplay(matchMember, matchcount);
+		if (matchcount == 0)
+		{
+			printf("No member found!\n\n");
+			system("pause");
+		}
+		else
+		{
+			detailDisplay(matchMember, matchcount);
+		}
+
 		break;
 
 	case 3:
+		system("cls");
 		printf("Enter Year of joinning:");
 		rewind(stdin);
 		scanf("%d", &yearJoin);
@@ -84,7 +104,17 @@ void search(Member memberInfo[], int memberSize)
 			}
 
 		}
-		detailDisplay(matchMember, matchcount);
+
+		if (matchcount == 0)
+		{
+			printf("No member found!\n\n");
+			system("pause");
+		}
+		else
+		{
+			detailDisplay(matchMember, matchcount);
+		}
+
 		break;
 
 	}

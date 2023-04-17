@@ -21,7 +21,7 @@ typedef struct
 }Member;
 void display(Member memberInfo[],int memberSize)
 {
-
+	system("cls");
 
 	printf("    %-20s %-10s %-13s %-7s %-13s %-10s %s\n", "Name", "Member Id","IC", "Gender", "Phone Number", "Upline Id","Join Date");
 	printf("    %-20s %-10s %-13s %-7s %-13s %-10s %s\n","==============","=========","=============","======","============","=========","==========");

@@ -20,7 +20,7 @@ typedef struct
 	Address memberAdd;
 }Member;
 
-void addMember();
+void addMember(Member[], int);
 void display (Member[], int );
 void getMember(Member[], int *);
 void search(Member[],int);
@@ -29,7 +29,7 @@ int searchMenu();
 void modifyMember(Member memberInfo[], int memberSize);
 void deleteMember(Member memberInfo[], int *memberSize);
 
-void main() 
+void main() //Menu for Member Module
 { 
 	Member member[100];
 	int memberSize;
@@ -38,6 +38,7 @@ void main()
 
 
 	do {
+		
 		system("cls");
 		printf("========================\n");
 		printf("Choose ur next move!!\n");
@@ -50,12 +51,13 @@ void main()
 		printf("6.Member commision\n");
 		printf("7.Exit\n\n\n");
 		printf("Enter choice:");
+		rewind(stdin);
 		scanf("%d", &choice);
 
 		switch (choice)
 		{
 		case 1:  display(member,memberSize); break;
-		case 2:  addMember(); getMember(member, &memberSize); break;
+		case 2:  addMember(member, memberSize); getMember(member, &memberSize); break;
 		case 3:  search(member, memberSize); break;
 		case 4:  modifyMember(member, memberSize); break;
 		case 5:  deleteMember(member, &memberSize); break;
@@ -63,6 +65,7 @@ void main()
 		case 7:break;
 		default:printf("Enter valid choice!(1-7)\n"); system("pause");
 		}
+
 	} while (choice != 7);
 
 }

@@ -54,6 +54,8 @@ void deleteMember(Member memberInfo[], int *memberSize)
 			memberInfo[j] = memberInfo[j + 1];
 		}
 		(*memberSize)--;
+
+		printf("\n\nDeleted sucessfully!\n\n");
 	}
 
 
@@ -63,7 +65,7 @@ void deleteMember(Member memberInfo[], int *memberSize)
 		fwrite(&memberInfo[k], sizeof memberInfo[k], 1, delPtr);
 	}
 	
-	printf("\n\nDeleted sucessfully!");
+	
 	system("pause");
 
 }
