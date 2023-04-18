@@ -23,7 +23,7 @@ typedef struct
 
 void addMember(Member memberInfo[], int memberSize)
 {
-	char upperchar[4],continueAdd,confirm,count=0;
+	char upperchar[4],continueAdd,confirm,count=0,check=0;
 	int i = 0;
 	system("cls");
 	FILE* ptr = fopen("member.txt", "ab");
@@ -45,18 +45,21 @@ void addMember(Member memberInfo[], int memberSize)
 		scanf("%[^\n]", &newMemberInfo.name);
 		printf("\n");
 
-		printf("Enter Member id:");
+		printf("Enter Member id(M#####):");
 		rewind(stdin);
 		scanf("%s", &newMemberInfo.memberId);
 		printf("\n");
 
 		while (strlen(newMemberInfo.memberId) > 6 || strlen(newMemberInfo.memberId) < 2)
 		{
-			printf("Member ID at least two character.Please reenter!\n");
+			printf("Member ID at least 2 character and maximum 6.Please reenter!\n");
 			printf("Enter Member id:");
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.memberId);
 		}
+
+		upperchar[0] = newMemberInfo.memberId[0];
+		newMemberInfo.memberId[0] = toupper(upperchar[0]);
 
 		while (newMemberInfo.memberId[0] != 'm' && newMemberInfo.memberId[0] != 'M')
 		{
@@ -65,8 +68,21 @@ void addMember(Member memberInfo[], int memberSize)
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.memberId);
 		}
-		upperchar[0]=newMemberInfo.memberId[0];
-		newMemberInfo.memberId[0] = toupper(upperchar);
+
+		for (int j = 1; j < strlen(newMemberInfo.memberId); j++)
+		{
+			if (isalpha(newMemberInfo.memberId[j]))
+			{
+				printf("Member ID should be start with character \'M\' and following with number.Please reenter!\n");
+				printf("Enter Member id:");
+				rewind(stdin);
+				scanf("%s", &newMemberInfo.memberId);
+				j = 0;
+			}
+
+		}
+		
+
 		
 		for (int j = 0; j < memberSize; j++)//member id validation, 1 member id for 1 person only.
 		{
@@ -103,7 +119,7 @@ void addMember(Member memberInfo[], int memberSize)
 
 
 		do {
-			printf("Gender:");
+			printf("Gender(M/F):");
 			rewind(stdin);
 			scanf("%c", &newMemberInfo.gender);
 			newMemberInfo.gender = toupper(newMemberInfo.gender);
@@ -140,12 +156,12 @@ void addMember(Member memberInfo[], int memberSize)
 				scanf("%s", &newMemberInfo.uplineId);
 			}
 
-			while (newMemberInfo.uplineId[0] != 'U' && newMemberInfo.uplineId[0] != 'u' || newMemberInfo.uplineId[1] != 'l' && newMemberInfo.uplineId[1] != 'L')
+			while (newMemberInfo.uplineId[0] != 'U' && newMemberInfo.uplineId[0] != 'u' ||( newMemberInfo.uplineId[1] != 'l' && newMemberInfo.uplineId[1] != 'L'))
 			{
 				printf("Upline ID should be start with character \'UL\'.Please reenter!\n");
 				printf("Enter Upline id:");
 				rewind(stdin);
-				scanf("%s", &newMemberInfo.memberId);
+				scanf("%s", &newMemberInfo.uplineId);
 			}
 			upperchar[1] = newMemberInfo.uplineId[0];
 			newMemberInfo.uplineId[0] = toupper(upperchar[1]);
@@ -158,77 +174,79 @@ void addMember(Member memberInfo[], int memberSize)
 			strcpy(newMemberInfo.uplineId, "    -");
 		printf("\n");
 
+
 		//Date join
-		printf("Date join(day month year):");
-		rewind(stdin);
-		scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 
-		while (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 31 || newMemberInfo.joinDate.month < 1 || newMemberInfo.joinDate.month>12) {
-
+		while (check == 0) {
+			printf("Date join(day month year):");
+			rewind(stdin);
+			scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 
 			if (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 31)
 			{
 				printf("Day should be between 1 to 31.Please reenter.\n");
-				printf("Date join(day month year):");
-				rewind(stdin);
-				scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 
 				if (newMemberInfo.joinDate.month < 1 || newMemberInfo.joinDate.month>12)
 				{
 					printf("Month should be between 1 to 12.Please reenter.\n");
-					printf("Date join(day month year):");
-					rewind(stdin);
-					scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 				}
-					
+
 			}
 
 			else if (newMemberInfo.joinDate.month < 1 || newMemberInfo.joinDate.month>12)
 			{
 				printf("Month should be between 1 to 12.Please reenter.\n");
-				printf("Date join(day month year):");
-				rewind(stdin);
-				scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
-			}
-				
 
-
-
-			else if (newMemberInfo.joinDate.month == 4 || newMemberInfo.joinDate.month == 6 || newMemberInfo.joinDate.month == 9
-				|| newMemberInfo.joinDate.month == 11)
-
-			{
-				while (newMemberInfo.joinDate.day > 30)
-				{
-					printf("Day for month %d only until 30.Please reenter\n.", newMemberInfo.joinDate.month);
-					printf("Date join(day month year):");
-					rewind(stdin);
-					scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
-				}
-
+				if (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 31)
+					printf("Day should be between 1 to 31.Please reenter.\n");
 			}
 
 			else if (newMemberInfo.joinDate.month == 2)
 			{
 
-				while ((newMemberInfo.joinDate.year % 4 == 0) && newMemberInfo.joinDate.day > 29)
+				if ((newMemberInfo.joinDate.year % 4 == 0) && newMemberInfo.joinDate.day > 29)
 				{
-					printf("Day for month %d in Year %d only have 29 days.Please reenter.\n",newMemberInfo.joinDate.month,newMemberInfo.joinDate.year);
-					printf("Date join(day month year):");
-					rewind(stdin);
-					scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
+					printf("Day for month %d in Year %d only have 29 days.Please reenter.\n", newMemberInfo.joinDate.month, newMemberInfo.joinDate.year);
+
 				}
 
 
-				while ((newMemberInfo.joinDate.year % 4 != 0) && newMemberInfo.joinDate.day > 28)
+				else if ((newMemberInfo.joinDate.year % 4 != 0) && newMemberInfo.joinDate.day > 28)
 				{
 					printf("Day for month %d in Year %d only have 28 days.Please reenter.\n", newMemberInfo.joinDate.month, newMemberInfo.joinDate.year);
-					printf("Date join(day month year):");
-					rewind(stdin);
-					scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
-				}
 
+				}
+				else
+					check = 1;
 			}
+
+			else if (newMemberInfo.joinDate.month == 4 || newMemberInfo.joinDate.month == 6 || newMemberInfo.joinDate.month == 9 || newMemberInfo.joinDate.month == 11)
+			{
+
+				if (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 30)
+					printf("Day should be between 1 to 30.Please reenter.\n");
+
+				else
+					check = 1;
+			}
+
+
+			else if (newMemberInfo.joinDate.month == 1 || newMemberInfo.joinDate.month == 3 || newMemberInfo.joinDate.month == 5 || newMemberInfo.joinDate.month == 7 || newMemberInfo.joinDate.month == 8
+				|| newMemberInfo.joinDate.month == 10 || newMemberInfo.joinDate.month == 12)
+			{
+				if (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 31)
+					printf("Day should be between 1 to 31.Please reenter.\n");
+
+				else
+					check = 1;
+			}
+
+
+
+			
+
+			else
+				check = 1;
 						
 		}
 		printf("\n");
