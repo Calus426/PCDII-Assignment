@@ -19,6 +19,9 @@ typedef struct
 	Date joinDate;
 	Address memberAdd;
 }Member;
+
+
+
 void display(Member memberInfo[],int memberSize)
 {
 	system("cls");

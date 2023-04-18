@@ -23,7 +23,7 @@ typedef struct
 
 void addMember(Member memberInfo[], int memberSize)
 {
-	char upperchar[4],continueAdd,confirm,count=0,check=0;
+	char upperchar[4],continueAdd,confirm,count=0,dateCheck=0,memberIDcheck=0;
 	int i = 0;
 	system("cls");
 	FILE* ptr = fopen("member.txt", "ab");
@@ -45,56 +45,53 @@ void addMember(Member memberInfo[], int memberSize)
 		scanf("%[^\n]", &newMemberInfo.name);
 		printf("\n");
 
-		printf("Enter Member id(M#####):");
-		rewind(stdin);
-		scanf("%s", &newMemberInfo.memberId);
-		printf("\n");
+		
 
-		while (strlen(newMemberInfo.memberId) > 6 || strlen(newMemberInfo.memberId) < 2)
+		while (memberIDcheck == 0) 
 		{
-			printf("Member ID at least 2 character and maximum 6.Please reenter!\n");
-			printf("Enter Member id:");
+			memberIDcheck = 1;
+			printf("Enter Member id(M#####):");
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.memberId);
-		}
+			printf("\n");
 
-		upperchar[0] = newMemberInfo.memberId[0];
-		newMemberInfo.memberId[0] = toupper(upperchar[0]);
+			upperchar[0] = newMemberInfo.memberId[0];
+			newMemberInfo.memberId[0] = toupper(upperchar[0]);
 
-		while (newMemberInfo.memberId[0] != 'm' && newMemberInfo.memberId[0] != 'M')
-		{
-			printf("Member ID should be start with character \'M\'.Please reenter!\n");
-			printf("Enter Member id:");
-			rewind(stdin);
-			scanf("%s", &newMemberInfo.memberId);
-		}
 
-		for (int j = 1; j < strlen(newMemberInfo.memberId); j++)
-		{
-			if (isalpha(newMemberInfo.memberId[j]))
+			for (int j = 0; j < memberSize; j++)
 			{
-				printf("Member ID should be start with character \'M\' and following with number.Please reenter!\n");
-				printf("Enter Member id:");
-				rewind(stdin);
-				scanf("%s", &newMemberInfo.memberId);
-				j = 0;
+				if (strcmp(newMemberInfo.memberId, memberInfo[j].memberId) == 0)
+				{
+					printf("Member ID exist!Please reenter.\n");
+					memberIDcheck = 0;
+				}
+
+			}
+
+			for (int j = 1; j < strlen(newMemberInfo.memberId); j++)
+			{
+				if (isalpha(newMemberInfo.memberId[j]))
+				{
+					printf("Member ID should be start with character \'M\' and following with number.Please reenter!\n");
+					memberIDcheck = 0;
+				}
+			}
+			
+			if (strlen(newMemberInfo.memberId) > 6 || strlen(newMemberInfo.memberId) < 2)
+			{
+				printf("Member ID at least 2 character and maximum 6.Please reenter!\n");
+				memberIDcheck = 0;
+			}
+
+			else if (newMemberInfo.memberId[0] != 'M')
+			{
+				printf("Member ID should be start with character \'M\'.Please reenter!\n");
+				memberIDcheck = 0;
 			}
 
 		}
-		
-
-		
-		for (int j = 0; j < memberSize; j++)//member id validation, 1 member id for 1 person only.
-		{
-			while (strcmp(newMemberInfo.memberId, memberInfo[j].memberId) == 0)
-			{
-				printf("Member ID exist!Please reenter.\n");
-				printf("Enter Member id:");
-				rewind(stdin);
-				scanf("%s", &newMemberInfo.memberId);
-				printf("\n");
-			}
-		}
+	
 		
 		printf("Enter IC Number:");
 		rewind(stdin);
@@ -113,6 +110,7 @@ void addMember(Member memberInfo[], int memberSize)
 				printf("Enter IC Number:");
 				rewind(stdin);
 				scanf("%s", &newMemberInfo.memberIC);
+				j = -1;
 			}
 		}
 		printf("\n");
@@ -177,7 +175,7 @@ void addMember(Member memberInfo[], int memberSize)
 
 		//Date join
 
-		while (check == 0) {
+		while (dateCheck == 0) {
 			printf("Date join(day month year):");
 			rewind(stdin);
 			scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
@@ -217,7 +215,7 @@ void addMember(Member memberInfo[], int memberSize)
 
 				}
 				else
-					check = 1;
+					dateCheck = 2;
 			}
 
 			else if (newMemberInfo.joinDate.month == 4 || newMemberInfo.joinDate.month == 6 || newMemberInfo.joinDate.month == 9 || newMemberInfo.joinDate.month == 11)
@@ -227,7 +225,7 @@ void addMember(Member memberInfo[], int memberSize)
 					printf("Day should be between 1 to 30.Please reenter.\n");
 
 				else
-					check = 1;
+					dateCheck = 1;
 			}
 
 
@@ -238,15 +236,11 @@ void addMember(Member memberInfo[], int memberSize)
 					printf("Day should be between 1 to 31.Please reenter.\n");
 
 				else
-					check = 1;
+					dateCheck = 3;
 			}
 
-
-
-			
-
-			else
-				check = 1;
+				else
+					dateCheck = 4;
 						
 		}
 		printf("\n");

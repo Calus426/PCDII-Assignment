@@ -25,7 +25,7 @@ void search(Member memberInfo[], int memberSize)
 {
 	Member matchMember[100];
 	int matchcount = 0, yearJoin;
-	char mID[10], ulID[10];
+	char mID[10], ulID[10],upperchar[3];
 	int choice = searchMenu();
 
 	switch (choice)
@@ -35,6 +35,9 @@ void search(Member memberInfo[], int memberSize)
 		printf("Enter member ID:");
 		rewind(stdin);
 		scanf("%s", &mID);
+
+		upperchar[0] = mID[0];
+		mID[0] = toupper(upperchar[0]);
 
 		for (int i = 0; i < memberSize; i++)
 		{

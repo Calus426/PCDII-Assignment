@@ -41,31 +41,43 @@ void deleteMember(Member memberInfo[], int *memberSize)
 		}
 
 	}
-	detailDisplay(matchMember, matchcount);
-
-	printf("Are you sure to delete this member(Y/N)?");
-	rewind(stdin);
-	scanf("%c", &sureDelete);
-
-	if (toupper(sureDelete) == 'Y')
+	if (matchcount > 0)
 	{
-		for (int j = deleteIndex; j < *memberSize; j++)
+		detailDisplay(matchMember, matchcount);
+
+		printf("Are you sure to delete this member(Y/N)?");
+		rewind(stdin);
+		scanf("%c", &sureDelete);
+
+		if (toupper(sureDelete) == 'Y')
 		{
-			memberInfo[j] = memberInfo[j + 1];
+			for (int j = deleteIndex; j < *memberSize; j++)
+			{
+				memberInfo[j] = memberInfo[j + 1];
+			}
+			(*memberSize)--;
+
+			printf("\n\nDeleted sucessfully!\n\n");
 		}
-		(*memberSize)--;
 
-		printf("\n\nDeleted sucessfully!\n\n");
+
+		FILE* delPtr = fopen("member.txt", "wb");
+		for (int k = 0; k < *memberSize; k++)
+		{
+			fwrite(&memberInfo[k], sizeof memberInfo[k], 1, delPtr);
+		}
+
+
+		system("pause");
 	}
+		
 
-
-	FILE* delPtr = fopen("member.txt", "wb");
-	for (int k = 0; k < *memberSize; k++) 
+	else
 	{
-		fwrite(&memberInfo[k], sizeof memberInfo[k], 1, delPtr);
+		printf("Member ID not found!\n\n");
+		system("pause");
 	}
+
 	
-	
-	system("pause");
 
 }
