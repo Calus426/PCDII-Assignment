@@ -1,3 +1,8 @@
-﻿  Menu.c
-C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\Menu.c(34,11): warning C4013: 'addNew' undefined; assuming extern returning int
+﻿  search.c
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(51,20): warning C4476: 'fscanf' : unknown type field character '.' in format specifier
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(51,20): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 3 has type 'double'
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(51,20): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 4 has type 'int'
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(51,20): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 5 has type 'int'
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(51,111): warning C4474: 'fscanf' : too many arguments passed for format string
+C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(51,111): message : placeholders and their parameters expect 5 variadic arguments, but 6 were provided
   Stock_Module.vcxproj -> C:\Users\teren\OneDrive\桌面\DCS1S1G2\Assignment\PCDII-Assignment\Stock Module\Stock_Module\Debug\Stock_Module.exe

@@ -3,7 +3,7 @@
 #include<ctype.h>
 
 #pragma warning(disable:4996)
-//Item Code, item description, item price, quantity in stock, minimum level,reorder quantity,
+//Item Code, item description, item price, quantity in stock, minimum level,reorder quantity
 
 
 
@@ -23,7 +23,7 @@ NewMerchandise NM;
 void addNew()
 {
 	FILE* AN;
-	AN = fopen("stock.txt", "w");
+	AN = fopen("stock.txt", "a");
 	
 	if (AN == NULL)
 	{
@@ -33,27 +33,27 @@ void addNew()
 	char option;
 	do
 	{
-		printf("1. Enter new merchandise code              :");
+		printf("1. Enter New Merchandise Code              :");
 		scanf("%s", &NM.MCode);
 
-		printf("2. Enter new merchandise name              :");
+		printf("2. Enter New Merchandise Name              :");
 		scanf(" %[^\n]", &NM.MName);
 
-		printf("3. Enter new merchandise price             :");
+		printf("3. Enter New Merchandise Price             :");
 		scanf(" %lf", &NM.MPrice);
 
-		printf("4. Enter new merchandise stock             :");
+		printf("4. Enter New Merchandise Stock             :");
 		scanf(" %d", &NM.MStock);
 
-		printf("5. Enter new merchandise minimum level     :");
+		printf("5. Enter New Merchandise Minimum Level     :");
 		scanf(" %d", &NM.MMinimum);
 
-		printf("6. Enter new merchandise reorder quantity  :");
+		printf("6. Enter New Merchandise Reorder Quantity  :");
 		scanf(" %d", &NM.MReorder);
 		
-		fprintf(AN, "%s| %s| %.2lf| %d| %d| %d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder);
+		fprintf(AN, "\n%s| %s| %.2lf| %d| %d| %d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder);
 
-		printf("\nAny new merchandise more ? (if Yes press Y or No press N) :");
+		printf("\nAny New Merchandise More ? (if Yes press Y or No press N) :");
 		scanf(" %c", &option);
 		
 

@@ -17,11 +17,11 @@ void menu()
 		        "    What is Your Next Move??\n"
 		        "================================\n"
 		        " 1. Add a new Merchandise\n"
-		        " 3. Modify Merchandise Data\n"
-		        " 4. Check Merchandise List\n"
-		        " 5. Delete Merchandise Data\n"
-		        " 6. Daily Report\n"
-		        " 7. Exit\n"
+		        " 2. Modify Merchandise Data\n"
+		        " 3. Check Merchandise List\n"
+		        " 4. Delete Merchandise Data\n"
+		        " 5. Daily Report\n"
+		        " 6. Exit\n"
 		 "\n\n"
 		        "Enter your choice  : ");
      scanf("%d", &mChoice);
@@ -30,24 +30,19 @@ void menu()
 
 	  switch (mChoice)
 	  {
-	    case 1 :
-
-		addNew();
-		break;
+	    case 1 :addNew();
+				break;
 
 		case 2:
-
+		    	break;
 		
-		break;
-
-		case 3:
+		case 3:search();
+			   break;
 		
-		break;
+		
 
 		case 4:
-		
-		search();
-		break;
+			   break;
 
 		case 5:
 		
@@ -60,7 +55,7 @@ void menu()
 
 		case 7:
 
-		  printf("Bye Bye!!!\n\n");
+		  printf("You are exiting program.....\n\n");
 		  break;
 
 	   default:
