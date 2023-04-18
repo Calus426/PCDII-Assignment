@@ -25,7 +25,8 @@ void modifyMember(Member memberInfo[], int memberSize)
 {
 	char memberID[10], sureYesNo;
 	char newName[40], newPhoneNo[12], newIC[13];
-	int newDay, newMonth, newYear;
+	int newDay, newMonth, newYear,wantedIndex;
+	int dateCheck = 0;
 
 	printf("Enter member ID to modify:");
 	scanf("%s", &memberID);
@@ -40,17 +41,27 @@ void modifyMember(Member memberInfo[], int memberSize)
 		{
 			matchMember[matchcount] = memberInfo[i];
 			matchcount++;
-			printf("\n\nMember Found!\n");
-			printf("============\n\n\n");
-			detailDisplay(matchMember, matchcount);
+			wantedIndex = i;
 
-			
+		}
+	}
+
+	if (matchcount > 0)
+	{
+		printf("\n\nMember Found!\n");
+		printf("============\n\n\n");
+		detailDisplay(matchMember, matchcount);
+
+		do
+		{
 			printf("Are you sure u want to edit this member? ");
 			rewind(stdin);
 			scanf("%c", &sureYesNo);
 
-			if (tolower(sureYesNo) == 'y')
+			switch (sureYesNo)
 			{
+			case 'y':
+			case 'Y':
 				do
 				{
 					printf("1.Edit Name\n");
@@ -67,30 +78,120 @@ void modifyMember(Member memberInfo[], int memberSize)
 						printf("Enter new name:");
 						rewind(stdin);
 						scanf("%[^\n]", &newName);
-						strcpy(memberInfo[i].name, newName); 
+						strcpy(memberInfo[wantedIndex].name, newName);
 						break;
 
 					case 2:
-						printf("Enter new Phone Number:");
-						rewind(stdin);
-						scanf("%s", &newPhoneNo);
-						strcpy(memberInfo[i].memberPhone, newPhoneNo);
+						do
+						{
+							printf("Phone number:");
+							rewind(stdin);
+							scanf("%s", &newPhoneNo);
+							if (strlen(newPhoneNo) > 11 || strlen(newPhoneNo) < 9)
+								printf("Invalid Phone number(between 10 to 11 number).Please reenter.\n");
+						} while (strlen(newPhoneNo) > 11 || strlen(newPhoneNo) < 9);
+						strcpy(memberInfo[wantedIndex].memberPhone, newPhoneNo);
 						break;
 
 					case 3:
-						printf("Enter new Join Date(day month year):");
-						rewind(stdin);
-						scanf("%d %d %d", &newDay,&newMonth,&newYear);
-						memberInfo[i].joinDate.day = newDay;
-						memberInfo[i].joinDate.month = newMonth;
-						memberInfo[i].joinDate.year = newYear;
+
+						dateCheck = 0;
+						while (dateCheck == 0) {
+							printf("Date join(day month year):");
+							rewind(stdin);
+							scanf("%d %d %d", &newDay, &newMonth, &newYear);;
+
+							if (newDay <= 0 || newDay > 31)
+							{
+								printf("Day should be between 1 to 31.Please reenter.\n");
+
+								if (newMonth < 1 || newMonth>12)
+								{
+									printf("Month should be between 1 to 12.Please reenter.\n");
+								}
+
+							}
+
+							else if (newMonth < 1 || newMonth>12)
+							{
+								printf("Month should be between 1 to 12.Please reenter.\n");
+
+								if (newDay <= 0 || newDay > 31)
+									printf("Day should be between 1 to 31.Please reenter.\n");
+							}
+
+							else if (newMonth == 2)
+							{
+
+								if ((newYear % 4 == 0) && newDay > 29)
+								{
+									printf("Day for month %d in Year %d only have 29 days.Please reenter.\n", newMonth, newYear);
+
+								}
+
+
+								else if ((newYear % 4 != 0) && newDay > 28)
+								{
+									printf("Day for month %d in Year %d only have 28 days.Please reenter.\n", newMonth, newYear);
+
+								}
+								else
+									dateCheck = 2;
+							}
+
+							else if (newMonth == 4 || newMonth == 6 || newMonth == 9 || newMonth == 11)
+							{
+
+								if (newDay <= 0 || newDay > 30)
+									printf("Day should be between 1 to 30.Please reenter.\n");
+
+								else
+									dateCheck = 1;
+							}
+
+
+							else if (newMonth == 1 || newMonth == 3 || newMonth == 5 || newMonth == 7 || newMonth == 8
+								|| newMonth == 10 || newMonth == 12)
+							{
+								if (newDay <= 0 || newDay > 31)
+									printf("Day should be between 1 to 31.Please reenter.\n");
+
+								else
+									dateCheck = 3;
+							}
+
+							else
+								dateCheck = 4;
+
+						}
+
+						memberInfo[wantedIndex].joinDate.day = newDay;
+						memberInfo[wantedIndex].joinDate.month = newMonth;
+						memberInfo[wantedIndex].joinDate.year = newYear;
 						break;
 
 					case 4:
 						printf("Enter new IC Number:");
 						rewind(stdin);
 						scanf("%s", &newIC);
-						strcpy(memberInfo[i].memberIC, newIC);
+
+						for (int j = 0; j < memberSize; j++)//IC Number validation
+						{
+							while (strcmp(newIC, memberInfo[j].memberIC) == 0 || strlen(newIC) != 12)
+							{
+								if (strcmp(newIC, memberInfo[j].memberIC) == 0)
+									printf("IC exist!Please reenter.\n");
+
+								if (strlen(newIC) != 12)
+									printf("IC Number should be in 12 number.\n");
+
+								printf("Enter new IC Number:");
+								rewind(stdin);
+								scanf("%s", &newIC);
+								j = -1;
+							}
+						}
+						strcpy(memberInfo[wantedIndex].memberIC, newIC);
 						break;
 
 					case 5:break;
@@ -99,14 +200,21 @@ void modifyMember(Member memberInfo[], int memberSize)
 
 
 					}
-					
-				} while (selectEdit != 5);
-				
-			}
-				
 
-		}
+				} while (selectEdit != 5);
+			case 'n':
+			case 'N':
+				break;
+			default:printf("Please enter valid choice(Y/N).\n");
+			}
+
+		} while (tolower(sureYesNo) != 'y' && tolower(sureYesNo) != 'n');
+		
 	}
 	
-
+	else
+	{
+		printf("Member ID does not exist.\n");
+		system("pause");
+	}
 }

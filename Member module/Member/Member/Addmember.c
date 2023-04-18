@@ -21,24 +21,28 @@ typedef struct
 	Address memberAdd;
 }Member;
 
+void getMember(Member[], int*);
+
 void addMember(Member memberInfo[], int memberSize)
 {
-	char upperchar[4],continueAdd,confirm,count=0,dateCheck=0,memberIDcheck=0;
+	char upperchar[4], continueAdd, confirm;
 	int i = 0;
 	system("cls");
-	FILE* ptr = fopen("member.txt", "ab");
-
-	if (ptr == NULL)  //ensure the file can be opened
-	{
-		printf("Unable to open file");
-		exit(-1);
-	}
-
+	
 	Member newMemberInfo;
 	char uplineYesNo;  
 
 	do 
 	{
+		FILE* ptr = fopen("member.txt", "ab");
+
+		if (ptr == NULL)  //ensure the file can be opened
+		{
+			printf("Unable to open file");
+			exit(-1);
+		}
+
+
 		//basic info
 		printf("Enter Name:");
 		rewind(stdin);
@@ -46,7 +50,7 @@ void addMember(Member memberInfo[], int memberSize)
 		printf("\n");
 
 		
-
+		int memberIDcheck = 0;
 		while (memberIDcheck == 0) 
 		{
 			memberIDcheck = 1;
@@ -174,11 +178,11 @@ void addMember(Member memberInfo[], int memberSize)
 
 
 		//Date join
-
+		int dateCheck = 0;
 		while (dateCheck == 0) {
 			printf("Date join(day month year):");
 			rewind(stdin);
-			scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
+				scanf("%d %d %d", &newMemberInfo.joinDate.day, &newMemberInfo.joinDate.month, &newMemberInfo.joinDate.year);
 
 			if (newMemberInfo.joinDate.day <= 0 || newMemberInfo.joinDate.day > 31)
 			{
@@ -295,6 +299,9 @@ void addMember(Member memberInfo[], int memberSize)
 		{
 			fwrite(&newMemberInfo, sizeof newMemberInfo, 1, ptr);
 			printf("Added member sucessfully!\n");
+			fclose(ptr);
+			getMember(memberInfo, &memberSize);
+
 		}
 
 		else if (tolower(confirm) == 'n')
@@ -314,8 +321,11 @@ void addMember(Member memberInfo[], int memberSize)
 			rewind(stdin);
 			scanf("%c", &continueAdd);
 		}
+
+		if(toupper(continueAdd)== 'N')
+			fclose(ptr);
+
 	}while (toupper(continueAdd) == 'Y');
 
-	fclose(ptr);
 
 }

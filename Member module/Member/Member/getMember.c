@@ -20,10 +20,18 @@ typedef struct
 	Address memberAdd;
 }Member;
 
+
 void getMember(Member memberInfo[], int *memberSize)
 {
 
 	FILE* getPtr = fopen("member.txt", "rb");
+
+	if (getPtr == NULL)
+	{
+		printf("Unable to open the file.\n");
+		system("pause");
+		exit(-1);
+	}
 
 	*memberSize = 0;
 

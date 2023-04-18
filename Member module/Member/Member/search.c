@@ -69,6 +69,12 @@ void search(Member memberInfo[], int memberSize)
 		rewind(stdin);
 		scanf("%s", &ulID);
 
+		upperchar[1] = ulID[0];
+		ulID[0] = toupper(upperchar[1]);
+
+		upperchar[2] = ulID[1];
+		ulID[1] = toupper(upperchar[2]);
+
 		for (int i = 0; i < memberSize; i++)
 		{
 
