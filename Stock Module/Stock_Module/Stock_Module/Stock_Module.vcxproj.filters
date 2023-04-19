@@ -15,19 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Menu.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="add.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="search.c">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="MData.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="search.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

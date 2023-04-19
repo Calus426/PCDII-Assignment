@@ -16,65 +16,33 @@ typedef struct {
 
 }MerchandiseInStock;
 
-MerchandiseInStock MIS;
-
-typedef struct {
-
-	char MCode[10];
-	char MName[30];
-	double MPrice;
-	int MStock, MMinimum, MReorder;
 
 
-
-}MerchandiseToSearch;
-
-MerchandiseToSearch MTS;
-
-
-
-void search()
+void search(MerchandiseInStock MIS[], int *mDataSize)
 {
-	char option;
+	MerchandiseInStock matchData[2];
 
-	FILE* SH;
-	SH = fopen("stock.txt", "r");
+	char compare[30], MTSCode[30];
+	int matchNumber;
 
-	if (SH == NULL)
-	{
-		printf("Unable to open the file\n");
-		exit(-1);
-	}
+		matchNumber = 0;
 
-	
+		printf("Please Enter Merchandise Code : ");
+		scanf(" %s", &MTSCode);
 
-	while (fscanf(SH, "%[^|] %[^|] %[^|] %[^|] %[^|] %[^|] ", &MIS.MCode, &MIS.MName, &MIS.MPrice, &MIS.MStock, &MIS.MMinimum, &MIS.MReorder) != EOF)
-	{
-
-		printf("Enter Merchandise Code or Merchandise Name (C = Code , N = Name): ");
-		scanf(" %c", &option);
-
-		if (toupper(option) == 'C')
+		compare[0] = MTSCode[0];
+		MTSCode[0] = toupper(compare[0]);
+		
+		for (int i = 0; i < mDataSize; i++)
 		{
-			printf("Enter Merchandise Code : ");
-			scanf(" %[^\n]", MTS.MCode);
-
+			if ((strcmp(MTSCode, MIS[i].MCode) == 0))
+			{
+				matchData[matchNumber] = MIS[i];
+				matchNumber++;
+			}
 		}
-		else if (toupper(option) == 'N')
-		{
-			printf("Enter Merchandise Name : ");
-			scanf(" %[^\n]", MTS.MName);
-		}
-		else
-		{
-			printf("\n\nWrong input enter!!!");
-			printf("\n===========================================================================\n\n");
-		}
-
-
 		
 
-	}
 
-	fclose(SH);
+	
 }
