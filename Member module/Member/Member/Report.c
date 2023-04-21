@@ -5,6 +5,7 @@
 #include <string.h>
 #pragma warning (disable:4996)
 #define MAX_SALES 30
+#define MAX_MEMBER 100
 typedef struct {
 	int day, month, year;
 }Date;
@@ -26,18 +27,21 @@ typedef struct {
 	char itemCode[10];
 	int qtySold;
 	double price;
-	char memberId[10];
+	char memberId[7];
 	Date date;
 }SALES;
 
 typedef struct {
-	char memberId[10];
+	char memberId[7];
 	int qtySold;
+	double totalSpent;
 }MemberReport;
 
 void report(Member memberInfo[], int memberSize)
 {
 	SALES salesOrder[MAX_SALES];
+	MemberReport report[MAX_MEMBER] = {"M00000",1,0.00};
+	MemberReport temp;
 	int salesN = 0;
 	char num;
 
@@ -46,21 +50,64 @@ void report(Member memberInfo[], int memberSize)
 		printf("\tError file \"salesRecord.bin\" cannot be open!\n");
 		return 0;
 	}
+
 	while (fread(&salesOrder[salesN], sizeof(SALES), 1, fileOpen) != 0) {
 		salesN++;
 	}
 
-	MemberReport report[100];
 
 	for (int i = 0; i < memberSize; i++)
 	{
-		strcpy(report[i].memberId, "M00000");
-		if (memberSize < 10)
-		{
-			itoa(i, report[i].memberId[5],10);
-			printf("%s", report[i].memberId[5]);
-		}
-		
+		strcpy(report[i].memberId,memberInfo[i].memberId);
+		report[i].qtySold = 0;
+		report[i].totalSpent = 0.00;
 	}
 
+	for (int i = 0; i < salesN; i++)
+	{
+		for (int j = 0; j < memberSize; j++)
+		{
+			if (strcmp(salesOrder[i].memberId,report[j].memberId)==0)
+			{
+				report[j].qtySold += salesOrder[i].qtySold;
+				report[j].totalSpent += salesOrder[i].qtySold * salesOrder[i].price;
+			}
+		}
+	}
+
+	for (int i = 0; i < memberSize; i++)
+	{
+		for (int j = i+1; j < memberSize; j++)
+		{
+			if (report[i].qtySold < report[j].qtySold)
+			{
+				temp = report[i];
+				report[i] = report[j];
+				report[j] = temp;	
+			}
+
+		}
+	}
+
+
+	printf("%-30s\t%s\t%s\t%s\n", "Name", "Member ID", "ITEM BOUGHT QUANTITY", "TOTAL SPENT");
+	for (int i = 0; i < memberSize; i++)
+	{
+		for (int j = 0; j < memberSize;j++)
+		{
+			if (strcmp(report[i].memberId, memberInfo[j].memberId) == 0)
+			{
+				printf("%-30s", memberInfo[j].name);
+			}
+
+		}
+
+		printf("\t%s", report[i].memberId);
+		printf("\t\t%d\t\t\t", report[i].qtySold);
+		printf("%.2lf\n", report[i].totalSpent);
+
+	}
+
+
+	system("pause");
 }

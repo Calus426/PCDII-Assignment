@@ -44,5 +44,8 @@
     <None Include="member.bin">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="salesRecord.bin">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

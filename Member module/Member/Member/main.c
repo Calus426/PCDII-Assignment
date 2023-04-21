@@ -20,6 +20,12 @@ typedef struct
 	Address memberAdd;
 }Member;
 
+typedef struct {
+	char memberId[10];
+	int qtySold;
+}MemberReport;
+
+
 void addMember(Member[], int);
 void display (Member[], int );
 void getMember(Member[], int *);

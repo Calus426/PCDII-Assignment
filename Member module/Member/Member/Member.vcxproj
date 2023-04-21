@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin" />
+    <None Include="salesRecord.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
