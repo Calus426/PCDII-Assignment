@@ -44,12 +44,14 @@ void addMember(Member memberInfo[], int memberSize)
 
 		system("cls");
 		//basic info
+
+		//Member name
 		printf("Enter Name:");
 		rewind(stdin);
 		scanf("%[^\n]", &newMemberInfo.name);
 		printf("\n");
 
-		
+		//Member ID and validation
 		int memberIDcheck = 0;
 		while (memberIDcheck == 0) 
 		{
@@ -96,12 +98,12 @@ void addMember(Member memberInfo[], int memberSize)
 
 		}
 	
-		
+		//IC Number and validation
 		printf("Enter IC Number:");
 		rewind(stdin);
 		scanf("%s", &newMemberInfo.memberIC);
 
-		for (int j = 0; j < memberSize; j++)//IC Number validation
+		for (int j = 0; j < memberSize; j++)
 		{
 			while (strcmp(newMemberInfo.memberIC, memberInfo[j].memberIC) == 0 ||strlen(newMemberInfo.memberIC)!=12)
 			{
@@ -119,7 +121,7 @@ void addMember(Member memberInfo[], int memberSize)
 		}
 		printf("\n");
 
-
+		//Gender and validation
 		do {
 			printf("Gender(M/F):");
 			rewind(stdin);
@@ -140,6 +142,8 @@ void addMember(Member memberInfo[], int memberSize)
 		}while (strlen(newMemberInfo.memberPhone) > 11 || strlen(newMemberInfo.memberPhone) < 9);
 		printf("\n");
 
+
+		//Upline ID and validation
 		printf("Member got a upline id(Y/N)? ");
 		rewind(stdin);
 		scanf("%c", &uplineYesNo);
@@ -177,7 +181,7 @@ void addMember(Member memberInfo[], int memberSize)
 		printf("\n");
 
 
-		//Date join
+		//Date join validation
 		int dateCheck = 0;
 		while (dateCheck == 0) {
 			printf("Date join(day month year):");
@@ -249,16 +253,19 @@ void addMember(Member memberInfo[], int memberSize)
 		}
 		printf("\n");
 
+		//Address 
 		printf("Member address1:");
 		rewind(stdin);
 		scanf("%[^\n]", &newMemberInfo.memberAdd.add1);
 		printf("\n");
+
 
 		printf("Member address2:");
 		rewind(stdin);
 		scanf("%[^\n]", &newMemberInfo.memberAdd.add2);
 		printf("\n");
 
+		//postcode can be 5 digit only
 		printf("Postcode(XXXXX):");
 		rewind(stdin);
 		scanf("%[^\n]", &newMemberInfo.memberAdd.postcode);
@@ -272,20 +279,24 @@ void addMember(Member memberInfo[], int memberSize)
 
 		printf("\n");
 
+
 		printf("Member city:");
 		rewind(stdin);
 		scanf("%[^\n]", &newMemberInfo.memberAdd.city);
 		printf("\n");
+
 
 		printf("Member state:");
 		rewind(stdin);
 		scanf("%[^\n]", &newMemberInfo.memberAdd.state);
 		printf("\n");
 
+		//Confirm to add or not
 		printf("\n\nAre you sure to add in this member(Y/N)?");
 		rewind(stdin);
 		scanf("%c", &confirm);
 		
+
 		while (toupper(confirm) != 'Y' && toupper(confirm) != 'N')
 		{
 			printf("Invalid choice.Please reenter.\n");
@@ -295,6 +306,7 @@ void addMember(Member memberInfo[], int memberSize)
 	
 		}
 
+		//write in b.file and get member.
 		if (tolower(confirm) == 'y')
 		{
 			fwrite(&newMemberInfo, sizeof newMemberInfo, 1, ptr);
@@ -309,7 +321,7 @@ void addMember(Member memberInfo[], int memberSize)
 			printf("Member not added in.\n");
 		}
 
-
+		//Wanted to add more or not
 		printf("Do you want to add more member(Y/N)?");
 		rewind(stdin);
 		scanf("%c", &continueAdd);
@@ -322,7 +334,7 @@ void addMember(Member memberInfo[], int memberSize)
 			scanf("%c", &continueAdd);
 		}
 
-		if(toupper(continueAdd)== 'N')
+		if(toupper(continueAdd)== 'N') //if no more adding member,then close file.
 			fclose(ptr);
 
 	}while (toupper(continueAdd) == 'Y');
