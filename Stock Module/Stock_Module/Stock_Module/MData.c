@@ -28,9 +28,12 @@ void merchandiseData(MerchandiseInStock MIS[], int *mDataSize)
 
 	*mDataSize = 0;
 
-	while ()
+	int i = 0;
+	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder) != EOF)
 	{
-		(*mDataSize)++;
+		
+		i++;
+		*mDataSize = i;
 	}
 
 

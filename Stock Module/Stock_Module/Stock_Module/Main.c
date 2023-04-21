@@ -19,7 +19,7 @@ typedef struct {
 void addNew();
 void search(MerchandiseInStock MIS[], int mDataSize);
 void merchandiseData(MerchandiseInStock MIS[], int *mDataSize);
-
+void displayData(MerchandiseInStock MIS[], int mDataSize);
 
 
 void main() {
@@ -52,14 +52,17 @@ void main() {
 
 		switch (mChoice)
 		{
-		case 1:addNew();
-			break;
+		case 1:
+				addNew();
+				break;
 
 		case 2:
 			   break;
 
-		case 3:search(MIS, mDataSize);
-			   break;
+		case 3:
+				displayData(MIS, mDataSize);
+				search(MIS, mDataSize);
+				break;
 
 
 
@@ -88,7 +91,7 @@ void main() {
 
 		}
 
-	} while (mChoice != 7);
+	} while (mChoice != 6);
 
 	system("pause");
 

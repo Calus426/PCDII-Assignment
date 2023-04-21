@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add.c" />
+    <ClCompile Include="displayData.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="MData.c" />
     <ClCompile Include="search.c" />
