@@ -20,13 +20,12 @@ typedef struct
 	Address memberAdd;
 }Member;
 
-void deleteMember(Member memberInfo[], int* memberSize)
+void deleteMember(Member memberInfo[], int *memberSize)
 {
 	char memberID[10], sureDelete,upperchar;
 	int matchcount = 0, deleteIndex;
 	Member matchMember[2];
 
-	system("cls");
 	do {
 
 	

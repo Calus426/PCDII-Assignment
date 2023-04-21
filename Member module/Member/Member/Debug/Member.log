@@ -1,4 +1,4 @@
-﻿  Report.c
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Report.c(53,11): warning C4098: 'report': 'void' function returning a value
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Report.c(48,7): warning C4101: 'num': unreferenced local variable
+﻿  report2.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\report2.c(53,11): warning C4098: 'report2': 'void' function returning a value
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\report2.c(48,7): warning C4101: 'num': unreferenced local variable
   Member.vcxproj -> C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Debug\Member.exe

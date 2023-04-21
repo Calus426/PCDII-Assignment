@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <math.h>
+#include <string.h>
 #pragma warning (disable:4996)
 
 typedef struct {
@@ -54,16 +55,16 @@ void detailDisplay(Member memberInfo[], int memberSize)
 
 void displayResult(Member memberInfo[], int memberSize)
 {
-	printf("\t\t_________________________________________________________________\n");
-	printf("Name:\t\t%s \n", memberInfo[memberSize].name);
-	printf("Member ID:\t%s \n", memberInfo[memberSize].memberId );
-	printf("IC Number:\t%s \n", memberInfo[memberSize].memberIC);
-	printf("Gender:\t\t%c\n", memberInfo[memberSize].gender, '|');
-	printf("Phone Number:\t%s \n", memberInfo[memberSize].memberPhone);
-	printf("Upline ID:\t%s \n", memberInfo[memberSize].uplineId);
-	printf("Date of Join:\t%.2d-%.2d-%d \n", memberInfo[memberSize].joinDate.day, memberInfo[memberSize].joinDate.month, memberInfo[memberSize].joinDate.year);
-	printf("Address:\t%s,%s,%s,%s,%s \n", memberInfo[memberSize].memberAdd.add1, memberInfo[memberSize].memberAdd.add2, memberInfo[memberSize].memberAdd.postcode,
+	printf("\t__________________________________________________________________________\n");
+	printf("\tName:\t\t%s \n", memberInfo[memberSize].name);
+	printf("\tMember ID:\t%s \n", memberInfo[memberSize].memberId );
+	printf("\tIC Number:\t%s \n", memberInfo[memberSize].memberIC);
+	printf("\tGender:\t\t%c\n", memberInfo[memberSize].gender);
+	printf("\tPhone Number:\t%s \n", memberInfo[memberSize].memberPhone);
+	printf("\tUpline ID:\t%s \n", memberInfo[memberSize].uplineId);
+	printf("\tDate of Join:\t%.2d-%.2d-%d \n", memberInfo[memberSize].joinDate.day, memberInfo[memberSize].joinDate.month, memberInfo[memberSize].joinDate.year);
+	printf("\tAddress:\t%s,%s,%s,%s,%s \n", memberInfo[memberSize].memberAdd.add1, memberInfo[memberSize].memberAdd.add2, memberInfo[memberSize].memberAdd.postcode,
 		memberInfo[memberSize].memberAdd.city, memberInfo[memberSize].memberAdd.state);
-	printf("\t\t-----------------------------------------------------------------\n");
+	printf("\t__________________________________________________________________________\n");
 
 }

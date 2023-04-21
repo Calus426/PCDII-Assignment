@@ -37,12 +37,12 @@ typedef struct {
 	double totalSpent;
 }MemberReport;
 
-void report(Member memberInfo[], int memberSize)
+void report2(Member memberInfo[], int memberSize)
 {
 	system("cls");
 
 	SALES salesOrder[MAX_SALES];
-	MemberReport report[MAX_MEMBER] = {"M00000",1,0.00};
+	MemberReport report[MAX_MEMBER] = { "M00000",1,0.00 };
 	MemberReport temp;
 	int salesN = 0;
 	char num;
@@ -60,7 +60,7 @@ void report(Member memberInfo[], int memberSize)
 
 	for (int i = 0; i < memberSize; i++)
 	{
-		strcpy(report[i].memberId,memberInfo[i].memberId);
+		strcpy(report[i].memberId, memberInfo[i].memberId);
 		report[i].qtySold = 0;
 		report[i].totalSpent = 0.00;
 	}
@@ -69,7 +69,7 @@ void report(Member memberInfo[], int memberSize)
 	{
 		for (int j = 0; j < memberSize; j++)
 		{
-			if (strcmp(salesOrder[i].memberId,report[j].memberId)==0)
+			if (strcmp(salesOrder[i].memberId, report[j].memberId) == 0)
 			{
 				report[j].qtySold += salesOrder[i].qtySold;
 				report[j].totalSpent += salesOrder[i].qtySold * salesOrder[i].price;
@@ -79,25 +79,25 @@ void report(Member memberInfo[], int memberSize)
 
 	for (int i = 0; i < memberSize; i++)
 	{
-		for (int j = i+1; j < memberSize; j++)
+		for (int j = i + 1; j < memberSize; j++)
 		{
-			if (report[i].qtySold < report[j].qtySold)
+			if (report[i].totalSpent < report[j].totalSpent)
 			{
 				temp = report[i];
 				report[i] = report[j];
-				report[j] = temp;	
+				report[j] = temp;
 			}
 
 		}
 	}
 
 	printf("===================================================================================================== \n");
-	printf("%-2s   %-30s\t%s\t%s\t%s\n","", "Name", "Member ID", "ITEM BOUGHT QUANTITY", "TOTAL SPENT");
+	printf("%-2s   %-30s\t%s\t%s\t%s\n", "", "Name", "Member ID", "ITEM BOUGHT QUANTITY", "TOTAL SPENT");
 	printf("=====================================================================================================\n");
-	
+
 	for (int i = 0; i < memberSize; i++)
 	{
-		for (int j = 0; j < memberSize;j++)
+		for (int j = 0; j < memberSize; j++)
 		{
 			if (strcmp(report[i].memberId, memberInfo[j].memberId) == 0)
 			{

@@ -36,6 +36,7 @@ void modifyMember(Member memberInfo[], int memberSize);
 void deleteMember(Member memberInfo[], int *memberSize);
 void displayResult(Member memberInfo[], int memberSize);
 void report(Member memberInfo[], int memberSize);
+void report2(Member memberInfo[], int memberSize);
 
 void main() //Menu for Member Module
 { 
@@ -55,8 +56,9 @@ void main() //Menu for Member Module
 		printf("3.Search member\n");
 		printf("4.Modify member\n");
 		printf("5.Remove member\n");
-		printf("6.Report of member that bought the most item\n");
-		printf("7.Exit\n\n\n");
+		printf("6.Member Report that bought the most item\n");
+		printf("7.Member Report of highest total spending\n");
+		printf("8.Exit\n\n\n");
 		printf("Enter choice:");
 		rewind(stdin);
 		scanf("%d", &choice);
@@ -72,13 +74,14 @@ void main() //Menu for Member Module
 		case 2:  addMember(member, memberSize); getMember(member, &memberSize); break;
 		case 3:  search(member, memberSize); system("cls"); break;
 		case 4:  modifyMember(member, memberSize);	system("cls"); break;
-		case 5:  deleteMember(member, &memberSize); system("cls"); break;
+		case 5:  display(member, memberSize);deleteMember(member, &memberSize); system("cls"); break;
 		case 6:	 report(member, memberSize); system("cls"); break;
-		case 7:break;
+		case 7:  report2(member, memberSize); system("cls"); break;
+		case 8:  break;
 		default:printf("Enter valid choice!(1-7)\n"); system("pause"); system("cls");
 		}
 
-	} while (choice != 7);
+	} while (choice != 8);
 
 }
 
