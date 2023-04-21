@@ -39,6 +39,8 @@ typedef struct {
 
 void report(Member memberInfo[], int memberSize)
 {
+	system("cls");
+
 	SALES salesOrder[MAX_SALES];
 	MemberReport report[MAX_MEMBER] = {"M00000",1,0.00};
 	MemberReport temp;
@@ -90,13 +92,14 @@ void report(Member memberInfo[], int memberSize)
 	}
 
 
-	printf("%-30s\t%s\t%s\t%s\n", "Name", "Member ID", "ITEM BOUGHT QUANTITY", "TOTAL SPENT");
+	printf("%-4s%-30s\t%s\t%s\t%s\n","", "Name", "Member ID", "ITEM BOUGHT QUANTITY", "TOTAL SPENT");
 	for (int i = 0; i < memberSize; i++)
 	{
 		for (int j = 0; j < memberSize;j++)
 		{
 			if (strcmp(report[i].memberId, memberInfo[j].memberId) == 0)
 			{
+				printf("%-4d", i + 1);
 				printf("%-30s", memberInfo[j].name);
 			}
 

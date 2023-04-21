@@ -73,7 +73,7 @@ void main() //Menu for Member Module
 		case 3:  search(member, memberSize); system("cls"); break;
 		case 4:  modifyMember(member, memberSize);	system("cls"); break;
 		case 5:  deleteMember(member, &memberSize); system("cls"); break;
-		case 6:	 report(member, memberSize); break;
+		case 6:	 report(member, memberSize); system("cls"); break;
 		case 7:break;
 		default:printf("Enter valid choice!(1-7)\n"); system("pause"); system("cls");
 		}
