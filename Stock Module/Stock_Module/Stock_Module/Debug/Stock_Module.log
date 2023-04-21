@@ -1,6 +1,0 @@
-﻿  Main.c
-  search.c
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(42,32): warning C4047: '<': 'int' differs in levels of indirection from 'int *'
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\search.c(44,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-  Generating Code...
-  Stock_Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock_Module\Debug\Stock_Module.exe
