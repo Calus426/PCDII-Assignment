@@ -4,9 +4,24 @@
 #pragma warning (disable:4996)
 #define MAX_SALES 30
 
+//used by everyone
 typedef struct {
 	int day, month, year;
-}DATE;
+}Date;
+//struct from lucas
+typedef struct {
+	char add1[40], add2[40], postcode[6], city[40], state[40];
+
+}Address;
+
+typedef struct
+{
+	char name[40], memberId[7], memberIC[13], gender, memberPhone[12], uplineId[7];
+	Date joinDate;
+	Address memberAdd;
+}Member;
+
+//data field that will be use by the sale information module
 
 typedef struct {
 	char salesOrderId[10];
@@ -14,61 +29,70 @@ typedef struct {
 	int qtySold;
 	double price;
 	char memberId[10];
-	DATE date;
+	Date date;
 }SALES;
 
-void displaySRecord(SALES salesOrder[], int salesN);
-void searchSRecord(SALES salesOrder[], int salesN);
-void result(SALES salesOrder[], int i);
-void modifySReccord(SALES salesOrder[], int salesN);
-int addSRecord(SALES salesOrder[], int salesN);
-void popularItem(SALES salesOrder[], int salesN);
-void salesReport(SALES salesOrder[], int salesN);
-void header();
-void validation(int matchSearch);
+void getMember(Member memberInfo[], int* memberSize)
+{
 
-void main() {
-	SALES salesOrder[MAX_SALES];
-	int option = 0, salesN = 0, i = 0;
-	//	FILE* fileOpen;
-	//	fileOpen = fopen("salesRecord.bin", "wb");
-	//	if (fileOpen == NULL) {
-	//		printf("Error file \"salesRecord.bin\" cannot be open!\n");
-	//		return 0;
-	//	}
-	//	for (int i = 0; i < 2; i++) {
-	//		rewind(stdin);
-	//		printf("enter name : ");
-	//		scanf(" %[^\n]", &salesOrder[i].salesOrderId);
-	//		rewind(stdin);
-	//		printf("enter num : ");
-	//		scanf(" %[^\n]", &salesOrder[i].itemCode);
-	//
-	//		printf("enter num : ");
-	//		scanf(" %d", &salesOrder[i].qtySold);
-	//
-	//		printf("enter num : ");
-	//		scanf(" %lf", &salesOrder[i].price);
-	//
-	//		printf("enter num : ");
-	//		scanf(" %[^\n]", &salesOrder[i].memberId);
-	//
-	//		printf("enter num : ");
-	//		scanf(" %d/%d/%d", &salesOrder[i].date.day, &salesOrder[i].date.month, &salesOrder[i].date.year);
-	//
-	//		fwrite(&salesOrder[i], sizeof(SALES), 1, fileOpen);
-	//	}
-	//}
+	FILE* getPtr = fopen("member.bin", "rb");
+
+	if (getPtr == NULL)
+	{
+		printf("Unable to open the file.\n");
+		system("pause");
+		exit(-1);
+	}
+
+	*memberSize = 0;
+
+	while (fread(&memberInfo[*memberSize], sizeof memberInfo[*memberSize], 1, getPtr))
+	{
+		(*memberSize)++;
+
+	}
+
+	fclose(getPtr);
+}
+
+void getSales(SALES salesOrder[], int *salesNum) {
+	//file opening
 	FILE* fileOpen = fopen("salesRecord.bin", "rb");
 	if (fileOpen == NULL) {
 		printf("\tError file \"salesRecord.bin\" cannot be open!\n");
 		return 0;
 	}
-	while (fread(&salesOrder[salesN], sizeof(SALES), 1, fileOpen) != 0) {
-		salesN++;
+	*salesNum = 0;
+	//ensure file open succesfully
+	while (fread(&salesOrder[*salesNum], sizeof(SALES), 1, fileOpen) != 0) {
+		(*salesNum)++;
 	}
+}
+
+//function of the sales information module
+void displaySRecord(SALES salesOrder[],int salesNum);
+void searchSRecord(SALES salesOrder[], int salesNum);
+void result(SALES salesOrder[], int i);
+void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int memberSize);
+int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int memberSize);
+void popularItem(SALES salesOrder[], int salesNum);
+void salesCommissionReport(SALES salesOrder[], int salesNum, Member memberInfo[], int memberSize);
+void totalSalesReport(SALES salesOrder[], int salesNum);
+void header();
+void validation(int matchSearch);
+
+void main() {
+	//read lucas and terence's file
+	Member memberInfo[20];
+	int memberSize = 0;
+	getMember(memberInfo, &memberSize);
+
+	SALES salesOrder[MAX_SALES];
+	int option = 0, salesNum = 0, i = 0;
+	getSales(salesOrder, &salesNum);
 
 	do {
+		//showing the menu
 		system("cls");
 		printf("\t==================================\n");
 		printf("\tWELCOME TO SALES INFORMATION MENU\n");
@@ -78,39 +102,45 @@ void main() {
 		printf("\t3) MODIFY  SALES RECORD\n");
 		printf("\t4) ADD     SALES RECORD\n");
 		printf("\t5) POPULAR SALES RECORD\n");
-		printf("\t6) SALES REPORT\n");
-		printf("\t7) EXIT\n");
+		printf("\t6) SALES   COMMISSIONS REPORT\n");
+		printf("\t7) TOTAL   SALES REPORT\n");
+		printf("\t8) EXIT\n");
 		printf("\t==================================\n");
 		printf("\tPLEASE ENTER AN OPTION : ");
 		rewind(stdin);
+		//select an option to go to desired function
 		scanf("%d", &option);
 		printf("\t==================================\n");
 		switch (option) {
-		case 1: displaySRecord(salesOrder, salesN);
+		case 1: displaySRecord(salesOrder, salesNum);
+				system("pause");
 			break;
 
-		case 2: searchSRecord(salesOrder, salesN);
+		case 2: searchSRecord(salesOrder, salesNum);
 			break;
 
-		case 3: modifySReccord(salesOrder, salesN);
+		case 3: modifySReccord(salesOrder, salesNum, memberInfo, memberSize);
 			break;
 
-		case 4: salesN = addSRecord(salesOrder, salesN);
+		case 4: salesNum = addSRecord(salesOrder, salesNum, memberInfo, memberSize);
 			break;
 
-		case 5: //popularItem(salesOrder, salesN);
+		case 5: popularItem(salesOrder, salesNum);
 			break;
 
-		case 6: /*salesReport(salesOrder, salesN);*/
+		case 6: salesCommissionReport(salesOrder, salesNum, memberInfo, memberSize);
 			break;
 
-		case 7:
-			FILE * update = fopen("salesRecord.bin", "wb");
+		case 7: totalSalesReport(salesOrder, salesNum);
+			break;
+
+		case 8: 
+			FILE* update = fopen("salesRecord.bin", "wb");
 			if (update == NULL) {
 				printf("\tError file \"salesRecord.bin\" cannot be open!\n");
 				return 0;
 			}
-			for (int i = 0; i < salesN; i++) {
+			for (int i = 0; i < salesNum; i++) {
 				fwrite(&salesOrder[i], sizeof(SALES), 1, update);
 			}
 			fclose(update);
@@ -118,30 +148,32 @@ void main() {
 			break;
 
 		default: printf("\n\tPLEASE ENTER A CORRECT OPTION\n");
+				system("pause");
 		}
-	} while (option != 7);
+	} while (option != 8);
 
 	system("pause");
 }
 
-void displaySRecord(SALES salesOrder[], int salesN) {
+void displaySRecord(SALES salesOrder[],int salesNum) {
+	//display all sales information inside of sales record file
 	printf("\n\t\t\t\t\tAll Sales Order Record\n");
 	header();
-	for (int i = 0; i < salesN; i++) {
-
-		printf("\t%s \t %14s \t %3d\t      $%-3.2f \t      %s\t %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
+	for (int i = 0; i < salesNum; i++) {
+		
+		printf("\t%s \t %14s \t %3d\t     $ %7.2f \t      %s\t %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 			salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
 	}
-	printf("\t=====================================================================================\n");
-	system("pause");
+	printf("\t===================================================================================\n");
 }
 
-void searchSRecord(SALES salesOrder[], int salesN) {
+void searchSRecord(SALES salesOrder[], int salesNum) {
 	int opt, i, matchSearch;
 	printf("\n\t\t\tSearch Record\n");
 	printf("\n\tSearch Record by : \n");
 	printf("\t===============================\n");
 	do {
+		//allow use to filter and search for sales record
 		opt = 0, matchSearch = -1;
 		printf("\t1) ID\n");
 		printf("\t2) Item Code\n");
@@ -160,31 +192,34 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 				char id[10];
 				scanf(" %[^\n]", &id);
 				printf("\t===============================\n");
+				//compare to exit
 				if (strcmp(tolower(id), "x") == 0) {
 					return 0;
 				}
-				for (i = 0; i < salesN; i++) {
+				for (i = 0; i < salesNum; i++) {
 					if (strcmp(id, salesOrder[i].salesOrderId) == 0) {
+						//display data from sales record file
 						result(salesOrder, i);
 						matchSearch = i;
 					}
 				}
+				//validating data inputed by user
 				validation(matchSearch);
 			} while (matchSearch == -1);
 			break;
 
-		case 2:
+		case 2: 
 			do {
 				matchSearch = -1;
 				printf("\tEnter Item Code (Enter X to exit): ");
-				char icode[10];
-				scanf(" %[^\n]", &icode);
+				char findItemCode[10];
+				scanf(" %[^\n]", &findItemCode);
 				printf("\t===============================\n");
-				if (strcmp(toupper(icode), "x") == 0) {
+				if (strcmp(toupper(findItemCode), "x") == 0) {
 					return 0;
 				}
-				for (i = 0; i < salesN; i++) {
-					if (strcmp(icode, salesOrder[i].itemCode) == 0) {
+				for (i = 0; i < salesNum; i++) {
+					if (strcmp(findItemCode, salesOrder[i].itemCode) == 0) {
 						result(salesOrder, i);
 						matchSearch = i;
 					}
@@ -194,8 +229,9 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 			break;
 
 		case 3:
-			int select = 0;
+			int select=0;
 			do {
+				//search record by date
 				printf("\t1) Day\n");
 				printf("\t2) Month\n");
 				printf("\t3) Year\n");
@@ -203,13 +239,14 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 				printf("\t===============================\n");
 				printf("\tSearch By : ");
 				int findDay, findMonth, findYear;
+				rewind(stdin);
 				scanf("%d", &select);
+				printf("\t===============================\n");
 				switch (select) {
 				case 1:
 					do {
 						findDay = 0;
 						matchSearch = -1;
-						printf("\t===============================\n");
 						printf("\tEnter Sales Date (Enter -1 to exit) : ");
 						rewind(stdin);
 						scanf("%d", &findDay);
@@ -217,7 +254,7 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 						if (findDay < 0) {
 							return 0;
 						}
-						for (i = 0; i < salesN; i++) {
+						for (i = 0; i < salesNum; i++) {
 							if (findDay == salesOrder[i].date.day) {
 								result(salesOrder, i);
 								matchSearch = i;
@@ -238,7 +275,7 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 						if (findMonth < 0) {
 							return 0;
 						}
-						for (i = 0; i < salesN; i++) {
+						for (i = 0; i < salesNum; i++) {
 							if (findMonth == salesOrder[i].date.month) {
 								result(salesOrder, i);
 								matchSearch = i;
@@ -259,7 +296,7 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 						if (findYear < 0) {
 							return 0;
 						}
-						for (i = 0; i < salesN; i++) {
+						for (i = 0; i < salesNum; i++) {
 							if (findYear == salesOrder[i].date.year) {
 								result(salesOrder, i);
 								matchSearch = i;
@@ -270,45 +307,47 @@ void searchSRecord(SALES salesOrder[], int salesN) {
 					break;
 				case 4: return 0;
 					break;
-				default:printf("\n\tPLEASE ENTER A CORRECT OPTION\n\n");
-					printf("\t===============================\n");
+				default:
+						printf("\n\tPLEASE ENTER A CORRECT OPTION\n\n");
+					    printf("\t===============================\n");
 				}
 			} while (select != 4);
 			break;
 
-		case 4:
+		case 4: 
 			return 0;
 			break;
 
 		default: printf("\n\tPLEASE ENTER A CORRECT OPTION\n\n");
-			printf("\t===============================\n");
+				 printf("\t===============================\n");
 		}
 	} while (opt != 4);
 }
 
-void modifySReccord(SALES salesOrder[], int salesN) {
-	displaySRecord(salesOrder, salesN);
+void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int memberSize) {
+	displaySRecord(salesOrder, salesNum);
 	int i, matchSearch;
 	do {
 		matchSearch = -1;
-		printf("\n\t===============================\n");
 		printf("\tSelect Sales Order Id to modify (Enter X to exit) : ");
-		char id[10];
-		scanf(" %[^\n]", &id);
-		if (strcmp(tolower(id), "x") == 0) {
+		char findSalesId[10];
+		scanf(" %[^\n]", &findSalesId);
+		//validate data entered
+		if (strcmp(tolower(findSalesId), "x") == 0) {
 			return 0;
 		}
-		for (i = 0; i < salesN; i++) {
-			if (strcmp(id, salesOrder[i].salesOrderId) == 0) {
+		for (i = 0; i < salesNum; i++) {
+			if (strcmp(findSalesId, salesOrder[i].salesOrderId) == 0) {
 				matchSearch = i;
 			}
 		}
 		if (matchSearch == -1) {
-			printf("\n\tNo matching result found, please enter again from Sales Menu.\n\n");
+			printf("\n\tNo matching result found, please enter sales order id.\n\n");
 		}
 		else {
 			int opt, j;
 			do {
+				//displaying menu for user to view
 				printf("\n\t===============================\n");
 				printf("\t1) Item Code\n");
 				printf("\t2) Quantity Sold\n");
@@ -323,7 +362,7 @@ void modifySReccord(SALES salesOrder[], int salesN) {
 				printf("\t===============================\n");
 				printf("\n");
 				switch (opt) {
-				case 1:
+				case 1: 
 					do {
 						printf("\tEnter New Sold Item Code : ");
 						char newICode[10];
@@ -332,28 +371,28 @@ void modifySReccord(SALES salesOrder[], int salesN) {
 						if (strcmp(tolower(newICode), "x") == 0) {
 							return 0;
 						}
-						//for (i = 0; i < salesN; i++) {
+						//for (i = 0; i < salesNum; i++) {
 						//	if (strcmp(newICode,/*get from terence*/) == 0) {
 						//		strcpy(salesOrder[matchSearch].itemCode, newICode);
 						//		j++;
 						//	}
 						//}
 						if (j == 0) {
-							printf("\n\tInvalid Item Code Entered, Please Select Again\n\n");
+							printf("\n\tInvalid Item Code Entered, Please Select Again\n");
 						}
 					} while (j == 0);
 					break;
 
-				case 2:
-					printf("\tEnter Quantity Sold : ");
-					int newSold;
-					scanf(" %d", &newSold);
-					if (newSold > 0 && newSold < 100) {
-						salesOrder[matchSearch].qtySold = newSold;
-					}
-					else {
-						printf("\n\tInvalid Quantity Entered, Please Select Again\n\n");
-					}
+				case 2: 
+						printf("\tEnter Quantity Sold : ");
+						int newSold;
+						scanf(" %d", &newSold);
+						if (newSold > 0 && newSold < 100) {
+							salesOrder[matchSearch].qtySold = newSold;
+						}
+						else {
+							printf("\n\tInvalid Quantity Entered, Please Select Again\n");
+						}
 					break;
 
 				case 3: printf("\tEnter Sold Item Price : ");
@@ -363,22 +402,22 @@ void modifySReccord(SALES salesOrder[], int salesN) {
 						salesOrder[matchSearch].price = newPrice;
 					}
 					else {
-						printf("\n\tInvalid Amount Entered, Please Select Again\n\n");
+						printf("\n\tInvalid Amount Entered, Please Select Again\n");
 					}
 					break;
 
 				case 4: printf("\tEnter Member Id : ");
-					char newMID[10];
+					char newMemID[10];
 					j = 0;
-					scanf(" %[^\n]", &newMID);
-					//for (i = 0; i < salesN; i++) {
-					//	if (strcmp(newMID,/*get from Lucas*/) == 0) {
-					//		strcpy(salesOrder[matchSearch].memberId, newMID);
-					//		j++;
-					//	}
-					//}
+					scanf(" %[^\n]", &newMemID);
+					for (i = 0; i < memberSize; i++) {
+						if (strcmp(newMemID,memberInfo[i].memberId) == 0) {
+							strcpy(salesOrder[matchSearch].memberId, newMemID);
+							j++;
+						}
+					}
 					if (j == 0) {
-						//	printf("\n\n\tInvalid Member ID Entered, Please Select Again\n\n");
+						printf("\n\tInvalid Member ID Entered, Please Select Again\n");
 					}
 					break;
 
@@ -391,39 +430,45 @@ void modifySReccord(SALES salesOrder[], int salesN) {
 						salesOrder[matchSearch].date.year = newYear;
 					}
 					else {
-						printf("\n\tInvalid Date Entered, Please Select Again\n\n");
+						printf("\n\tInvalid Date Entered, Please Select Again\n");
 					}
 					break;
 
 				case 6: return 0;
 					break;
 
-				default: printf("\n\tPLEASE ENTER A CORRECT OPTION\n");
+				default: printf("\tPLEASE ENTER A CORRECT OPTION\n");
 				}
 			} while (opt != 6);
 
 		}
-	} while (matchSearch == -1);
+	}while (matchSearch == -1);
 	system("pause");
 }
 
-int addSRecord(SALES salesOrder[], int salesN) {
+int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int memberSize) {
+	//declare data
 	char yn, addsales[10], additemC[10], addmemID[10], minSalesId[10];
-	strcpy(minSalesId, salesOrder[salesN - 1].salesOrderId);
-	double addSprice;
+	strcpy(minSalesId, salesOrder[salesNum - 1].salesOrderId);
+	double addSprice, tPrice;
 	int addquan, adddate, addmonth, addyear, i, valid;
 	do {
 		do {
 			valid = 0;
-			printf("\n\tEnter New Sales Order Id : ");
+			printf("\n\tEnter New Sales Order Id (Latest Sales Order ID : %s): ", salesOrder[salesNum-1].salesOrderId);
 			scanf(" %s", &addsales);
 			printf("\n\t===============================\n");
-			if (strcmp(addsales, "s200") <= 0 && strcmp(addsales, minSalesId) >= 0) {
-				strcpy(salesOrder[salesN].salesOrderId, addsales);
-				valid++;
+			if (strcmp(tolower(addsales), "x")==0) {
+				return salesNum;
 			}
-			else {
-				printf("\n\tInvalid Sales Order Id Entered, Please Select And Enter Again");
+			//validate data entered
+			if (strcmp(addsales, "S200") <= 0 && strcmp(addsales, minSalesId) > 0) {
+				//save valid data in to the struct
+				strcpy(salesOrder[salesNum].salesOrderId, addsales);
+				valid++;
+			} else {
+				//print error massage if data entered is invalid
+				printf("\tInvalid Sales Order Id Entered, Please Select And Enter Again");
 				printf("\n\t===============================\n");
 			}
 		} while (valid == 0);
@@ -433,9 +478,14 @@ int addSRecord(SALES salesOrder[], int salesN) {
 			printf("\n\tEnter New Sold Item Code : ");
 			scanf(" %s", &additemC);
 			printf("\n\t===============================\n");
+			if (strcmp(tolower(additemC), "x") == 0) {
+				return salesNum;
+			}
+			tPrice = 0;
 			//for (i = 0; i </*from terence*/; i++) {
 			//	if (strcmp(additemC,/*from terence*/) == 1) {
-			//		strcpy(salesOrder[salesN].itemCode, additemC);
+			//		strcpy(salesOrder[salesNum].itemCode, additemC);
+			//		tPrice=from terence;
 			//		valid++;
 			//	}
 			//}
@@ -452,47 +502,50 @@ int addSRecord(SALES salesOrder[], int salesN) {
 			scanf(" %d", &addquan);
 			printf("\n\t===============================\n");
 			if (addquan > 0 && addquan < 99) {
-				salesOrder[salesN].qtySold = addquan;
+				salesOrder[salesNum].qtySold = addquan;
+				salesOrder[salesNum].price = addquan * tPrice;
 				valid++;
 			}
 			else {
-				printf("\n\tInvalid Quantity Entered, Please Select And Enter Again");
+				printf("\tInvalid Quantity Entered, Please Select And Enter Again");
 				printf("\n\t===============================\n");
 			}
 		} while (valid == 0);
-
-		do {
-			valid = 0;
-			printf("\n\tEnter Sold Item  Price : ");
-			rewind(stdin);
-			scanf(" %lf", &addSprice);
-			printf("\n\t===============================\n");
-			if (addSprice > 0 && addSprice < 9999) {
-				salesOrder[salesN].price = addSprice;
-				valid++;
-			}
-			else {
-				printf("\n\tInvalid Sold Price Entered, Please Select And Enter Again");
+			/*do {
+				valid = 0;
+				printf("\n\tEnter Sold Item  Price : ");
+				rewind(stdin);
+				scanf(" %lf", &addSprice);
 				printf("\n\t===============================\n");
+				if (addSprice > 0 && addSprice < 9999) {
+					salesOrder[salesNum].price = addSprice;
+					valid++;
+				}
+				else {
+					printf("\n\tInvalid Sold Price Entered, Please Select And Enter Again");
+					printf("\n\t===============================\n");
 
-			}
-		} while (valid == 0);
+				}
+			} while (valid == 0);*/
 
 		do {
 			valid = 1;
 			printf("\n\tEnter Member Id : ");
 			scanf(" %s", &addmemID);
 			printf("\n\t===============================\n");
-			//for (i = 0; i </*from Lucas*/; i++) {
-			//	if (strcmp(addmemID,/*from lucas*/) == 1) {
-			//		strcpy(salesOrder[salesN].memberId, addmemID);
-			//		valid++;
-			//	}
-			//}
-			//if(valid==0) {
-			//	printf("\nInvalid Member Id Entered, Please Select And Enter Again");
-			// printf("\n\t===============================\n");
-			//}
+			if (strcmp(tolower(addmemID), "x") == 0) {
+				return salesNum;
+			}
+			for (i = 0; i < memberSize; i++) {
+				if (strcmp(addmemID, memberInfo[i].memberId) == 1) {
+					strcpy(salesOrder[salesNum].memberId, addmemID);
+					valid++;
+				}
+			}
+			if(valid==0) {
+				printf("\nInvalid Member Id Entered, Please Select And Enter Again");
+			 printf("\n\t===============================\n");
+			}
 		} while (valid == 0);
 
 		do {
@@ -501,9 +554,9 @@ int addSRecord(SALES salesOrder[], int salesN) {
 			scanf(" %d/%d/%d", &adddate, &addmonth, &addyear);
 			printf("\n\t===============================\n");
 			if (adddate > 0 && adddate < 31 && addmonth > 0 && addmonth < 13 && addyear > 2000 && addyear < 2024) {
-				salesOrder[salesN].date.day = adddate;
-				salesOrder[salesN].date.month = addmonth;
-				salesOrder[salesN].date.year = addyear;
+				salesOrder[salesNum].date.day = adddate;
+				salesOrder[salesNum].date.month = addmonth;
+				salesOrder[salesNum].date.year = addyear;
 				valid++;
 			}
 			else {
@@ -512,23 +565,23 @@ int addSRecord(SALES salesOrder[], int salesN) {
 			}
 		} while (valid == 0);
 
-		salesN++;
-		printf("\n\tDo you want to continue adding? (Y/N) : ");
+		salesNum++;
+		printf("\tDo you want to continue adding? (Y/N) : ");
 		scanf(" %c", &yn);
 		if (toupper(yn) == 'N') {
-			displaySRecord(salesOrder, salesN);
-			return salesN;
+			displaySRecord(salesOrder, salesNum);
+			return salesNum;
 		}
-	} while (salesN != MAX_SALES);
-	return salesN;
+	} while (salesNum != MAX_SALES);
+	return salesNum;
 	system("pause");
 }
 
-//void popularItem(SALES salesOrder[], int salesN) {
+void popularItem(SALES salesOrder[], int salesNum) {
 //	int itemSold[20], popular = -99;
 //	char popularItem[6];
 //	
-//	for (int i = 0; i < salesN; i++) {
+//	for (int i = 0; i < salesNum; i++) {
 //		for (int j = 0; j </*get from terence*/; j++) {
 //			if (strcmp(salesOrder[j].itemCode,/*get from terence */) == 0) {
 //				itemSold[i] += salesOrder[j].qtySold;
@@ -547,31 +600,62 @@ int addSRecord(SALES salesOrder[], int salesN) {
 //	}
 //	printf("\nThe most popular item sold is %s which sold %d unit.\n",/*get from terence*/, popular);
 //	system("pause");
-//}
+}
 
-//void salesReport(SALES salesOrder[], int salesN) {
-//	header();
-//	for (int i = 0; i < salesN; i++) {
-//		for (int j = 0; j </*get from lucas*/; j++) {
-//			if (strcmp(salesOrder[j].memberId,/*get from lucas*/) == 0) {
-//
-//			}
-//		}
-//	}
-//	system("pause");
-//}
+void salesCommissionReport(SALES salesOrder[], int salesNum, Member memberInfo[], int memberSize) {
+	double upLineComm[MAX_SALES] = {0};
+	int j, i;
+	for (i = 0; i < memberSize; i++) {
+		for (j = 0; j < salesNum; j++) {
+			if (strcmp(memberInfo[i].memberId, salesOrder[j].memberId) == 0) {
+				upLineComm[i] = salesOrder[j].price * 0.05;
+			}
+		}
+	}
+	printf("\t\tCommission of Each Member's Upline\n");
+	printf("\t========================================\n");
+	printf("\tMEMBER ID \t UPLINE'S COMMISSIONS\n");
+	for (int i = 0; i < 10; i++) {
+		printf("\t%7s \t\t%6.2f\n",memberInfo[i].memberId, upLineComm[i]);
+	}
+	system("pause");
+}
+
+void totalSalesReport(SALES salesOrder[], int salesNum) {
+	int i, totalItemSold = 0;
+	double totalSales = 0;
+
+	for (i = 0; i < salesNum; i++) {
+		totalItemSold += salesOrder[i].qtySold;
+		totalSales += salesOrder[i].price;
+	}
+	printf("\n\t\t\t\tTOTAL SALES REPORT\n");
+	printf("\t================================================================\n");
+	printf("\tSALES ID \t   ITEM CODE \t\tQUANTITY\t  AMOUNT\n");
+	printf("\t================================================================\n");
+	for (i = 0; i < salesNum; i++) {
+		printf("\t%s \t\t    %7s \t\t   %02d \t\t %7.2f\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode, salesOrder[i].qtySold, salesOrder[i].price);
+	}
+	printf("\t================================================================\n");
+	printf("\tTOTAL\t\t\t\t           %d           %7.2f\n",totalItemSold,totalSales);
+	printf("\t================================================================\n");
+	system("pause");
+}
 
 void header() {
-	printf("\t=====================================================================================\n");
+	//header used for presenting data
+	printf("\t===================================================================================\n");
 	printf("\tSALES ORDER ID    ITEM CODE    QUANTITY     SALES AMOUNT    MEMBER ID    SALES DATE\n");
-	printf("\t=====================================================================================\n");
+	printf("\t===================================================================================\n");
 }
 void result(SALES salesOrder[], int i) {
+	//return result after validation to search function
 	printf("\tSales Order ID  : %s \n\tItem Code \t: %s \n\tUnit Sold \t: %d\n\tSales Amount \t: $%-3.2f \n\tMember ID \t: %s \n\tSales Date  \t: %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 		salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
 	printf("\t===============================\n");
 }
 void validation(int matchSearch) {
+	//search validation, print out massage if invalid
 	if (matchSearch == -1) {
 		printf("\n\tNo matching result found, please enter again.\n\n");
 		printf("\t===============================\n");

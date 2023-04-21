@@ -1,25 +1,31 @@
 ﻿  Sales.c
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(65,3): warning C4098: 'main': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(111,5): warning C4098: 'main': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(163,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(163,26): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(163,24): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(164,14): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(183,29): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(183,24): warning C4024: 'toupper': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(184,14): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(218,16): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(239,16): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(260,16): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(271,21): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(280,12): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(298,24): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(298,22): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(299,12): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(332,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(332,26): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(333,16): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(398,21): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(412,8): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Sales.c(414,43): warning C4101: 'i': unreferenced local variable
-  ASS.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\Tan Yann Shew\ASS\Debug\ASS.exe
+E:\ASS\Sales.c(63,11): warning C4098: 'getSales': 'void' function returning a value
+E:\ASS\Sales.c(141,5): warning C4098: 'main': 'void' function returning a value
+E:\ASS\Sales.c(196,15): warning C4013: 'strcmp' undefined; assuming extern returning int
+E:\ASS\Sales.c(196,26): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(196,24): warning C4024: 'tolower': different types for formal and actual parameter 1
+E:\ASS\Sales.c(197,14): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(218,36): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(218,24): warning C4024: 'toupper': different types for formal and actual parameter 1
+E:\ASS\Sales.c(219,14): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(255,16): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(276,16): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(297,16): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(308,21): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(318,12): warning C4098: 'searchSRecord': 'void' function returning a value
+E:\ASS\Sales.c(336,33): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(336,22): warning C4024: 'tolower': different types for formal and actual parameter 1
+E:\ASS\Sales.c(337,12): warning C4098: 'modifySReccord': 'void' function returning a value
+E:\ASS\Sales.c(371,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(371,26): warning C4024: 'tolower': different types for formal and actual parameter 1
+E:\ASS\Sales.c(372,16): warning C4098: 'modifySReccord': 'void' function returning a value
+E:\ASS\Sales.c(415,14): warning C4013: 'strcpy' undefined; assuming extern returning int
+E:\ASS\Sales.c(437,21): warning C4098: 'modifySReccord': 'void' function returning a value
+E:\ASS\Sales.c(461,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(461,23): warning C4024: 'tolower': different types for formal and actual parameter 1
+E:\ASS\Sales.c(481,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(481,23): warning C4024: 'tolower': different types for formal and actual parameter 1
+E:\ASS\Sales.c(536,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+E:\ASS\Sales.c(536,23): warning C4024: 'tolower': different types for formal and actual parameter 1
+E:\ASS\Sales.c(453,9): warning C4101: 'addSprice': unreferenced local variable
+  ASS.vcxproj -> E:\ASS\Debug\ASS.exe
