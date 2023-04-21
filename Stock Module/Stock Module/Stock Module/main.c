@@ -14,11 +14,13 @@ typedef struct
 }MerchandiseInStock;
 
 
-void addNew();
-void search(MerchandiseInStock MIS[], int* mDataSize);
-void merchandiseData(MerchandiseInStock MIS[], int* mDataSize);
-void displayData(MerchandiseInStock MIS[], int mDataSize);
 
+
+void addNew();
+void search(MerchandiseInStock MIS[], int mDataSize);
+void merchandiseData(MerchandiseInStock MIS[], int *mDataSize);
+void displayData(MerchandiseInStock MIS[], int mDataSize);
+void deleteData(MerchandiseInStock MIS[], int mDataSize);
 
 void main() {
 
@@ -58,14 +60,14 @@ void main() {
 			break;
 
 		case 3:
-			/*displayData(MIS, mDataSize);*/
 			search(MIS, mDataSize);
 			break;
 
 
 
 		case 4:
-			break;
+				delete(&MIS, mDataSize);
+				break;
 
 		case 5:
 
