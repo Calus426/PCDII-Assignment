@@ -1,2 +1,4 @@
-﻿  displayData.c
+﻿  Main.c
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\Main.c(49,9): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'char *'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock_Module\Stock_Module\Main.c(49,9): message : consider using '%hhd' in the format string
   Stock_Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock_Module\Debug\Stock_Module.exe

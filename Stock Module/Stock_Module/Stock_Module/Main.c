@@ -30,7 +30,7 @@ void main() {
 	merchandiseData(MIS, &mDataSize);
 
 
-	int mChoice;
+	char mChoice;
 
 	do {
 
@@ -46,7 +46,7 @@ void main() {
 			" 6. Exit\n"
 			"\n\n"
 			"Enter your choice  : ");
-		scanf("%d", &mChoice);
+		scanf("%c", &mChoice);
 
 		printf("\n\n");
 
