@@ -20,7 +20,7 @@ void addNew();
 void search(MerchandiseInStock MIS[], int mDataSize);
 void merchandiseData(MerchandiseInStock MIS[], int *mDataSize);
 void displayData(MerchandiseInStock MIS[], int mDataSize);
-void deleteData(MerchandiseInStock MIS[], int mDataSize);
+void deleteData(MerchandiseInStock MIS[], int *mDataSize);
 
 void main() {
 
@@ -66,7 +66,7 @@ void main() {
 
 
 		case 4:
-				delete(&MIS, mDataSize);
+				delete(MIS, &mDataSize);
 				break;
 
 		case 5:

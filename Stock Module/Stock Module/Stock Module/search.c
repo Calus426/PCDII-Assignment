@@ -51,7 +51,7 @@ void search(MerchandiseInStock MIS[], int* mDataSize)
 		printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", matchData.MMinimum);
 		printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
 		printf("  =====================================================\n");
-		printf("  Press 'Y' to continue search merchandise or 'N' back to menu :");
+		printf("  Press 'Y' to continue to search merchandise or 'N' back to menu :");
 		scanf(" %c", &option);
 
 	} while (toupper(option) != 'N');

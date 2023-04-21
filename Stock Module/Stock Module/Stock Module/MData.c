@@ -13,7 +13,7 @@ typedef struct
 
 }MerchandiseInStock;
 
-void merchandiseData(MerchandiseInStock MIS[], int* mDataSize)
+void merchandiseData(MerchandiseInStock MIS[], int *mDataSize)
 {
 	FILE* MD;
 	MD = fopen("stock.txt", "r");
