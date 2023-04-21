@@ -18,6 +18,18 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MData.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displayData.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="search.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="stock.txt">

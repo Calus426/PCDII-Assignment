@@ -1,2 +1,9 @@
-﻿  main.c
+﻿  displayData.c
+  main.c
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\main.c(63,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\main.c(63,16): warning C4024: 'search': different types for formal and actual parameter 2
+  search.c
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(40,32): warning C4047: '<': 'int' differs in levels of indirection from 'int *'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(42,9): warning C4013: 'strcmp' undefined; assuming extern returning int
+  Generating Code...
   Stock Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\x64\Debug\Stock Module.exe
