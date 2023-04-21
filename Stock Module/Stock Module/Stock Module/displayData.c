@@ -15,14 +15,16 @@ typedef struct
 
 void displayData(const MerchandiseInStock MIS[], int mDataSize)
 {
-	printf("     < MERCHANDISE CODE & NAME >\n");
-	printf("=====================================\n");
+	system("cls");
+	printf("\n\n  =====================================\n");
+	printf("       < MERCHANDISE CODE & NAME >\n");
+	printf("  =====================================\n");
 	for (int i = 0; i < mDataSize; i++)
 	{
 		int number = i + 1;
 
-		printf("  %d. %s     %s\n", number, MIS[i].MCode, MIS[i].MName);
+		printf("    %d. %s     %s\n", number, MIS[i].MCode, MIS[i].MName);
 
 	}
-	printf("=====================================\n\n");
+	printf("  =====================================\n\n");
 }

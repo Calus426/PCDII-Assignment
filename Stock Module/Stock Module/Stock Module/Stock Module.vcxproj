@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add.c" />
+    <ClCompile Include="delete.c" />
     <ClCompile Include="displayData.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MData.c" />

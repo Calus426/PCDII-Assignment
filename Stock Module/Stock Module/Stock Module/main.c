@@ -1,5 +1,3 @@
-
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<ctype.h>
@@ -33,19 +31,20 @@ void main() {
 
 	do {
 
+		system("cls");
 
-		printf("\n\n================================\n"
-			"    What is Your Next Move??\n"
-			"================================\n"
-			" 1. Add a new Merchandise\n"
-			" 2. Modify Merchandise Data\n"
-			" 3. Check Merchandise List\n"
-			" 4. Delete Merchandise Data\n"
-			" 5. Daily Report\n"
-			" 6. Exit\n"
+		printf("\n\n  ================================\n"
+			"      What is Your Next Move??\n"
+			"  ================================\n"
+			"   1. Add a new Merchandise\n"
+			"   2. Modify Merchandise Data\n"
+			"   3. Check Merchandise List\n"
+			"   4. Delete Merchandise Data\n"
+			"   5. Daily Report\n"
+			"   6. Exit\n"
 			"\n\n"
-			"Enter your choice  : ");
-		scanf("%d", &mChoice);
+			"  Enter your choice  : ");
+		scanf(" %d", &mChoice);
 
 		printf("\n\n");
 
@@ -59,7 +58,7 @@ void main() {
 			break;
 
 		case 3:
-			displayData(MIS, mDataSize);
+			/*displayData(MIS, mDataSize);*/
 			search(MIS, mDataSize);
 			break;
 

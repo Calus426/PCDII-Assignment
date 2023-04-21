@@ -30,6 +30,9 @@
     <ClCompile Include="search.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="delete.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="stock.txt">
