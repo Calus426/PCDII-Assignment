@@ -148,7 +148,7 @@
     <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="member.txt" />
+    <None Include="member.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

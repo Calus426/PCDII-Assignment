@@ -34,7 +34,7 @@ void addMember(Member memberInfo[], int memberSize)
 
 	do 
 	{
-		FILE* ptr = fopen("member.txt", "ab");
+		FILE* ptr = fopen("member.bin", "ab");
 
 		if (ptr == NULL)  //ensure the file can be opened
 		{
@@ -42,7 +42,7 @@ void addMember(Member memberInfo[], int memberSize)
 			exit(-1);
 		}
 
-
+		system("cls");
 		//basic info
 		printf("Enter Name:");
 		rewind(stdin);

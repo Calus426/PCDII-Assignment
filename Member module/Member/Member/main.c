@@ -28,6 +28,7 @@ void detailDisplay(Member memberInfo[], int memberSize);
 int searchMenu();
 void modifyMember(Member memberInfo[], int memberSize);
 void deleteMember(Member memberInfo[], int *memberSize);
+void displayResult(Member memberInfo[], int memberSize);
 
 void main() //Menu for Member Module
 { 
@@ -38,8 +39,7 @@ void main() //Menu for Member Module
 
 
 	do {
-		
-		system("cls");
+		choice = 0;
 		printf("========================\n");
 		printf("Choose ur next move!!\n");
 		printf("========================\n\n\n");
@@ -56,14 +56,19 @@ void main() //Menu for Member Module
 
 		switch (choice)
 		{
-		case 1:  display(member,memberSize); break;
+		case 1: 
+			display(member, memberSize);
+			system("pause");
+			system("cls");
+			break;
+
 		case 2:  addMember(member, memberSize); getMember(member, &memberSize); break;
-		case 3:  search(member, memberSize); break;
-		case 4:  modifyMember(member, memberSize); break;
-		case 5:  deleteMember(member, &memberSize); break;
+		case 3:  search(member, memberSize); system("cls"); break;
+		case 4:  modifyMember(member, memberSize);	system("cls"); break;
+		case 5:  deleteMember(member, &memberSize); system("cls"); break;
 		case 6:break;
 		case 7:break;
-		default:printf("Enter valid choice!(1-7)\n"); system("pause");
+		default:printf("Enter valid choice!(1-7)\n"); system("pause"); system("cls");
 		}
 
 	} while (choice != 7);

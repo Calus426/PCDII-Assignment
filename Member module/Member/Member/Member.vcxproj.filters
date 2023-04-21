@@ -38,8 +38,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="member.txt">
+    <None Include="member.bin">
       <Filter>Source Files</Filter>
-    </Text>
+    </None>
   </ItemGroup>
 </Project>

@@ -25,36 +25,58 @@ void modifyMember(Member memberInfo[], int memberSize)
 {
 	char memberID[10], sureYesNo;
 	char newName[40], newPhoneNo[12], newIC[13];
+	char upperchar;
 	int newDay, newMonth, newYear,wantedIndex;
 	int dateCheck = 0;
+	int matchcount = 0, selectEdit;
+	Member matchMember[2];
 
-	printf("Enter member ID to modify:");
-	scanf("%s", &memberID);
+	display(memberInfo, memberSize);
+	printf("\n\n");
 
-	int matchcount = 0,selectEdit;
-	Member matchMember[100];
-
-	for (int i = 0; i < memberSize; i++)
+	do 
 	{
+		printf("Enter member ID to modify(X = exit):");
+		rewind(stdin);
+		scanf("%s", &memberID);
 
-		if (((strcmp(memberID, memberInfo[i].memberId) == 0)))
+		upperchar = memberID[0];
+		memberID[0] = toupper(upperchar); 
+
+
+		for (int i = 0; i < memberSize; i++)
 		{
-			matchMember[matchcount] = memberInfo[i];
-			matchcount++;
-			wantedIndex = i;
 
+			if (((strcmp(memberID, memberInfo[i].memberId) == 0)))
+			{
+				matchMember[matchcount] = memberInfo[i];
+				matchcount++;
+				wantedIndex = i;
+			}
 		}
-	}
+
+		if (matchcount == 0)
+		{
+			printf("Member ID does not exist.Please reenter.\n");
+		}
+
+		if (tolower(memberID[0]) == 'x')
+			break;
+
+	} while (matchcount== 0);
+
 
 	if (matchcount > 0)
 	{
+		system("cls");
 		printf("\n\nMember Found!\n");
-		printf("============\n\n\n");
-		detailDisplay(matchMember, matchcount);
+		printf("============\n\n");
+		displayResult(matchMember, 0);
+		printf("\n\n");
 
 		do
 		{
-			printf("Are you sure u want to edit this member? ");
+			printf("Are you sure u want to edit this member(Y/N)? ");
 			rewind(stdin);
 			scanf("%c", &sureYesNo);
 
@@ -212,9 +234,5 @@ void modifyMember(Member memberInfo[], int memberSize)
 		
 	}
 	
-	else
-	{
-		printf("Member ID does not exist.\n");
-		system("pause");
-	}
+
 }

@@ -24,7 +24,7 @@ typedef struct
 void getMember(Member memberInfo[], int *memberSize)
 {
 
-	FILE* getPtr = fopen("member.txt", "rb");
+	FILE* getPtr = fopen("member.bin", "rb");
 
 	if (getPtr == NULL)
 	{

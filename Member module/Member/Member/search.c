@@ -26,107 +26,122 @@ void search(Member memberInfo[], int memberSize)
 	Member matchMember[100];
 	int matchcount = 0, yearJoin;
 	char mID[10], ulID[10],upperchar[3];
-	int choice = searchMenu();
+	int choice;
+	
 
-	switch (choice)
+
+	do
 	{
-	case 1:
-		system("cls");
-		printf("Enter member ID:");
-		rewind(stdin);
-		scanf("%s", &mID);
+		choice = searchMenu();
 
-		upperchar[0] = mID[0];
-		mID[0] = toupper(upperchar[0]);
-
-		for (int i = 0; i < memberSize; i++)
+		switch (choice)
 		{
+		case 1:
+			system("cls");
+			printf("Enter member ID:");
+			rewind(stdin);
+			scanf("%s", &mID);
 
-			if (((strcmp(mID, memberInfo[i].memberId) == 0)))
+			upperchar[0] = mID[0];
+			mID[0] = toupper(upperchar[0]);
+
+			matchcount = 0;
+
+			for (int i = 0; i < memberSize; i++)
 			{
-				matchMember[matchcount] = memberInfo[i];
-				matchcount++;
+
+				if (((strcmp(mID, memberInfo[i].memberId) == 0)))
+				{
+					matchMember[matchcount] = memberInfo[i];
+					matchcount++;
+				}
+
+			}
+			if (matchcount == 0)
+			{
+				printf("No member found!\n\n");
+				system("pause");
+			}
+			else
+			{
+				detailDisplay(matchMember, matchcount);
 			}
 
-		}
-		if (matchcount == 0)
-		{
-			printf("No member found!\n\n");
-			system("pause");
-		}
-		else
-		{
-			detailDisplay(matchMember, matchcount);
-		}
-		
-		break;
+
+			break;
 
 
 
-	case 2:
-		system("cls");
-		printf("Enter upline ID:");
-		rewind(stdin);
-		scanf("%s", &ulID);
+		case 2:
+			system("cls");
+			printf("Enter upline ID:");
+			rewind(stdin);
+			scanf("%s", &ulID);
 
-		upperchar[1] = ulID[0];
-		ulID[0] = toupper(upperchar[1]);
+			upperchar[1] = ulID[0];
+			ulID[0] = toupper(upperchar[1]);
 
-		upperchar[2] = ulID[1];
-		ulID[1] = toupper(upperchar[2]);
+			upperchar[2] = ulID[1];
+			ulID[1] = toupper(upperchar[2]);
 
-		for (int i = 0; i < memberSize; i++)
-		{
+			matchcount = 0;
 
-			if (((strcmp(ulID, memberInfo[i].memberId) == 0)))
+			for (int i = 0; i < memberSize; i++)
 			{
-				matchMember[matchcount] = memberInfo[i];
-				matchcount++;
+
+				if (((strcmp(ulID, memberInfo[i].uplineId) == 0)))
+				{
+					matchMember[matchcount] = memberInfo[i];
+					matchcount++;
+				}
+
+			}
+			if (matchcount == 0)
+			{
+				printf("No member found!\n\n");
+				system("pause");
+			}
+			else
+			{
+				detailDisplay(matchMember, matchcount);
 			}
 
-		}
-		if (matchcount == 0)
-		{
-			printf("No member found!\n\n");
-			system("pause");
-		}
-		else
-		{
-			detailDisplay(matchMember, matchcount);
-		}
+			break;
 
-		break;
+		case 3:
+			system("cls");
+			printf("Enter Year of joinning:");
+			rewind(stdin);
+			scanf("%d", &yearJoin);
 
-	case 3:
-		system("cls");
-		printf("Enter Year of joinning:");
-		rewind(stdin);
-		scanf("%d", &yearJoin);
+			matchcount = 0;
 
-		for (int i = 0; i < memberSize; i++)
-		{
-
-			if (yearJoin == memberInfo[i].joinDate.year)
+			for (int i = 0; i < memberSize; i++)
 			{
-				matchMember[matchcount] = memberInfo[i];
-				matchcount++;
+
+				if (yearJoin == memberInfo[i].joinDate.year)
+				{
+					matchMember[matchcount] = memberInfo[i];
+					matchcount++;
+				}
+
 			}
 
-		}
+			if (matchcount == 0)
+			{
+				printf("No member found!\n\n");
+				system("pause");
+			}
+			else
+			{
+				detailDisplay(matchMember, matchcount);
+			}
+			break;
 
-		if (matchcount == 0)
-		{
-			printf("No member found!\n\n");
-			system("pause");
-		}
-		else
-		{
-			detailDisplay(matchMember, matchcount);
-		}
+		case 4:break;
 
-		break;
-
-	}
+		}
+	}while (choice == 1 || choice == 2 || choice == 3);
 }
 
 int searchMenu()
@@ -138,8 +153,17 @@ int searchMenu()
 	printf("1. Search by Member ID\n");
 	printf("2. Search by UpLine ID\n");
 	printf("3. Search by Year join\n");
-	printf("Enter choice(1-3):");
-	scanf("%d", &choice);
+	printf("4. Exit searching\n");
+
+	do {
+		printf("Enter choice(1-4):");
+		rewind(stdin);
+		scanf("%d", &choice);
+
+		if (choice != 1 && choice != 2 && choice != 3 && choice != 4)
+			printf("Invalid Choice!Please reenter\n");
+	} while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
+
 	return choice;
 
 }
