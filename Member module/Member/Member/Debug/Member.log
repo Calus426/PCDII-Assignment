@@ -1,5 +1,22 @@
-﻿  search.c
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\search.c(35,22): warning C4013: 'searchMenu' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\search.c(53,17): warning C4013: 'strcmp' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\search.c(67,18): warning C4013: 'detailDisplay' undefined; assuming extern returning int
-  Member.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Debug\Member.exe
+﻿  Addmember.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Addmember.c(76,22): warning C4018: '<': signed/unsigned mismatch
+  Delete.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Delete.c(43,15): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Delete.c(55,16): warning C4013: 'displayResult' undefined; assuming extern returning int
+  Display.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Display.c(61,59): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Display.c(61,59): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+  Modify.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Modify.c(34,9): warning C4013: 'display' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Modify.c(50,16): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Modify.c(74,16): warning C4013: 'displayResult' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Modify.c(103,13): warning C4013: 'strcpy' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\Modify.c(112,18): warning C4013: 'strlen' undefined; assuming extern returning int
+  getMember.c
+  main.c
+  search.c
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\search.c(35,22): warning C4013: 'searchMenu' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\search.c(53,17): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\search.c(67,18): warning C4013: 'detailDisplay' undefined; assuming extern returning int
+  Generating Code...
+  Member.vcxproj -> C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Debug\Member.exe

@@ -36,6 +36,9 @@
     <ClCompile Include="Delete.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Report.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin">

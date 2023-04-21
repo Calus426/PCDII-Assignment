@@ -145,6 +145,7 @@
     <ClCompile Include="getMember.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Modify.c" />
+    <ClCompile Include="Report.c" />
     <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>
