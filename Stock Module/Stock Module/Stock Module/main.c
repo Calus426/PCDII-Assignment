@@ -17,7 +17,7 @@ typedef struct
 
 
 void addNew();
-void search(MerchandiseInStock MIS[], int mDataSize);
+void search(MerchandiseInStock MIS[], int* mDataSize);
 void merchandiseData(MerchandiseInStock MIS[], int *mDataSize);
 void displayData(MerchandiseInStock MIS[], int mDataSize);
 void deleteData(MerchandiseInStock MIS[], int *mDataSize);
@@ -42,7 +42,7 @@ void main() {
 			"   2. Modify Merchandise Data\n"
 			"   3. Check Merchandise List\n"
 			"   4. Delete Merchandise Data\n"
-			"   5. Daily Report\n"
+			"   5. Restock Merchandise\n"
 			"   6. Exit\n"
 			"\n\n"
 			"  Enter your choice  : ");
@@ -66,7 +66,8 @@ void main() {
 
 
 		case 4:
-				delete(MIS, &mDataSize);
+				displayData(MIS, mDataSize);
+				deleteData(MIS, &mDataSize);
 				break;
 
 		case 5:

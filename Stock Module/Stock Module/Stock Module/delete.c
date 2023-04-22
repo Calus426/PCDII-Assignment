@@ -18,24 +18,27 @@ void deleteData(MerchandiseInStock MIS[], int *mDataSize)
 {
 	int deleteNum;
 	char option, deleteOption;
+	
+
 	do
 	{
-		displayData(MIS, mDataSize);
+		displayData(MIS, *mDataSize);
 		MerchandiseInStock matchData;
 
-		char  MTSCode[30];
+		char  MTSCode[10];
 
 		printf("  Please Enter Merchandise Code : ");
 		scanf(" %s", &MTSCode);
 
 
-		for (int i = 0; i < mDataSize; i++)
+		for (int i = 0; i < *mDataSize; i++)
 		{
 			if ((strcmp(MTSCode, MIS[i].MCode) == 0))
 			{
 				matchData = MIS[i];
 				deleteNum = i;
 			}
+			
 		}
 
 		printf("\n\n  =====================================================\n");
@@ -76,6 +79,7 @@ void deleteData(MerchandiseInStock MIS[], int *mDataSize)
 
 		printf("  Press 'Y' to continue to delete merchandise data or 'N' back to menu :");
 		scanf(" %c", &option);
+		
 
 	} while (toupper(option) != 'N');
 

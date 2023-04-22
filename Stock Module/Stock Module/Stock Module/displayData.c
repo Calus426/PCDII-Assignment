@@ -13,7 +13,7 @@ typedef struct
 
 }MerchandiseInStock;
 
-void displayData(const MerchandiseInStock MIS[], int mDataSize)
+void displayData(MerchandiseInStock MIS[], int mDataSize)
 {
 	system("cls");
 	printf("\n\n  =====================================\n");

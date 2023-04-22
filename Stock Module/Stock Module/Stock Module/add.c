@@ -46,7 +46,7 @@ void addNew()
 		printf("6. Enter New Merchandise Reorder Quantity  :");
 		scanf(" %d", &NM.MReorder);
 
-		fprintf(AN, "\n%s|%s|%.2lf|%d|%d|%d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder);
+		fprintf(AN, "%s|%s|%.2lf|%d|%d|%d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder);
 
 		printf("\nAny New Merchandise More ? (if Yes press Y or No press N) :");
 		scanf(" %c", &option);
