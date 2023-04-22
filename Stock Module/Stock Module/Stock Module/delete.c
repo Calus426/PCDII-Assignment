@@ -69,17 +69,30 @@ void deleteData(MerchandiseInStock MIS[], int *mDataSize)
 
 			for (int k = 0; k < *mDataSize; k++)
 			{
-				fprintf(DMD, "%s|%s|%.2lf|%d|%d|%d|", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+				fprintf(DMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
 			}
 
 			fclose(DMD);
-			printf("  \nMerchandise Data has deleted sucessfully\n");
+			printf("  ============================================");
+			printf("\n  Merchandise Data has deleted sucessfully\n");
+			printf("  ============================================");
 
 		}
+		else if (toupper(deleteOption) =='N')
+		{
+			printf("  ======================");
+			printf("\n  Command has cancel\n");
+			printf("  ======================");
+		}
+		else
+		{
+			printf("  =============================================================================");
+			printf("\n  Wrong input!!! Please try again... ( Nothing change on merchandise data )\n");
+			printf("  =============================================================================");
+		}
 
-		printf("  Press 'Y' to continue to delete merchandise data or 'N' back to menu :");
+		printf("\n  Press 'Y' to continue to delete other merchandise data or 'N' back to menu :");
 		scanf(" %c", &option);
-		
 
 	} while (toupper(option) != 'N');
 

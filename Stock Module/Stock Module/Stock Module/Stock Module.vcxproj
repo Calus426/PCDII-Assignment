@@ -132,6 +132,7 @@
     <ClCompile Include="displayData.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MData.c" />
+    <ClCompile Include="modify.c" />
     <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>

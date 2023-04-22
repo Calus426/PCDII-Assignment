@@ -13,14 +13,12 @@ typedef struct
 
 }MerchandiseInStock;
 
-
-
-
 void addNew();
 void search(MerchandiseInStock MIS[], int* mDataSize);
 void merchandiseData(MerchandiseInStock MIS[], int *mDataSize);
 void displayData(MerchandiseInStock MIS[], int mDataSize);
 void deleteData(MerchandiseInStock MIS[], int *mDataSize);
+void modifyData(MerchandiseInStock MIS[], int *mDataSize);
 
 void main() {
 
