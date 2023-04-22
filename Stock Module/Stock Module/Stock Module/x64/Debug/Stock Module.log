@@ -1,2 +1,9 @@
-﻿  add.c
+﻿  delete.c
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\delete.c(25,3): warning C4013: 'displayData' undefined; assuming extern returning int
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\delete.c(36,9): warning C4013: 'strcmp' undefined; assuming extern returning int
+  main.c
+  search.c
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(24,3): warning C4013: 'displayData' undefined; assuming extern returning int
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(35,9): warning C4013: 'strcmp' undefined; assuming extern returning int
+  Generating Code...
   Stock Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\x64\Debug\Stock Module.exe

@@ -16,7 +16,7 @@ typedef struct
 
 
 
-void search(MerchandiseInStock MIS[], int *mDataSize)
+void search(MerchandiseInStock MIS[], int mDataSize)
 {
 	char option;
 	do
