@@ -13,9 +13,9 @@ typedef struct
 
 }MerchandiseInStock;
 
-void modifyData(MerchandiseInStock MIS[], int *mDataSize)
+void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 {
-	int option,	selection;
+	int option, selection;
 	int matchNumber;
 	char mMCode[10];
 	char mMName[30];
@@ -24,103 +24,130 @@ void modifyData(MerchandiseInStock MIS[], int *mDataSize)
 	do
 	{
 
-	displayData(MIS, *mDataSize);
-	MerchandiseInStock matchData;
+		displayData(MIS, *mDataSize);
+		MerchandiseInStock matchData;
 
-	char  MTSCode[10];
+		char  MTSCode[10];
 
-	printf("  Please Enter Merchandise Code : ");
-	scanf(" %s", &MTSCode);
+		printf("  Please Enter Merchandise Code : ");
+		scanf(" %s", &MTSCode);
 
 
-	for (int i = 0; i < *mDataSize; i++)
-	{
-		if ((strcmp(MTSCode, MIS[i].MCode) == 0))
+		for (int i = 0; i < *mDataSize; i++)
 		{
-			matchNumber = i;
+			if ((strcmp(MTSCode, MIS[i].MCode) == 0))
+			{
+				matchNumber = i;
+			}
+
 		}
 
-	}
+		printf("\n\n  =====================================================\n");
+		printf("                  < MERCHANDISE DETAIL >\n");
+		printf("  =====================================================\n");
+		printf("  MERCHANDISE CODE             : %s\n", MIS[matchNumber].MCode);
+		printf("  MERCHANDISE NAME             : %s\n", MIS[matchNumber].MName);
+		printf("  MERCHANDISE PRICE (RM)       : %.2lf\n", MIS[matchNumber].MPrice);
+		printf("  MERCHANDISE STOCK IN HAND    : %d\n", MIS[matchNumber].MStock);
+		printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", MIS[matchNumber].MMinimum);
+		printf("  MERCHANDISE REORDER QUANTITY : %d\n", MIS[matchNumber].MReorder);
+		printf("  =====================================================\n\n");
 
-	printf("\n\n  =====================================================\n");
-	printf("                  < MERCHANDISE DETAIL >\n");
-	printf("  =====================================================\n");
-	printf("  MERCHANDISE CODE             : %s\n",	MIS[matchNumber].MCode);
-	printf("  MERCHANDISE NAME             : %s\n",	MIS[matchNumber].MName);
-	printf("  MERCHANDISE PRICE (RM)       : %.2lf\n", MIS[matchNumber].MPrice);
-	printf("  MERCHANDISE STOCK IN HAND    : %d\n",	MIS[matchNumber].MStock);
-	printf("  MERCHANDISE MINIMUM LEVEL    : %d\n",	MIS[matchNumber].MMinimum);
-	printf("  MERCHANDISE REORDER QUANTITY : %d\n",	MIS[matchNumber].MReorder);
-	printf("  =====================================================\n\n");
+		printf("    Which data you will like to change \n");
+		printf("  ======================================\n");
+		printf("    1. Code\n");
+		printf("    2. Name\n");
+		printf("    3. Price\n");
+		printf("    4. Stock Quantity\n");
+		printf("    5. Minimum Level\n");
+		printf("    6. Reorder Quantity\n");
+		printf("  ======================================\n\n");
+		printf("    Enter your choice :");
+		scanf(" %d", &option);
 
-	printf("    Which data you will like to change \n");
-	printf("  ======================================\n");
-	printf("    1. Code\n");
-	printf("    2. Name\n");
-	printf("    3. Price\n");
-	printf("    4. Stock Quantity\n");
-	printf("    5. Minimum Level\n");
-	printf("    6. Reorder Quantity\n");
-	printf("  ======================================\n\n");
-	printf("    Enter your choice :");
-	scanf(" %d", &option);
+		FILE* MD;
+		MD = fopen("stock.txt", "w");
 
-	switch (option)
-	{
-	case 1 :
+		switch (option)
+		{
+		case 1:
 			printf("Enter New Merchandise Code   :");
 			scanf(" %[^\n]", &mMCode);
 			strcpy(MIS[matchNumber].MCode, mMCode);
 
-			FILE *MMD;
-			MMD = fopen("stock.txt", "w");
-
 			for (int k = 0; k < *mDataSize; k++)
 			{
-				fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+				fprintf(MD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
 			}
 			break;
 
-	case 2:
+		case 2:
 			printf("Enter New Merchandise Name   :");
 			scanf(" %[^\n]", &mMName);
 			strcpy(MIS[matchNumber].MName, mMName);
+
+			for (int k = 0; k < *mDataSize; k++)
+			{
+				fprintf(MD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			}
 			break;
 
-	case 3:
+		case 3:
 			printf("Enter New Merchandise Price   :");
 			scanf(" %lf", &mMPrice);
 			MIS[matchNumber].MPrice = mMPrice;
+
+			for (int k = 0; k < *mDataSize; k++)
+			{
+				fprintf(MD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			}
 			break;
 
-	case 4:
+		case 4:
 			printf("Enter New Merchandise Stock Quantity   :");
-			scanf(" %lf", &mMPrice);
+			scanf(" %lf", &mMStock);
 			MIS[matchNumber].MStock = mMStock;
+
+			for (int k = 0; k < *mDataSize; k++)
+			{
+				fprintf(MD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			}
 			break;
 
-	case 5:
+		case 5:
 			printf("Enter New Merchandise Minimum Level   :");
-			scanf(" %lf", &mMPrice);
+			scanf(" %lf", &mMMinimum);
 			MIS[matchNumber].MMinimum = mMMinimum;
+
+			for (int k = 0; k < *mDataSize; k++)
+			{
+				fprintf(MD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			}
 			break;
 
-	case 6:
+		case 6:
 			printf("Enter New Merchandise Reorder Quantity   :");
-			scanf(" %lf", &mMPrice);
+			scanf(" %lf", &mMReorder);
 			MIS[matchNumber].MReorder = mMReorder;
+			for (int k = 0; k < *mDataSize; k++)
+			{
+				fprintf(MD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			}
 			break;
-	
-	default:
 
-		printf("  ====================================\n\n");
-		printf("    Wrong input please try again....");
-		printf("  ====================================\n\n");
-		break;
-	}
+		default:
 
-	printf("Press 'Y' if you want to change other merchandise press 'N' if you want to back to menu :");
-	scanf(" &d", &selection);
-	
+			printf("  ====================================\n\n");
+			printf("    Wrong input please try again....");
+			printf("  ====================================\n\n");
+			break;
+		}
+
+		fclose("MD");
+
+		printf("Press 'Y' if you want to change other merchandise press 'N' if you want to back to menu :");
+		scanf(" &d", &selection);
+
 	} while (toupper(selection) != 'N');
+
 }

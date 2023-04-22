@@ -1,9 +1,12 @@
-﻿  delete.c
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\delete.c(25,3): warning C4013: 'displayData' undefined; assuming extern returning int
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\delete.c(36,9): warning C4013: 'strcmp' undefined; assuming extern returning int
-  main.c
-  search.c
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(24,3): warning C4013: 'displayData' undefined; assuming extern returning int
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(35,9): warning C4013: 'strcmp' undefined; assuming extern returning int
-  Generating Code...
+﻿  modify.c
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(27,3): warning C4013: 'displayData' undefined; assuming extern returning int
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(38,9): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(76,4): warning C4013: 'strcpy' undefined; assuming extern returning int
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(108,10): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'int *'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(119,10): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'int *'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(130,10): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'int *'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(146,10): warning C4133: 'function': incompatible types - from 'char [3]' to 'FILE *'
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(149,16): warning C4474: 'scanf' : too many arguments passed for format string
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(149,16): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\modify.c(28,22): warning C4101: 'matchData': unreferenced local variable
   Stock Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\x64\Debug\Stock Module.exe

@@ -55,6 +55,7 @@ void main() {
 			break;
 
 		case 2:
+			modifyData(MIS, &mDataSize);
 			break;
 
 		case 3:
