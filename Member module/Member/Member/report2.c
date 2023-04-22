@@ -92,7 +92,7 @@ void report2(Member memberInfo[], int memberSize)
 	}
 
 	printf("===================================================================================================== \n");
-	printf("%-2s   %-30s\t%s\t%s\t%s\n", "", "Name", "Member ID", "ITEM BOUGHT QUANTITY", "TOTAL SPENT");
+	printf("%-2s   %-30s\t%s\t%s\t%s\n", "", "Name", "Member ID", "TOTAL ITEM BOUGHT", "TOTAL SPENT");
 	printf("=====================================================================================================\n");
 
 	for (int i = 0; i < memberSize; i++)
@@ -110,9 +110,9 @@ void report2(Member memberInfo[], int memberSize)
 		printf("\t%s", report[i].memberId);
 		printf("\t\t%d\t\t\t", report[i].qtySold);
 		printf("%.2lf\n", report[i].totalSpent);
-
+		 
 	}
-
+	printf("=====================================================================================================\n");
 
 	system("pause");
 }

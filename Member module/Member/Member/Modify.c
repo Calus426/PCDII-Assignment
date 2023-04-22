@@ -32,7 +32,6 @@ void modifyMember(Member memberInfo[], int memberSize)
 	Member matchMember[2];
 
 	display(memberInfo, memberSize);
-	printf("\n\n");
 
 	do 
 	{
@@ -55,13 +54,19 @@ void modifyMember(Member memberInfo[], int memberSize)
 			}
 		}
 
-		if (matchcount == 0)
+		if (tolower(memberID[0]) == 'x' && memberID[1] == '\0')
+		{
+			printf("Bye~~~~\n");
+			system("pause");
+			break;
+		}
+
+		else if (matchcount == 0)
 		{
 			printf("Member ID does not exist.Please reenter.\n");
 		}
 
-		if (tolower(memberID[0]) == 'x')
-			break;
+		
 
 	} while (matchcount== 0);
 
@@ -69,11 +74,10 @@ void modifyMember(Member memberInfo[], int memberSize)
 	if (matchcount > 0)
 	{
 		system("cls");
-		printf("\n\nMember Found!\n");
-		printf("============\n\n");
+		printf("\n\n\tMember Found!\n");
+		printf("\t============\n");
 		displayResult(matchMember, 0);
 		printf("\n\n");
-
 		do
 		{
 			printf("Are you sure u want to edit this member(Y/N)? ");
@@ -86,12 +90,14 @@ void modifyMember(Member memberInfo[], int memberSize)
 			case 'Y':
 				do
 				{
+					selectEdit = 0;
 					printf("1.Edit Name\n");
 					printf("2.Edit Member Phone Number\n");
 					printf("3.Edit Member Join Date\n");
 					printf("4.Edit IC Number\n");
-					printf("5.Exit edit\n");
+					printf("5.Exit edit\n\n");
 					printf("Select(1-5):");
+					rewind(stdin);
 					scanf("%d", &selectEdit);
 
 					switch (selectEdit)
@@ -218,7 +224,7 @@ void modifyMember(Member memberInfo[], int memberSize)
 
 					case 5:break;
 
-					default:printf("Enter valid selection!\n");
+					default:printf("Enter valid selection!\n\n"); system("pause");
 
 
 					}

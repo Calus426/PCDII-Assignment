@@ -45,21 +45,20 @@ void main() //Menu for Member Module
 	getMember(member, &memberSize);
 	int choice;
 
-
 	do {
 		choice = 0;
-		printf("========================\n");
-		printf("Choose ur next move!!\n");
-		printf("========================\n\n\n");
-		printf("1.Display member\n");
-		printf("2.Add member\n");
-		printf("3.Search member\n");
-		printf("4.Modify member\n");
-		printf("5.Remove member\n");
-		printf("6.Member Report that bought the most item\n");
-		printf("7.Member Report of highest total spending\n");
-		printf("8.Exit\n\n\n");
-		printf("Enter choice:");
+		printf("\t\t========================\n");
+		printf("\t\tChoose ur next move!!\n");
+		printf("\t\t========================\n\n\n");
+		printf("\t\t1.Display member\n");
+		printf("\t\t2.Add member\n");
+		printf("\t\t3.Search member\n");
+		printf("\t\t4.Modify member\n");
+		printf("\t\t5.Remove member\n");
+		printf("\t\t6.Member Report that bought the most item\n");
+		printf("\t\t7.Member Report of highest total spending\n");
+		printf("\t\t8.Exit\n\n\n");
+		printf("\t\tEnter choice:");
 		rewind(stdin);
 		scanf("%d", &choice);
 

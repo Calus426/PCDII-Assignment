@@ -29,7 +29,7 @@ void deleteMember(Member memberInfo[], int *memberSize)
 	do {
 
 	
-	printf("Enter member ID:");
+	printf("Enter member ID to delete(X = exit):");
 	rewind(stdin);
 	scanf("%s", &memberID);
 
@@ -45,8 +45,8 @@ void deleteMember(Member memberInfo[], int *memberSize)
 			deleteIndex = i;
 			matchcount++;
 		}
-
 	}
+
 	if (matchcount > 0)
 	{
 		printf("\n\nMember Found!\n");
@@ -73,12 +73,12 @@ void deleteMember(Member memberInfo[], int *memberSize)
 					fwrite(&memberInfo[k], sizeof memberInfo[k], 1, delPtr);
 				}
 				fclose(delPtr);
-				printf("\n\nDeleted sucessfully!\n\n");
+				printf("\n\nDeleted successfully!\n\n");
 			}
 
 			else if (toupper(sureDelete) == 'N')
 			{
-				printf("Delete Unsucessfully!\n");
+				printf("Delete Unsuccessfully!\n");
 				system("pause");
 			}
 
@@ -87,14 +87,22 @@ void deleteMember(Member memberInfo[], int *memberSize)
 
 		} while (toupper(sureDelete) != 'Y' && toupper(sureDelete) != 'N');
 	}
-		
+	
+	else if (memberID[0] == 'X' && memberID[1] == '\0')
+	{
+		matchcount = 1;
+		printf("Bye~~~~\n");
+		system("pause");
+		break;
+	}
 
 	else
 	{
 		printf("Member ID not found!\n\n");
-		system("pause");
+		
 	}
-	} while (tolower(memberID[0]) == 'x');
+
+	} while (matchcount == 0);
 	
 
 }

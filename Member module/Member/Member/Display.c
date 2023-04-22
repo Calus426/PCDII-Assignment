@@ -51,6 +51,7 @@ void detailDisplay(Member memberInfo[], int memberSize)
 	}
 	printf("\n\n");
 	system("pause");
+	system("cls");
 } 
 
 void displayResult(Member memberInfo[], int memberSize)

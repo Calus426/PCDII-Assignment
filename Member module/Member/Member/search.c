@@ -24,6 +24,7 @@ typedef struct
 
 void search(Member memberInfo[], int memberSize)
 {
+	system("cls");
 	Member matchMember[100];
 	int matchcount = 0, yearJoin;
 	char mID[10], ulID[10],upperchar[3];
@@ -39,7 +40,7 @@ void search(Member memberInfo[], int memberSize)
 		{
 		case 1:
 			system("cls");
-			printf("Enter member ID:");
+			printf("Enter member ID(M00001):");
 			rewind(stdin);
 			scanf("%s", &mID);
 
@@ -68,14 +69,14 @@ void search(Member memberInfo[], int memberSize)
 				detailDisplay(matchMember, matchcount);
 			}
 
-
+			
 			break;
 
 
 
 		case 2:
 			system("cls");
-			printf("Enter upline ID:");
+			printf("Enter upline ID(UL0001):");
 			rewind(stdin);
 			scanf("%s", &ulID);
 
@@ -111,7 +112,7 @@ void search(Member memberInfo[], int memberSize)
 
 		case 3:
 			system("cls");
-			printf("Enter Year of joinning:");
+			printf("Enter Year of joinning(2021):");
 			rewind(stdin);
 			scanf("%d", &yearJoin);
 
@@ -154,7 +155,7 @@ int searchMenu()
 	printf("1. Search by Member ID\n");
 	printf("2. Search by UpLine ID\n");
 	printf("3. Search by Year join\n");
-	printf("4. Exit searching\n");
+	printf("4. Exit searching\n\n");
 
 	do {
 		printf("Enter choice(1-4):");
