@@ -50,38 +50,37 @@ void main() {
 
 		switch (mChoice)
 		{
-		case 1:
-			addNew();
-			break;
+			case 1:
+					addNew();
+					break;
 
-		case 2:
-			modifyData(MIS, &mDataSize);
-			break;
+			case 2:
+					modifyData(MIS, &mDataSize);
+					
+					break;
 
-		case 3:
-			search(MIS, mDataSize);
-			break;
-
-
-
-		case 4:
-				displayData(MIS, mDataSize);
-				deleteData(MIS, &mDataSize);
-				break;
-
-		case 5:
-
-			break;
+			case 3:
+					search(MIS, mDataSize);
+					break;
 
 
-		case 6:
 
-			break;
+			case 4:
+					deleteData(MIS, &mDataSize);
+					break;
 
-		case 7:
+			case 5:
 
-			printf("You are exiting program.....\n\n");
-			break;
+					break;
+
+
+			case 6:
+
+					break;
+
+			case 7:
+					printf("You are exiting program.....\n\n");
+					break;
 
 		default:
 
