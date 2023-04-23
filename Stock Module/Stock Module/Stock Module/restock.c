@@ -67,7 +67,7 @@ void restockMerchandise(MerchandiseInStock MIS[], int *mDataSize)
 				scanf(" %d",  &quantity);
 				MIS[matchNumber].MStock += quantity; 
 				printf("  =======================\n");
-				printf("    Restock sucessfully");
+				printf("    Restock sucessfully\n");
 				printf("  =======================\n");
 
 				for (int k = 0; k < *mDataSize; k++)
@@ -82,6 +82,9 @@ void restockMerchandise(MerchandiseInStock MIS[], int *mDataSize)
 				{
 					fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder); 
 				}
+				printf("  =======================\n");
+				printf("    Restock sucessfully\n");
+				printf("  =======================\n");
 		 		break;
 
 			default: 

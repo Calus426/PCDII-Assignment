@@ -39,8 +39,6 @@ void search(MerchandiseInStock MIS[], int mDataSize)
 			}
 		}
 
-		
-
 		printf("\n\n  =====================================================\n");
 		printf("                  < MERCHANDISE DETAIL >\n");
 		printf("  =====================================================\n");

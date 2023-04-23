@@ -73,21 +73,21 @@ void deleteData(MerchandiseInStock MIS[], int *mDataSize)
 			}
 
 			fclose(DMD);
-			printf("  ============================================");
-			printf("\n  Merchandise Data has deleted sucessfully\n");
-			printf("  ============================================");
+			printf("  ============================================\n");
+			printf("    Merchandise Data has deleted sucessfully\n");
+			printf("  ============================================\n");
 
 		}
 		else if (toupper(deleteOption) =='N')
 		{
-			printf("  ======================");
-			printf("\n  Command has cancel\n");
-			printf("  ======================");
+			printf("  ======================\n");
+			printf("    Command has cancel\n");
+			printf("  ======================\n");
 		}
 		else
 		{
-			printf("  =============================================================================");
-			printf("\n  Wrong input!!! Please try again... ( Nothing change on merchandise data )\n");
+			printf("  =============================================================================\n");
+			printf("    Wrong input!!! Please try again... ( Nothing change on merchandise data )\n");
 			printf("  =============================================================================");
 		}
 

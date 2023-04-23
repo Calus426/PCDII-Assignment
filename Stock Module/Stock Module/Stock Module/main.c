@@ -78,7 +78,7 @@ void main() {
 					break;
 
 			case 7:
-					printf("You are exiting\n\n");
+					printf("  You are exiting\n\n");
 					break;
 
 		default:
