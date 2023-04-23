@@ -130,6 +130,7 @@
     <ClCompile Include="add.c" />
     <ClCompile Include="delete.c" />
     <ClCompile Include="displayData.c" />
+    <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MData.c" />
     <ClCompile Include="modify.c" />
