@@ -21,9 +21,36 @@
     <ClCompile Include="Addmember.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Display.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="search.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getMember.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modify.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Delete.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Report.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="report2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CombineVersion_Member.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="salesRecord.bin">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
