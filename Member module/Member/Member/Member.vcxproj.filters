@@ -42,6 +42,9 @@
     <ClCompile Include="report2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CombineVersion_Member.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin">

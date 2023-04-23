@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Addmember.c" />
+    <ClCompile Include="CombineVersion_Member.c" />
     <ClCompile Include="Delete.c" />
     <ClCompile Include="Display.c" />
     <ClCompile Include="getMember.c" />
