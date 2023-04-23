@@ -140,10 +140,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Addmember.c" />
+    <ClCompile Include="CombineVersion_Member.c" />
+    <ClCompile Include="Delete.c" />
+    <ClCompile Include="Display.c" />
+    <ClCompile Include="getMember.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Modify.c" />
+    <ClCompile Include="Report.c" />
+    <ClCompile Include="report2.c" />
+    <ClCompile Include="search.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="member.bin" />
+    <None Include="salesRecord.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
