@@ -36,6 +36,9 @@
     <ClCompile Include="modify.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="restock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="stock.txt">

@@ -52,7 +52,7 @@ void deleteData(MerchandiseInStock MIS[], int *mDataSize)
 		printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
 		printf("  =====================================================\n\n");
 
-		printf("Press 'Y' if you want to delete this merchandise data :");
+		printf("Press 'Y' if you want to delete this merchandise data : ");
 		scanf(" %c", &deleteOption);
 
 		if (toupper(deleteOption) == 'Y')
