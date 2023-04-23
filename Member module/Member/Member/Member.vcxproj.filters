@@ -36,10 +36,22 @@
     <ClCompile Include="Delete.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Report.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="report2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CombineVersion_Member.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="member.txt">
+    <None Include="member.bin">
       <Filter>Source Files</Filter>
-    </Text>
+    </None>
+    <None Include="salesRecord.bin">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
