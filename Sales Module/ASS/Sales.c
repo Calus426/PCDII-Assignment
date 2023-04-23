@@ -662,8 +662,8 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 }
 
 void popularItem(SALES salesOrder[], int salesNum, MerchandiseInStock MIS[], int mDataSize) {
-	int itemSold[20] = { 0 }, popular = -99, i, j;
-	char popularItem[10];
+	int itemSold[20] = { 0 }, popular = -99, least = 100, i, j;
+	char popularItem[10], unpopularItem[10];
 	
 	for (i = 0; i < mDataSize; i++) {
 		for (j = 0; j < salesNum; j++) {
@@ -672,20 +672,27 @@ void popularItem(SALES salesOrder[], int salesNum, MerchandiseInStock MIS[], int
 			}
 		}
 	}
-	printf("\n\t\t\tItem Sold List\n");
-	printf("\t+========================================================+\n");
-	printf("\t Item Code\t\t\t\tUnit Sold\n");
-	printf("\t+========================================================+\n");
+	printf("\n\t\t\t         Item Sold List\n");
+	printf("\t+=============================================================+\n");
+	printf("\t Item Code\t\t\t\t   Unit Sold\n");
+	printf("\t+=============================================================+\n");
 	for (i = 0; i < mDataSize; i++) {
-		printf("\t %s   \t\t\t\t   %2d\n", MIS[i].MCode, itemSold[i]);
+		printf("\t %s   \t\t\t\t      %2d\n", MIS[i].MCode, itemSold[i]);
 		if (itemSold[i] > popular) {
 			popular = itemSold[i];
 			strcpy(popularItem, MIS[i].MCode);
 		}
+		if (itemSold[i] < least) {
+			least = itemSold[i];
+			strcpy(unpopularItem, MIS[i].MCode);
+
+		}
 	}
-	printf("\t+========================================================+\n");
-	printf("\t The most popular item sold is %s which sold %d unit.\n", popularItem, popular);
-	printf("\t+========================================================+\n");
+	printf("\t+=============================================================+\n");
+	printf("\t The most popular item sold is  \"%7s\" which sold % 2d unit.\n", popularItem, popular);
+	printf("\t+=============================================================+\n");
+	printf("\t The least popular item sold is \"%7s\" which sold %2d unit.\n", unpopularItem, least);
+	printf("\t+=============================================================+\n");
 	system("pause");
 }
 
