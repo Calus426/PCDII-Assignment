@@ -195,7 +195,7 @@ void displaySRecord(SALES salesOrder[],int salesNum) {
 	header();
 	for (int i = 0; i < salesNum; i++) {
 		
-		printf("\t %s \t %14s \t %3d\t     $ %7.2f \t      %s\t  %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
+		printf("\t %s \t    %14s \t %3d\t     $ %7.2f \t      %s\t  %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 			salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
 	}
 	printf("\t+===================================================================================+\n");
