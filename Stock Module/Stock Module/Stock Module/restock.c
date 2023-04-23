@@ -16,7 +16,7 @@ typedef struct
 void restockMerchandise(MerchandiseInStock MIS[], int *mDataSize)
 {
 	char option;
-	int  selection, quantity;
+	int  selection, quantity, qReoerder;
 
 	do
 	{
@@ -45,6 +45,7 @@ void restockMerchandise(MerchandiseInStock MIS[], int *mDataSize)
 		printf("  MERCHANDISE CODE             : %s\n", matchData.MCode);
 		printf("  MERCHANDISE NAME             : %s\n", matchData.MName);
 		printf("  MERCHANDISE PRICE (RM)       : %.2lf\n", matchData.MPrice);
+		printf("  MERCHANDISE STOCK IN HAND    : %d\n", matchData.MStock); 
 		printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", matchData.MMinimum);
 		printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
 		printf("  =====================================================\n");
@@ -55,15 +56,33 @@ void restockMerchandise(MerchandiseInStock MIS[], int *mDataSize)
 		
 		scanf(" %d", &selection);
 
+		FILE* RMD;
+		RMD = fopen("stock.txt", "w");
+
 		switch (selection)
 		{
 			case 1:
-				printf("  ================================\n");
-				printf("    Enter the quantity");
-			break;
+				printf("  =============================================\n");
+				printf("    Enter the restock quantity : ");
+				scanf(" %d",  &quantity);
+				MIS[matchNumber].MStock += quantity; 
+				printf("  =======================\n");
+				printf("    Restock sucessfully");
+				printf("  =======================\n");
+
+				for (int k = 0; k < *mDataSize; k++)
+				{
+					fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder); 
+				}
+				break;
 
 			case 2:
-			break;
+				MIS[matchNumber].MStock += MIS[matchNumber].MReorder;
+				for (int k = 0; k < *mDataSize; k++)
+				{
+					fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder); 
+				}
+		 		break;
 
 			default: 
 				printf("  ================================\n");
@@ -71,6 +90,8 @@ void restockMerchandise(MerchandiseInStock MIS[], int *mDataSize)
 				printf("  ================================\n");
 				break;
 		}
+
+		fclose(RMD);
 
 		printf("  Press 'Y' to continue restock merchandise or 'N' back to menu :");
 		scanf(" %c", &option);
