@@ -18,5 +18,11 @@
     <ClCompile Include="GENJAZ.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sales_Information.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Member_Information.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,2 +1,3 @@
 ﻿  GENJAZ.c
-  GENJAZ.vcxproj -> C:\Users\Ai\Desktop\GENJAZ\Debug\GENJAZ.exe
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\GENJAZ.c(11,9): warning C4013: 'system' undefined; assuming extern returning int
+  GENJAZ.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe
