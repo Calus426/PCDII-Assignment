@@ -13,13 +13,12 @@ C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(372,12): warning C
 C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(410,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
 C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(410,26): warning C4024: 'tolower': different types for formal and actual parameter 1
 C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(415,15): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(483,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(483,26): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(549,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(549,23): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(571,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(571,23): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(615,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(615,23): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(540,9): warning C4101: 'addSprice': unreferenced local variable
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(486,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(486,26): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(580,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(580,23): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(624,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(624,23): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(549,9): warning C4101: 'addSprice': unreferenced local variable
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(674,62): warning C4101: 'temp': unreferenced local variable
   ASS.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Debug\ASS.exe

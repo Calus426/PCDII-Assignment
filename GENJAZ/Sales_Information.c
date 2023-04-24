@@ -40,66 +40,10 @@ typedef struct {
 	Date date;
 }SALES;
 
-void getMember1(Member memberInfo[], int* memberSize)
-{
-
-	FILE* getPtr = fopen("member.bin", "rb");
-
-	if (getPtr == NULL)
-	{
-		printf("Unable to open the file.\n");
-		system("pause");
-		exit(-1);
-	}
-
-	*memberSize = 0;
-
-	while (fread(&memberInfo[*memberSize], sizeof memberInfo[*memberSize], 1, getPtr))
-	{
-		(*memberSize)++;
-
-	}
-
-	fclose(getPtr);
-}
-
-void merchandiseData1(MerchandiseInStock MIS[], int* mDataSize)
-{
-	FILE* MD;
-	MD = fopen("stock.txt", "r");
-
-	if (MD == NULL)
-	{
-		printf("Unable to open the file\n");
-		exit(-1);
-	}
-
-	*mDataSize = 0;
-
-	int i = 0;
-	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d|\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder) != EOF)
-	{
-		i++;
-		*mDataSize = i;
-	}
-	fclose(MD);
-}
-
-void getSales(SALES salesOrder[], int* salesNum) {
-	//file opening
-	FILE* fileOpen = fopen("salesRecord.bin", "rb");
-	if (fileOpen == NULL) {
-		printf("\tError file \"salesRecord.bin\" cannot be open!\n");
-		return 0;
-	}
-	*salesNum = 0;
-	//ensure file open succesfully
-	while (fread(&salesOrder[*salesNum], sizeof(SALES), 1, fileOpen) != 0) {
-		(*salesNum)++;
-	}
-}
-
 //function of the sales information module
+void getMember1(Member[], int*);
+void merchandiseData1(MerchandiseInStock[], int*);
+void getSales(SALES[], int*);
 void header();
 void validation(int);
 void result(SALES[], int);
@@ -208,10 +152,11 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 		printf("\n\t Search Record by : \n");
 		printf("\t+==============================+\n");
 		//allow use to filter and search for sales record
-		printf("\t 1) ID\n");
+		printf("\t 1) Sales ID\n");
 		printf("\t 2) Item Code\n");
-		printf("\t 3) Date\n");
-		printf("\t 4) Return\n");
+		printf("\t 3) Member ID\n");
+		printf("\t 4) Date\n");
+		printf("\t 5) Return\n");
 		printf("\t+==============================+\n");
 		opt = 0, matchSearch = -1;
 		printf("\t PLEASE ENTER AN OPTION : ");
@@ -227,7 +172,7 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 				scanf(" %[^\n]", &id);
 				printf("\t+===============================================+\n");
 				//compare to exit
-				if (strcmp(tolower(id), "x") == 0) {
+				if (strcmp(id, "x") == 0 || strcmp(id, "X") == 0) {
 					break;
 				}
 				for (i = 0; i < salesNum; i++) {
@@ -249,7 +194,7 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 				char findItemCode[10];
 				scanf(" %[^\n]", &findItemCode);
 				printf("\t+===============================================+\n");
-				if (strcmp(toupper(findItemCode), "x") == 0) {
+				if (strcmp(findItemCode, "x") == 0 || strcmp(findItemCode, "X") == 0) {
 					break;
 				}
 				for (i = 0; i < salesNum; i++) {
@@ -263,6 +208,26 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 			break;
 
 		case 3:
+			do {
+				matchSearch = -1;
+				printf("\t Enter Item Code (Enter X to exit): ");
+				char findMemberId[10];
+				scanf(" %[^\n]", &findMemberId);
+				printf("\t+===============================================+\n");
+				if (strcmp(findMemberId, "x") == 0 || strcmp(findMemberId, "X") == 0) {
+					break;
+				}
+				for (i = 0; i < salesNum; i++) {
+					if (strcmp(findMemberId, salesOrder[i].memberId) == 0) {
+						result(salesOrder, i);
+						matchSearch = i;
+					}
+				}
+				validation(matchSearch);
+			} while (matchSearch == -1);
+			break;
+
+		case 4:
 			int select = 0;
 			do {
 				//search record by date
@@ -348,7 +313,7 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 			} while (select != 4);
 			break;
 
-		case 4:
+		case 5:
 			return 0;
 			break;
 
@@ -368,7 +333,7 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 		char findSalesId[10];
 		scanf(" %[^\n]", &findSalesId);
 		//validate data entered
-		if (strcmp(tolower(findSalesId), "x") == 0) {
+		if (strcmp(findSalesId, "x") == 0 || strcmp(findSalesId, "X") == 0) {
 			return 0;
 		}
 		for (i = 0; i < salesNum; i++) {
@@ -407,7 +372,7 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 						printf("\t Enter Updated Sold Item Code (Enter X to exit) : ");
 						char newICode[10];
 						scanf(" %[^\n]", &newICode);
-						if (strcmp(tolower(newICode), "x") == 0) {
+						if (strcmp(newICode, "x") == 0 || strcmp(newICode, "X") == 0) {
 							break;
 						}
 						for (i = 0; i < salesNum; i++) {
@@ -480,7 +445,7 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 						printf("\t Enter Updated Member Id (Enter X to exit) : ");
 						char newMemID[10];
 						scanf(" %[^\n]", &newMemID);
-						if (strcmp(tolower(newMemID), "x") == 0) {
+						if (strcmp(newMemID, "x") == 0 || strcmp(newMemID, "X") == 0) {
 							break;
 						}
 						for (i = 0; i < memberSize; i++) {
@@ -546,7 +511,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 			rewind(stdin);
 			scanf(" %s", &addsales);
 			printf("\n\t+==================================================================================+\n");
-			if (strcmp(tolower(addsales), "x") == 0) {
+			if (strcmp(addsales, "x") == 0 || strcmp(addsales, "X") == 0) {
 				return salesNum;
 			}
 			//validate data entered
@@ -569,7 +534,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 			scanf("%[^\n]", &additemC);
 			printf("\n\t+==================================================================================+\n");
 
-			if (strcmp(tolower(additemC), "x") == 0) {
+			if (strcmp(additemC, "x") == 0 || strcmp(additemC, "X") == 0) {
 				return salesNum;
 			}
 			tPrice = 0;
@@ -583,7 +548,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 			}
 
 			if (valid == 0) {
-				printf("\n Invalid Item Id Entered, Please Select And Enter Again");
+				printf("\t Invalid Item Id Entered, Please Select And Enter Again");
 				printf("\n\t+==================================================================================+\n");
 			}
 		} while (valid == 0);
@@ -593,7 +558,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 			printf("\n\t Enter Quantity Sold (Enter -1 to exit) : ");
 			rewind(stdin);
 			scanf(" %d", &addquan);
-			printf("\n\t+==============================+\n");
+			printf("\n\t+==================================================================================+\n");
 			if (addquan < 0) {
 				return salesNum;
 			}
@@ -604,7 +569,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 			}
 			else {
 				printf("\t Invalid Quantity Entered, Please Select And Enter Again");
-				printf("\n\t+==============================+\n");
+				printf("\n\t+==================================================================================+\n");
 			}
 		} while (valid == 0);
 
@@ -613,7 +578,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 			printf("\n\t Enter Member Id (Enter X to exit) : ");
 			scanf(" %s", &addmemID);
 			printf("\n\t+==================================================================================+\n");
-			if (strcmp(tolower(addmemID), "x") == 0) {
+			if (strcmp(addmemID, "x") == 0 || strcmp(addmemID, "X") == 0) {
 				return salesNum;
 			}
 			for (i = 0; i < memberSize; i++) {
@@ -623,7 +588,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 				}
 			}
 			if (valid == 0) {
-				printf("\n Invalid Member Id Entered, Please Select And Enter Again");
+				printf("\t Invalid Member Id Entered, Please Select And Enter Again");
 				printf("\n\t+==================================================================================+\n");
 			}
 		} while (valid == 0);
@@ -644,7 +609,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 				valid++;
 			}
 			else {
-				printf("\n\n\t Invalid Date Entered, Please Select Again");
+				printf("\t Invalid Date Entered, Please Select Again");
 				printf("\n\t+==================================================================================+\n");
 			}
 		} while (valid == 0);
@@ -716,6 +681,15 @@ void salesCommissionReport(SALES salesOrder[], int salesNum, Member memberInfo[]
 		printf("\t%7s \t\t\t%6.2f\n", memberInfo[i].memberId, upLineComm[i]);
 	}
 	printf("\t+============================================+\n");
+	printf("\t Member Id that are NOT SHOWN below are eligible\n");
+	printf("\t to recive commission from their down line : \n");
+	printf("\t+============================================+\n");
+	for (i = 0; i < memberSize; i++) {
+		if (strcmp(memberInfo[i].uplineId, "-") == 1) {
+			printf("\t\t\t    %6s \n", memberInfo[i].memberId);
+		}
+	}
+	printf("\t+============================================+\n");
 	system("pause");
 }
 
@@ -758,4 +732,62 @@ void header() {
 	printf("\t+===================================================================================+\n");
 	printf("\t SALES ORDER ID    ITEM CODE    QUANTITY     SALES AMOUNT    MEMBER ID    SALES DATE\n");
 	printf("\t+===================================================================================+\n");
+}
+void getMember1(Member memberInfo[], int* memberSize)
+{
+
+	FILE* getPtr = fopen("member.bin", "rb");
+
+	if (getPtr == NULL)
+	{
+		printf("Unable to open the file.\n");
+		system("pause");
+		exit(-1);
+	}
+
+	*memberSize = 0;
+
+	while (fread(&memberInfo[*memberSize], sizeof memberInfo[*memberSize], 1, getPtr))
+	{
+		(*memberSize)++;
+
+	}
+
+	fclose(getPtr);
+}
+
+void merchandiseData1(MerchandiseInStock MIS[], int* mDataSize)
+{
+	FILE* MD;
+	MD = fopen("stock.txt", "r");
+
+	if (MD == NULL)
+	{
+		printf("Unable to open the file\n");
+		exit(-1);
+	}
+
+	*mDataSize = 0;
+
+	int i = 0;
+	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d|\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder) != EOF)
+	{
+		i++;
+		*mDataSize = i;
+	}
+	fclose(MD);
+}
+
+void getSales(SALES salesOrder[], int* salesNum) {
+	//file opening
+	FILE* fileOpen = fopen("salesRecord.bin", "rb");
+	if (fileOpen == NULL) {
+		printf("\tError file \"salesRecord.bin\" cannot be open!\n");
+		return 0;
+	}
+	*salesNum = 0;
+	//ensure file open succesfully
+	while (fread(&salesOrder[*salesNum], sizeof(SALES), 1, fileOpen) != 0) {
+		(*salesNum)++;
+	}
 }
