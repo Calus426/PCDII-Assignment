@@ -1,7 +1,7 @@
 ﻿  Member_Information.c
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(241,22): warning C4018: '<': signed/unsigned mismatch
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1000,11): warning C4098: 'report': 'void' function returning a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(995,7): warning C4101: 'num': unreferenced local variable
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1082,11): warning C4098: 'report2': 'void' function returning a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1077,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(255,23): warning C4018: '<': signed/unsigned mismatch
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1004,11): warning C4098: 'report': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(999,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1086,11): warning C4098: 'report2': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1081,7): warning C4101: 'num': unreferenced local variable
   GENJAZ.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe

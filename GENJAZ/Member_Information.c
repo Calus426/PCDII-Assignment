@@ -210,12 +210,13 @@ void addMember(Member memberInfo[], int memberSize)
 
 		system("cls");
 		//basic info
-		//Member ID and validation
+	//Member ID and validation
 		int memberIDcheck = 0;
 		while (memberIDcheck == 0)
 		{
 			memberIDcheck = 1;
-			printf("Enter Member id(M#####)(X = Exit) :");
+
+			printf("Enter Member id(M#####)(X=Exit):");
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.memberId);
 			printf("\n");
@@ -223,7 +224,7 @@ void addMember(Member memberInfo[], int memberSize)
 			upperchar[0] = newMemberInfo.memberId[0];
 			newMemberInfo.memberId[0] = toupper(upperchar[0]);
 
-			if (tolower(newMemberInfo.memberId[0]) == 'x')
+			if (newMemberInfo.memberId[0] == 'X' && newMemberInfo.memberId[1] == '\0')
 			{
 				break;
 			}
@@ -238,15 +239,6 @@ void addMember(Member memberInfo[], int memberSize)
 
 			}
 
-			for (int j = 1; j < strlen(newMemberInfo.memberId); j++)
-			{
-				if (isalpha(newMemberInfo.memberId[j]))
-				{
-					printf("Member ID should be start with character \'M\' and following with number.Please reenter!\n");
-					memberIDcheck = 0;
-				}
-			}
-
 			if (strlen(newMemberInfo.memberId) > 6 || strlen(newMemberInfo.memberId) < 2)
 			{
 				printf("Member ID at least 2 character and maximum 6.Please reenter!\n");
@@ -258,9 +250,21 @@ void addMember(Member memberInfo[], int memberSize)
 				printf("Member ID should be start with character \'M\'.Please reenter!\n");
 				memberIDcheck = 0;
 			}
+			else
+			{
+				for (int j = 1; j < strlen(newMemberInfo.memberId); j++)
+				{
+					if (isalpha(newMemberInfo.memberId[j]))
+					{
+						printf("Member ID should be start with character \'M\' and following with number.Please reenter!\n");
+						memberIDcheck = 0;
+						break;
+					}
+				}
+			}
 		}
 
-		if (tolower(newMemberInfo.memberId[0]) == 'x')
+		if (newMemberInfo.memberId[0] == 'X' && newMemberInfo.memberId[1] == '\0')
 		{
 			system("cls");
 			break;
