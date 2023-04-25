@@ -1,7 +1,7 @@
 ﻿  CombineVersion_Member.c
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(235,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(984,11): warning C4098: 'report': 'void' function returning a value
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(979,7): warning C4101: 'num': unreferenced local variable
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(1066,11): warning C4098: 'report2': 'void' function returning a value
-C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(1061,7): warning C4101: 'num': unreferenced local variable
-  Member.vcxproj -> C:\Users\user\Documents\GitHub\PCDII-Assignment\Member module\Member\Debug\Member.exe
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(248,23): warning C4018: '<': signed/unsigned mismatch
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(998,11): warning C4098: 'report': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(993,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(1080,11): warning C4098: 'report2': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Member\CombineVersion_Member.c(1075,7): warning C4101: 'num': unreferenced local variable
+  Member.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Member module\Member\Debug\Member.exe
