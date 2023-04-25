@@ -210,19 +210,12 @@ void addMember(Member memberInfo[], int memberSize)
 
 		system("cls");
 		//basic info
-
-		//Member name
-		printf("Enter Name:");
-		rewind(stdin);
-		scanf("%[^\n]", &newMemberInfo.name);
-		printf("\n");
-
 		//Member ID and validation
 		int memberIDcheck = 0;
 		while (memberIDcheck == 0)
 		{
 			memberIDcheck = 1;
-			printf("Enter Member id(M#####):");
+			printf("Enter Member id(M#####)(X = Exit) :");
 			rewind(stdin);
 			scanf("%s", &newMemberInfo.memberId);
 			printf("\n");
@@ -230,6 +223,10 @@ void addMember(Member memberInfo[], int memberSize)
 			upperchar[0] = newMemberInfo.memberId[0];
 			newMemberInfo.memberId[0] = toupper(upperchar[0]);
 
+			if (tolower(newMemberInfo.memberId[0]) == 'x')
+			{
+				break;
+			}
 
 			for (int j = 0; j < memberSize; j++)
 			{
@@ -261,8 +258,18 @@ void addMember(Member memberInfo[], int memberSize)
 				printf("Member ID should be start with character \'M\'.Please reenter!\n");
 				memberIDcheck = 0;
 			}
-
 		}
+
+		if (tolower(newMemberInfo.memberId[0]) == 'x')
+		{
+			system("cls");
+			break;
+		}
+		//Member name
+		printf("Enter Name:");
+		rewind(stdin);
+		scanf("%[^\n]", &newMemberInfo.name);
+		printf("\n");
 
 		//IC Number and validation
 		printf("Enter IC Number:");
