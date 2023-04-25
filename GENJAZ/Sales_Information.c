@@ -574,7 +574,7 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 		} while (valid == 0);
 
 		do {
-			valid = 1;
+			valid = 0;
 			printf("\n\t Enter Member Id (Enter X to exit) : ");
 			scanf(" %s", &addmemID);
 			printf("\n\t+==================================================================================+\n");
@@ -628,13 +628,26 @@ int addSRecord(SALES salesOrder[], int salesNum, Member memberInfo[], int member
 }
 
 void popularItem(SALES salesOrder[], int salesNum, MerchandiseInStock MIS[], int mDataSize) {
-	int itemSold[20] = { 0 }, popular = -99, least = 100, i, j;
-	char popularItem[10], unpopularItem[10];
+	int itemSold[20] = { 0 }, popular = -99, least = 100, i, j, temp;
+	char popularItem[10], unpopularItem[10], tempID[10];
 
+	
 	for (i = 0; i < mDataSize; i++) {
 		for (j = 0; j < salesNum; j++) {
 			if (strcmp(MIS[i].MCode, salesOrder[j].itemCode) == 0) {
 				itemSold[i] += salesOrder[j].qtySold;
+			}
+		}
+	}
+	for (i = 0; i < mDataSize; ++i) {
+		for (j = i + 1; j < mDataSize; ++j) {
+			if (itemSold[i] < itemSold[j]) {
+				temp = itemSold[i];
+				itemSold[i] = itemSold[j];
+				itemSold[j] = temp;
+				strcpy(tempID, MIS[i].MCode);
+				strcpy(MIS[i].MCode, MIS[j].MCode);
+				strcpy(MIS[j].MCode, tempID);
 			}
 		}
 	}
@@ -643,7 +656,7 @@ void popularItem(SALES salesOrder[], int salesNum, MerchandiseInStock MIS[], int
 	printf("\t Item Code\t\t\t\t   Unit Sold\n");
 	printf("\t+=============================================================+\n");
 	for (i = 0; i < mDataSize; i++) {
-		printf("\t %s   \t\t\t\t      %2d\n", MIS[i].MCode, itemSold[i]);
+		printf("\t %7s   \t\t\t\t      %2d\n", MIS[i].MCode, itemSold[i]);
 		if (itemSold[i] > popular) {
 			popular = itemSold[i];
 			strcpy(popularItem, MIS[i].MCode);
@@ -681,11 +694,11 @@ void salesCommissionReport(SALES salesOrder[], int salesNum, Member memberInfo[]
 		printf("\t%7s \t\t\t%6.2f\n", memberInfo[i].memberId, upLineComm[i]);
 	}
 	printf("\t+============================================+\n");
-	printf("\t Member Id that are NOT SHOWN below are eligible\n");
+	printf("\t Member Id that are SHOWN below are ELIGIBLE\n");
 	printf("\t to recive commission from their down line : \n");
 	printf("\t+============================================+\n");
 	for (i = 0; i < memberSize; i++) {
-		if (strcmp(memberInfo[i].uplineId, "-") == 1) {
+		if (strcmp(memberInfo[i].uplineId, "-") != 1) {
 			printf("\t\t\t    %6s \n", memberInfo[i].memberId);
 		}
 	}
@@ -716,7 +729,7 @@ void totalSalesReport(SALES salesOrder[], int salesNum) {
 
 void result(SALES salesOrder[], int i) {
 	//return result after validation to search function
-	printf("\t Sales Order ID  \t: %s \n\tItem Code \t\t: %s \n\tUnit Sold \t\t: %d\n\tSales Amount \t\t: $%-3.2f \n\tMember ID \t\t: %s \n\tSales Date  \t\t: %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
+	printf("\t Sales Order ID  \t: %s \n\t Item Code \t\t: %s \n\t Unit Sold \t\t: %d\n\t Sales Amount \t\t: $%-3.2f \n\t Member ID \t\t: %s \n\t Sales Date  \t\t: %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 		salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
 	printf("\t+===============================================+\n");
 }
@@ -733,6 +746,7 @@ void header() {
 	printf("\t SALES ORDER ID    ITEM CODE    QUANTITY     SALES AMOUNT    MEMBER ID    SALES DATE\n");
 	printf("\t+===================================================================================+\n");
 }
+
 void getMember1(Member memberInfo[], int* memberSize)
 {
 

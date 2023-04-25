@@ -41,7 +41,7 @@ void main() {
 			break;
 		case 4: stockModule();
 			break;
-		case 5:
+		case 5: return 0;
 			break;
 		default: printf("\n\t Not mataching result, Please select again\n");
 		}
