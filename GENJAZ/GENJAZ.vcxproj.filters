@@ -24,5 +24,8 @@
     <ClCompile Include="Member_Information.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Stock_Information.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

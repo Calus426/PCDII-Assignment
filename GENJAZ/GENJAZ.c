@@ -3,6 +3,7 @@
 
 void memberModule();
 void SalesInformationModule();
+void stockModule();
 
 void main() {
 	int select = 0;
@@ -38,7 +39,7 @@ void main() {
 			break;
 		case 3: SalesInformationModule();
 			break;
-		case 4:
+		case 4: stockModule();
 			break;
 		case 5:
 			break;

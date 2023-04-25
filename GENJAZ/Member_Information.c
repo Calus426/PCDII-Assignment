@@ -53,7 +53,7 @@ void memberModule();
 void addMember(Member[], int);
 void display(Member[], int);
 void getMember(Member[], int*);
-void search(Member[], int);
+void memberSearch(Member[], int);
 void detailDisplay(Member memberInfo[], int memberSize);
 int searchMenu();
 void modifyMember(Member memberInfo[], int memberSize);
@@ -68,12 +68,13 @@ void report2(Member memberInfo[], int memberSize);
 //}
 void memberModule() //Menu for Member Module
 {
+	
 	Member member[100];
 	int memberSize;
 	getMember(member, &memberSize);
 	int choice;
 	//above 4 need to put at void main
-
+	system("cls");
 
 	do {
 		choice = 0;
@@ -101,7 +102,7 @@ void memberModule() //Menu for Member Module
 			break;
 
 		case 2:  addMember(member, memberSize); getMember(member, &memberSize); break;
-		case 3:  search(member, memberSize); system("cls"); break;
+		case 3:  memberSearch(member, memberSize); system("cls"); break;
 		case 4:  modifyMember(member, memberSize);	system("cls"); break;
 		case 5:  display(member, memberSize); deleteMember(member, &memberSize); system("cls"); break;
 		case 6:	 report(member, memberSize); system("cls"); break;
@@ -525,7 +526,7 @@ void addMember(Member memberInfo[], int memberSize)
 }
 
 //Search Function
-void search(Member memberInfo[], int memberSize)
+void memberSearch(Member memberInfo[], int memberSize)
 {
 	system("cls");
 	Member matchMember[100];

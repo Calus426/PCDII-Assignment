@@ -1,4 +1,6 @@
-﻿  list.c
+﻿  add.c
   main.c
+  MData.c
+  stock_combine.c
   Generating Code...
-  Stock Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\x64\Debug\Stock Module.exe
+  Stock Module.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\Stock Module\Stock Module\x64\Debug\Stock Module.exe
