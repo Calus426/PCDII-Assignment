@@ -20,6 +20,7 @@ void displayData(MerchandiseInStock MIS[], int mDataSize);
 void deleteData(MerchandiseInStock MIS[], int *mDataSize);
 void modifyData(MerchandiseInStock MIS[], int *mDataSize);
 void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize);
+void merchandiseList(MerchandiseInStock MIS[], int mDataSize);
 
 void main() {
 
@@ -35,11 +36,11 @@ void main() {
 			"      What is Your Next Move??\n"
 			"  ================================\n"
 			"   1. Add a new Merchandise\n"
-			"   2. Modify Merchandise Data\n"
-			"   3. Check Merchandise List\n"
+			"   2. Modify Merchandise Detail\n"
+			"   3. Search Merchandise Detail\n"
 			"   4. Delete Merchandise Data\n"
 			"   5. Restock Merchandise\n"
-			"   6. Report\n"
+			"   6. Merchandise Detail\n"
 			"   7. Exit\n"
 			"\n\n"
 			"  Enter your choice  : ");
@@ -74,7 +75,7 @@ void main() {
 
 
 			case 6:
-
+					merchandiseList(MIS, mDataSize);
 					break;
 
 			case 7:

@@ -1,10 +1,4 @@
-﻿  main.c
-  restock.c
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\restock.c(23,3): warning C4013: 'displayData' undefined; assuming extern returning int
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\restock.c(34,9): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\restock.c(19,28): warning C4101: 'qReoerder': unreferenced local variable
-  search.c
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(24,3): warning C4013: 'displayData' undefined; assuming extern returning int
-C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\Stock Module\search.c(35,9): warning C4013: 'strcmp' undefined; assuming extern returning int
+﻿  list.c
+  main.c
   Generating Code...
   Stock Module.vcxproj -> C:\Users\Administrator\Desktop\PCDII-Assignment\Stock Module\Stock Module\x64\Debug\Stock Module.exe
