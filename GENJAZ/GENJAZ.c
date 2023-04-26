@@ -4,6 +4,7 @@
 void memberModule();
 void SalesInformationModule();
 void stockModule();
+int staffInformationModule();
 void logo();
 void menu();
 
@@ -19,7 +20,7 @@ void main() {
 		scanf("%d", &select);
 
 		switch (select) {
-		case 1:
+		case 1: staffInformationModule();
 			break;
 		case 2: memberModule();
 			break;

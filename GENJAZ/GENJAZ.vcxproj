@@ -142,6 +142,7 @@
     <ClCompile Include="GENJAZ.c" />
     <ClCompile Include="Member_Information.c" />
     <ClCompile Include="Sales_Information.c" />
+    <ClCompile Include="Staff_Information.c" />
     <ClCompile Include="Stock_Information.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
