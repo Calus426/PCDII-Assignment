@@ -147,6 +147,7 @@ void displaySRecord(SALES salesOrder[], int salesNum) {
 
 void searchSRecord(SALES salesOrder[], int salesNum) {
 	int opt, i, matchSearch;
+	system("cls");
 	printf("\n\t\t\t Search Record\n");
 	do {
 		printf("\n\t Search Record by : \n");
@@ -728,7 +729,7 @@ void totalSalesReport(SALES salesOrder[], int salesNum) {
 }
 
 void result(SALES salesOrder[], int i) {
-	//return result after validation to search function
+	//return result after validation to search function or show update modify result
 	printf("\t Sales Order ID  \t: %s \n\t Item Code \t\t: %s \n\t Unit Sold \t\t: %d\n\t Sales Amount \t\t: $%-3.2f \n\t Member ID \t\t: %s \n\t Sales Date  \t\t: %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 		salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
 	printf("\t+===============================================+\n");
