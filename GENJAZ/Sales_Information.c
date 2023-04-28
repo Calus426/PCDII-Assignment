@@ -28,6 +28,8 @@ typedef struct
 	char MName[30];
 	double MPrice;
 	int MStock, MMinimum, MReorder;
+	Date reorderDate;
+
 }MerchandiseInStock;
 
 //data field that will be use by the sale information module
@@ -57,13 +59,13 @@ void salesCommissionReport(SALES[], int, Member[], int);
 void modifySReccord(SALES[], int, Member[], int , MerchandiseInStock[], int);
 int  addSRecord(SALES[], int, Member[], int, MerchandiseInStock[], int);
 
-void SalesInformationModule() {
+void SalesInformationModule()	 {
 	//read lucas and terence's file
 	Member memberInfo[20];
 	int memberSize = 0;
 	getMember1(memberInfo, &memberSize);
 
-	MerchandiseInStock MIS[20];
+	MerchandiseInStock MIS[15];
 	int mDataSize = 0;
 	merchandiseData1(MIS, &mDataSize);
 
@@ -801,8 +803,9 @@ void merchandiseData1(MerchandiseInStock MIS[], int* mDataSize)
 	*mDataSize = 0;
 
 	int i = 0;
-	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d|\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder) != EOF)
+	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d|%d-%d-%d|\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder, &MIS[i].reorderDate.day, &MIS[i].reorderDate.month, &MIS[i].reorderDate.year) != EOF)
 	{
+
 		i++;
 		*mDataSize = i;
 	}
