@@ -99,6 +99,18 @@ void getSales(SALES salesOrder[], int *salesNum) {
 	}
 }
 
+void insertData(SALES salesOrder[], int salesNum) {
+	FILE* update = fopen("salesRecord.bin", "wb");
+	if (update == NULL) {
+		printf("\tError file \"salesRecord.bin\" cannot be open!\n");
+		return 0;
+	}
+	for (int i = 0; i < salesNum; i++) {
+		fwrite(&salesOrder[i], sizeof(SALES), 1, update);
+	}
+	fclose(update);
+}
+
 //function of the sales information module
 void displaySRecord(SALES salesOrder[],int salesNum);
 void searchSRecord(SALES salesOrder[], int salesNum);
@@ -169,15 +181,7 @@ void main() {
 			break;
 
 		case 8: 
-			FILE* update = fopen("salesRecord.bin", "wb");
-			if (update == NULL) {
-				printf("\tError file \"salesRecord.bin\" cannot be open!\n");
-				return 0;
-			}
-			for (int i = 0; i < salesNum; i++) {
-				fwrite(&salesOrder[i], sizeof(SALES), 1, update);
-			}
-			fclose(update);
+			insertData(salesOrder, salesNum);
 			printf("\n\t\t\tTHANK YOU HAVE A NICE DAY\n\n");
 			break;
 

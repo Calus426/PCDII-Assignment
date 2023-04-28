@@ -1,9 +1,9 @@
 ﻿  Sales_Information.c
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(120,13): warning C4098: 'SalesInformationModule': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(177,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(329,12): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(349,12): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(392,15): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(526,9): warning C4101: 'addSprice': unreferenced local variable
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(825,11): warning C4098: 'getSales': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(169,15): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(321,12): warning C4098: 'searchSRecord': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(341,12): warning C4098: 'modifySReccord': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(384,15): warning C4013: 'strcpy' undefined; assuming extern returning int
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(518,9): warning C4101: 'addSprice': unreferenced local variable
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(817,11): warning C4098: 'getSales': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(830,11): warning C4098: 'insertData': 'void' function returning a value
   GENJAZ.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe

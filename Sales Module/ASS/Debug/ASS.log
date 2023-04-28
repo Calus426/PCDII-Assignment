@@ -1,24 +1,22 @@
 ﻿  Sales.c
 C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(93,11): warning C4098: 'getSales': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(175,5): warning C4098: 'main': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(230,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(230,26): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(230,24): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(252,36): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(252,24): warning C4024: 'toupper': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(352,12): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(371,33): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(371,22): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(372,12): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(410,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(410,26): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(415,15): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(486,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(486,26): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(580,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(580,23): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(624,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(624,23): warning C4024: 'tolower': different types for formal and actual parameter 1
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(549,9): warning C4101: 'addSprice': unreferenced local variable
-C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(674,62): warning C4101: 'temp': unreferenced local variable
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(106,11): warning C4098: 'insertData': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(234,15): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(234,26): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(234,24): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(256,36): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(256,24): warning C4024: 'toupper': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(356,12): warning C4098: 'searchSRecord': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(375,33): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(375,22): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(376,12): warning C4098: 'modifySReccord': 'void' function returning a value
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(414,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(414,26): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(419,15): warning C4013: 'strcpy' undefined; assuming extern returning int
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(490,34): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(490,26): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(628,31): warning C4047: 'function': 'int' differs in levels of indirection from 'char [10]'
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(628,23): warning C4024: 'tolower': different types for formal and actual parameter 1
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(553,9): warning C4101: 'addSprice': unreferenced local variable
+C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Sales.c(678,62): warning C4101: 'temp': unreferenced local variable
   ASS.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\Sales Module\ASS\Debug\ASS.exe

@@ -44,6 +44,7 @@ typedef struct {
 void getMember1(Member[], int*);
 void merchandiseData1(MerchandiseInStock[], int*);
 void getSales(SALES[], int*);
+void insertData(SALES[], int);
 void header();
 void updatedData();
 void validation(int);
@@ -84,7 +85,7 @@ void SalesInformationModule() {
 		printf("\t 6)    SALES   COMMISSIONS REPORT\n");
 		printf("\t 7)    TOTAL   SALES REPORT\n");
 		printf("\t 8)    EXIT\n");
-		printf("\t+================================+\n");
+		printf("\t+=================================+\n");
 		printf("\t PLEASE ENTER AN OPTION : ");
 		rewind(stdin);
 		//select an option to go to desired function
@@ -113,17 +114,8 @@ void SalesInformationModule() {
 		case 7: totalSalesReport(salesOrder, salesNum);
 			break;
 
-		case 8:
-			FILE * update = fopen("salesRecord.bin", "wb");
-			if (update == NULL) {
-				printf("\tError file \"salesRecord.bin\" cannot be open!\n");
-				return 0;
-			}
-			for (int i = 0; i < salesNum; i++) {
-				fwrite(&salesOrder[i], sizeof(SALES), 1, update);
-			}
-			fclose(update);
-			printf("\n\t\t\tTHANK YOU HAVE A NICE DAY\n\n");
+		case 8: insertData(salesOrder,salesNum);
+				printf("\n\t\t\tTHANK YOU HAVE A NICE DAY\n\n");
 			break;
 
 		default: printf("\n\tPLEASE ENTER A CORRECT OPTION\n");
@@ -829,4 +821,16 @@ void getSales(SALES salesOrder[], int* salesNum) {
 	while (fread(&salesOrder[*salesNum], sizeof(SALES), 1, fileOpen) != 0) {
 		(*salesNum)++;
 	}
+}
+
+void insertData(SALES salesOrder[], int salesNum) {
+	FILE* update = fopen("salesRecord.bin", "wb");
+	if (update == NULL) {
+		printf("\tError file \"salesRecord.bin\" cannot be open!\n");
+		return 0;
+	}
+	for (int i = 0; i < salesNum; i++) {
+		fwrite(&salesOrder[i], sizeof(SALES), 1, update);
+	}
+	fclose(update);
 }
