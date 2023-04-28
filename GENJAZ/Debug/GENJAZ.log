@@ -1,18 +1,7 @@
-﻿  Staff_Information.c
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(45,23): warning C4013: 'strcmp' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(101,24): warning C4013: 'staffSearch' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(104,23): warning C4013: 'changePass' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(24,43): warning C4101: 'key': unreferenced local variable
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(123,9): warning C4101: 'choice': unreferenced local variable
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(122,23): warning C4101: 'login_password': unreferenced local variable
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(122,10): warning C4101: 'login_id': unreferenced local variable
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(168,9): warning C4033: 'changePass' must return a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(171,23): warning C4473: 'fscanf' : not enough arguments passed for format string
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(171,23): message : placeholders and their parameters expect 8 variadic arguments, but 7 were provided
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(171,23): message : the missing variadic argument 8 is required by format string '%s'
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(178,23): warning C4013: 'strcpy' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(197,13): warning C4013: 'main' undefined; assuming extern returning int
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(207): warning C4715: 'changePass': not all control paths return a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(153): warning C4715: 'staffSearch': not all control paths return a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Staff_Information.c(116): warning C4715: 'staffInformationModule': not all control paths return a value
+﻿  Member_Information.c
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(256,23): warning C4018: '<': signed/unsigned mismatch
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1005,11): warning C4098: 'report': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1000,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1087,11): warning C4098: 'report2': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1082,7): warning C4101: 'num': unreferenced local variable
   GENJAZ.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe

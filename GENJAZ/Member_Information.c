@@ -101,7 +101,7 @@ void memberModule() //Menu for Member Module
 			system("cls");
 			break;
 
-		case 2:  addMember(member, memberSize); getMember(member, &memberSize); break;
+		case 2:  addMember(member, memberSize); getMember(member, &memberSize); system("cls"); break;
 		case 3:  memberSearch(member, memberSize); system("cls"); break;
 		case 4:  modifyMember(member, memberSize);	system("cls"); break;
 		case 5:  display(member, memberSize); deleteMember(member, &memberSize); system("cls"); break;
