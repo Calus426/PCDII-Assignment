@@ -31,8 +31,9 @@ void main() {
 		case 5: printf("\n\t\t\t     Thank You, Hope to See You Soon!\n");
 			return 0;
 			break;
-		default: printf("\n\t Not mataching result, Please select again\n");
-		}
+		default: printf("\n\t\t\t No mataching result, Please select again\n\n\n\t\t\t ");
+				 system("pause");
+		}	
 	} while (select != 5);
 }
 

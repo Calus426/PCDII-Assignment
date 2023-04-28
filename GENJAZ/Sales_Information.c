@@ -45,6 +45,7 @@ void getMember1(Member[], int*);
 void merchandiseData1(MerchandiseInStock[], int*);
 void getSales(SALES[], int*);
 void header();
+void updatedData();
 void validation(int);
 void result(SALES[], int);
 void displaySRecord(SALES[], int);
@@ -184,6 +185,7 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 					}
 				}
 				//validating data inputed by user
+				system("pause");
 				validation(matchSearch);
 			} while (matchSearch == -1);
 			break;
@@ -204,6 +206,7 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 						matchSearch = i;
 					}
 				}
+				system("pause");
 				validation(matchSearch);
 			} while (matchSearch == -1);
 			break;
@@ -224,6 +227,7 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 						matchSearch = i;
 					}
 				}
+				system("pause");
 				validation(matchSearch);
 			} while (matchSearch == -1);
 			break;
@@ -262,9 +266,11 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 								matchSearch = i;
 							}
 						}
+						system("pause");
 						validation(matchSearch);
 					} while (matchSearch == -1);
 					break;
+
 				case 2:
 					do {
 						findMonth = 0;
@@ -282,9 +288,11 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 								matchSearch = i;
 							}
 						}
+						system("pause");
 						validation(matchSearch);
 					} while (matchSearch == -1);
 					break;
+
 				case 3:
 					do {
 						findYear = 0;
@@ -302,11 +310,14 @@ void searchSRecord(SALES salesOrder[], int salesNum) {
 								matchSearch = i;
 							}
 						}
+						system("pause");
 						validation(matchSearch);
 					} while (matchSearch == -1);
 					break;
+
 				case 4: break;
 					break;
+
 				default:
 					printf("\n\t PLEASE ENTER A CORRECT OPTION\n\n");
 					printf("\t+==============================+\n");
@@ -379,10 +390,10 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 						for (i = 0; i < salesNum; i++) {
 							if (strcmp(newICode, MIS[i].MCode) == 0) {
 								strcpy(salesOrder[matchSearch].itemCode, newICode);
-								printf("\n\t\tUpdated data\n");
-								printf("\n\t+===============================================+\n");
+								updatedData();
 								result(salesOrder, matchSearch);
 								j++;
+								system("pause");
 							}
 						}
 						if (j == 0) {
@@ -405,10 +416,10 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 						}
 						if (newSold > 0 && newSold < 100) {
 							salesOrder[matchSearch].qtySold = newSold;
-							printf("\n\t\t\t    Updated data");
-							printf("\n\t+===============================================+\n");
+							updatedData();
 							result(salesOrder, matchSearch);
 							j++;
+							system("pause");
 						}
 						else {
 							printf("\t+======================================================+\n");
@@ -430,7 +441,10 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 						}
 						if (newPrice > 0 && newPrice < 10000) {
 							salesOrder[matchSearch].price = newPrice;
+							updatedData();
+							result(salesOrder, matchSearch);
 							j++;
+							system("pause");
 						}
 						else {
 							printf("\t+======================================================+\n");
@@ -452,7 +466,10 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 						for (i = 0; i < memberSize; i++) {
 							if (strcmp(newMemID, memberInfo[i].memberId) == 0) {
 								strcpy(salesOrder[matchSearch].memberId, newMemID);
+								updatedData();
+								result(salesOrder, matchSearch);
 								j++;
+								system("pause");
 							}
 						}
 						if (j == 0) {
@@ -477,7 +494,10 @@ void modifySReccord(SALES salesOrder[], int salesNum, Member memberInfo[], int m
 							salesOrder[matchSearch].date.day = newDay;
 							salesOrder[matchSearch].date.month = newMonth;
 							salesOrder[matchSearch].date.year = newYear;
+							updatedData();
+							result(salesOrder, matchSearch);
 							j++;
+							system("pause");
 						}
 						else {
 							printf("\t+======================================================+\n");
@@ -732,13 +752,13 @@ void result(SALES salesOrder[], int i) {
 	//return result after validation to search function or show update modify result
 	printf("\t Sales Order ID  \t: %s \n\t Item Code \t\t: %s \n\t Unit Sold \t\t: %d\n\t Sales Amount \t\t: $%-3.2f \n\t Member ID \t\t: %s \n\t Sales Date  \t\t: %02d/%02d/%04d\n", salesOrder[i].salesOrderId, salesOrder[i].itemCode,
 		salesOrder[i].qtySold, salesOrder[i].price, salesOrder[i].memberId, salesOrder[i].date.day, salesOrder[i].date.month, salesOrder[i].date.year);
-	printf("\t+===============================================+\n");
+	printf("\t+===============================================+\n\n");
 }
 void validation(int matchSearch) {
 	//search validation, print out massage if invalid
 	if (matchSearch == -1) {
 		printf("\n\t No matching result found, please enter again.\n\n");
-		printf("\t+===============================+\n");
+		printf("\t+===============================================+\n\n");
 	}
 }
 void header() {
@@ -746,6 +766,10 @@ void header() {
 	printf("\t+===================================================================================+\n");
 	printf("\t SALES ORDER ID    ITEM CODE    QUANTITY     SALES AMOUNT    MEMBER ID    SALES DATE\n");
 	printf("\t+===================================================================================+\n");
+}
+void updatedData() {
+	printf("\n\t\t\t    Updated data");
+	printf("\n\t+===============================================+\n");
 }
 
 void getMember1(Member memberInfo[], int* memberSize)
