@@ -149,9 +149,19 @@ void addNew()
 		printf("Unable to open the file\n");
 		exit(-1);
 	}
-	char option;
+	char option, menu;
 	do
 	{
+
+		printf("  Press Y when you sure to add new merchandise data 'N' back to menu : ");
+		scanf(" %c", &menu);
+
+		if (toupper(menu) == 'N')
+		{
+			return 0;
+		}
+		else if (toupper(menu) =='Y')
+		{
 		printf("1. Enter New Merchandise Code              :");
 		scanf("%s", &NM.MCode);
 
@@ -170,12 +180,19 @@ void addNew()
 		printf("6. Enter New Merchandise Reorder Quantity  :");
 		scanf(" %d", &NM.MReorder);
 
+		
 		NM.reorderDate.day = 0;
 		NM.reorderDate.month = 0;
 		NM.reorderDate.year = 0;
 
 		fprintf(AN, "\n%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder, NM.reorderDate.day, NM.reorderDate.month, NM.reorderDate.year);
 
+		}
+		else
+		{
+			printf("  Wrong input enter...\n");
+			return 0;
+		}
 		printf("\nAny New Merchandise More ? (if Yes press Y or No press N) :");
 		scanf(" %c", &option);
 
@@ -203,10 +220,26 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 	MerchandiseInStock matchData;
 
 	char  MTSCode[10];
+	char menu;
+
+	printf("  Press Y when you sure to modify merchandise data 'N' back to menu : ");
+	scanf(" %c", &menu);
+
+	if (toupper(menu) == 'N')
+	{
+		return 0;
+	}
+	else if (toupper(menu) == 'Y')
+	{
 
 	printf("  Please Enter Merchandise Code : ");
 	scanf(" %s", &MTSCode);
-
+	}
+	else
+	{
+		printf("  Wrong input enter...\n");
+		return 0;
+	}
 
 	for (int i = 0; i < *mDataSize; i++)
 	{
@@ -369,10 +402,25 @@ void search(MerchandiseInStock MIS[], int mDataSize)
 		MerchandiseInStock matchData;
 
 		char  MTSCode[30];
+		char menu;
 
+		printf("  Press Y when you sure to search merchandise data 'N' back to menu : ");
+		scanf(" %c", &menu);
+
+		if (toupper(menu) == 'N')
+		{
+			return 0;
+		}
+		else if(toupper(menu)  == 'Y')
+		{ 
 		printf("  Please Enter Merchandise Code : ");
 		scanf(" %s", &MTSCode);
-
+		}
+		else
+		{
+			printf("  Wrong input enter...");
+			return 0;
+		}
 
 		for (int i = 0; i < mDataSize; i++)
 		{
@@ -413,10 +461,25 @@ void deleteData(MerchandiseInStock MIS[], int* mDataSize)
 		MerchandiseInStock matchData;
 
 		char  MTSCode[10];
+		char menu;
 
-		printf("  Please Enter Merchandise Code : ");
-		scanf(" %s", &MTSCode);
+		printf("  Press Y when you sure to delete merchandise data 'N' back to menu : ");
+		scanf(" %c", &menu);
 
+		if (toupper(menu) == 'N')
+		{
+			return 0;
+		}
+		else if (toupper(menu) == 'Y')
+		{
+			printf("  Please Enter Merchandise Code : ");
+			scanf(" %s", &MTSCode);
+		}
+		else
+		{
+			printf("  Wrong input enter...\n");
+			return 0;
+		}
 
 		for (int i = 0; i < *mDataSize; i++)
 		{
@@ -501,10 +564,26 @@ void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize)
 
 		char  MTSCode[30];
 		int	  matchNumber;
+		char menu;
 
-		printf("  Please Enter Merchandise Code : ");
-		scanf(" %s", &MTSCode);
+		printf("  Press Y when you sure to search merchandise data 'N' back to menu : ");
+		scanf(" %c", &menu);
 
+		if (toupper(menu) == 'N')
+		{
+			return 0;
+		}
+		else if (toupper(menu) == 'Y')
+		{
+			printf("  Please Enter Merchandise Code : ");
+			scanf(" %s", &MTSCode);
+
+		}
+		else
+		{
+			printf("  Wrong input enter...\n");
+			return 0;
+		}
 		for (int i = 0; i < *mDataSize; i++)
 		{
 			if ((strcmp(MTSCode, MIS[i].MCode) == 0))
