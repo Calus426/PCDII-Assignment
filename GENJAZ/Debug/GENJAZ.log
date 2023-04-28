@@ -1,9 +1,16 @@
-﻿  Sales_Information.c
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(169,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(321,12): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(341,12): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(384,15): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(518,9): warning C4101: 'addSprice': unreferenced local variable
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(817,11): warning C4098: 'getSales': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(830,11): warning C4098: 'insertData': 'void' function returning a value
-  GENJAZ.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe
+﻿  Stock_Information.c
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(161,12): warning C4098: 'addNew': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(194,12): warning C4098: 'addNew': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(230,11): warning C4098: 'modifyData': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(241,11): warning C4098: 'modifyData': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(246,14): warning C4013: 'strcmp' undefined; assuming extern returning int
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(287,9): warning C4013: 'strcpy' undefined; assuming extern returning int
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(210,14): warning C4101: 'selection': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(412,12): warning C4098: 'search': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(422,12): warning C4098: 'search': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(471,12): warning C4098: 'deleteData': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(481,12): warning C4098: 'deleteData': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(574,12): warning C4098: 'restockMerchandise': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(585,12): warning C4098: 'restockMerchandise': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Stock_Information.c(558,28): warning C4101: 'qReoerder': unreferenced local variable
+  GENJAZ.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe

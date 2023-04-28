@@ -59,8 +59,8 @@ int searchMenu();
 void modifyMember(Member memberInfo[], int memberSize);
 void deleteMember(Member memberInfo[], int* memberSize);
 void displayResult(Member memberInfo[], int memberSize);
-void report(Member memberInfo[], int memberSize);
-void report2(Member memberInfo[], int memberSize);
+void report_buyMost(Member memberInfo[], int memberSize);
+void report_highestSpent(Member memberInfo[], int memberSize);
 
 //void main()
 //{
@@ -78,9 +78,9 @@ void memberModule() //Menu for Member Module
 
 	do {
 		choice = 0;
-		printf("\t\t========================\n");
-		printf("\t\tChoose ur next move!!\n");
-		printf("\t\t========================\n\n\n");
+		printf("\t\t==================================\n");
+		printf("\t\tWELCOME TO MEMBER INFORMATION MENU\n");
+		printf("\t\t==================================\n\n\n");
 		printf("\t\t1.Display member\n");
 		printf("\t\t2.Add member\n");
 		printf("\t\t3.Search member\n");
@@ -101,13 +101,13 @@ void memberModule() //Menu for Member Module
 			system("cls");
 			break;
 
-		case 2:  addMember(member, memberSize); getMember(member, &memberSize); break;
+		case 2:  addMember(member, memberSize); getMember(member, &memberSize); system("cls"); break;
 		case 3:  memberSearch(member, memberSize); system("cls"); break;
 		case 4:  modifyMember(member, memberSize);	system("cls"); break;
 		case 5:  display(member, memberSize); deleteMember(member, &memberSize); system("cls"); break;
-		case 6:	 report(member, memberSize); system("cls"); break;
-		case 7:  report2(member, memberSize); system("cls"); break;
-		case 8:  break;
+		case 6:	 report_buyMost(member, memberSize); system("cls"); break;
+		case 7:  report_highestSpent(member, memberSize); system("cls"); break;
+		case 8:  printf("\n\n\t\tBYEBYE!\n\n"); system("pause"); break;
 		default:printf("Enter valid choice!(1-7)\n"); system("pause"); system("cls");
 		}
 
@@ -322,42 +322,50 @@ void addMember(Member memberInfo[], int memberSize)
 
 
 		//Upline ID and validation
+		do
+		{
 		printf("Member got a upline id(Y/N)? ");
 		rewind(stdin);
 		scanf("%c", &uplineYesNo);
-
-		if (tolower(uplineYesNo) == 'y')
-		{
-			printf("Upline id:");
-			rewind(stdin);
-			scanf("%s", &newMemberInfo.uplineId);
-
-			while (strlen(newMemberInfo.uplineId) > 6 || strlen(newMemberInfo.uplineId) < 2)
+		
+			if (tolower(uplineYesNo) == 'y')
 			{
-				printf("Upline ID at least 2 character and maximun 6.Please reenter!\n");
-				printf("Enter Upline id:");
+				printf("Upline id(UL####):");
 				rewind(stdin);
 				scanf("%s", &newMemberInfo.uplineId);
+
+				while (strlen(newMemberInfo.uplineId) > 6 || strlen(newMemberInfo.uplineId) < 2)
+				{
+					printf("Upline ID at least 2 character and maximun 6.Please reenter!\n");
+					printf("Enter Upline id:");
+					rewind(stdin);
+					scanf("%s", &newMemberInfo.uplineId);
+				}
+
+				while (newMemberInfo.uplineId[0] != 'U' && newMemberInfo.uplineId[0] != 'u' || (newMemberInfo.uplineId[1] != 'l' && newMemberInfo.uplineId[1] != 'L'))
+				{
+					printf("Upline ID should be start with character \'UL\'.Please reenter!\n");
+					printf("Enter Upline id:");
+					rewind(stdin);
+					scanf("%s", &newMemberInfo.uplineId);
+				}
+				upperchar[1] = newMemberInfo.uplineId[0];
+				newMemberInfo.uplineId[0] = toupper(upperchar[1]);
+
+				upperchar[2] = newMemberInfo.uplineId[1];
+				newMemberInfo.uplineId[1] = toupper(upperchar[2]);
 			}
 
-			while (newMemberInfo.uplineId[0] != 'U' && newMemberInfo.uplineId[0] != 'u' || (newMemberInfo.uplineId[1] != 'l' && newMemberInfo.uplineId[1] != 'L'))
+			else if (tolower(uplineYesNo) == 'n')
 			{
-				printf("Upline ID should be start with character \'UL\'.Please reenter!\n");
-				printf("Enter Upline id:");
-				rewind(stdin);
-				scanf("%s", &newMemberInfo.uplineId);
+				strcpy(newMemberInfo.uplineId, "    -");
+				printf("\n");
 			}
-			upperchar[1] = newMemberInfo.uplineId[0];
-			newMemberInfo.uplineId[0] = toupper(upperchar[1]);
-
-			upperchar[2] = newMemberInfo.uplineId[1];
-			newMemberInfo.uplineId[1] = toupper(upperchar[2]);
-		}
-
-		else
-			strcpy(newMemberInfo.uplineId, "    -");
+			else
+				printf("Please enter valid choice(Y/N).\n");
+			
+		} while (tolower(uplineYesNo) != 'n' && tolower(uplineYesNo) != 'y');
 		printf("\n");
-
 
 		//Date join validation
 		int dateCheck = 0;
@@ -989,7 +997,7 @@ void deleteMember(Member memberInfo[], int* memberSize)
 }
 
 //Report1
-void report(Member memberInfo[], int memberSize)
+void report_buyMost(Member memberInfo[], int memberSize)
 {
 	system("cls");
 
@@ -1071,7 +1079,7 @@ void report(Member memberInfo[], int memberSize)
 }
 
 //Report2
-void report2(Member memberInfo[], int memberSize)
+void report_highestSpent(Member memberInfo[], int memberSize)
 {
 	system("cls");
 
