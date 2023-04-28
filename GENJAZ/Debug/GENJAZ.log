@@ -1,9 +1,7 @@
-﻿  Sales_Information.c
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(120,13): warning C4098: 'SalesInformationModule': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(177,15): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(329,12): warning C4098: 'searchSRecord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(349,12): warning C4098: 'modifySReccord': 'void' function returning a value
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(392,15): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(526,9): warning C4101: 'addSprice': unreferenced local variable
-C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Sales_Information.c(825,11): warning C4098: 'getSales': 'void' function returning a value
-  GENJAZ.vcxproj -> C:\Users\Ai\Desktop\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe
+﻿  Member_Information.c
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(256,23): warning C4018: '<': signed/unsigned mismatch
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1013,11): warning C4098: 'report_buyMost': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1008,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1095,11): warning C4098: 'report_highestSpent': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1090,7): warning C4101: 'num': unreferenced local variable
+  GENJAZ.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe
