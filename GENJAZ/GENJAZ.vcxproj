@@ -145,6 +145,9 @@
     <ClCompile Include="Staff_Information.c" />
     <ClCompile Include="Stock_Information.c" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="stock.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -6,10 +6,17 @@
 
 typedef struct
 {
+	int day, month, year;
+
+}Date;
+
+typedef struct
+{
 	char MCode[10];
 	char MName[30];
 	double MPrice;
 	int MStock, MMinimum, MReorder;
+	Date reorderDate;
 
 }MerchandiseInStock;
 
@@ -19,6 +26,7 @@ typedef struct
 	char MName[30];
 	double MPrice;
 	int MStock, MMinimum, MReorder;
+	Date reorderDate;
 
 }NewMerchandise;
 
@@ -105,7 +113,6 @@ void stockModule() {
 
 }
 
-
 void merchandiseData(MerchandiseInStock MIS[], int* mDataSize)
 {
 	FILE* MD;
@@ -120,7 +127,7 @@ void merchandiseData(MerchandiseInStock MIS[], int* mDataSize)
 	*mDataSize = 0;
 
 	int i = 0;
-	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d|\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder) != EOF)
+	while (fscanf(MD, "%[^|]|%[^|]|%lf|%d|%d|%d|%d-%d-%d|\n", &MIS[i].MCode, &MIS[i].MName, &MIS[i].MPrice, &MIS[i].MStock, &MIS[i].MMinimum, &MIS[i].MReorder, &MIS[i].reorderDate.day, &MIS[i].reorderDate.month, &MIS[i].reorderDate.year) != EOF)
 	{
 
 		i++;
@@ -163,7 +170,11 @@ void addNew()
 		printf("6. Enter New Merchandise Reorder Quantity  :");
 		scanf(" %d", &NM.MReorder);
 
-		fprintf(AN, "%s|%s|%.2lf|%d|%d|%d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder);
+		NM.reorderDate.day = 0;
+		NM.reorderDate.month = 0;
+		NM.reorderDate.year = 0;
+
+		fprintf(AN, "\n%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|", NM.MCode, NM.MName, NM.MPrice, NM.MStock, NM.MMinimum, NM.MReorder, NM.reorderDate.day, NM.reorderDate.month, NM.reorderDate.year);
 
 		printf("\nAny New Merchandise More ? (if Yes press Y or No press N) :");
 		scanf(" %c", &option);
@@ -184,7 +195,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 	char mMCode[10];
 	char mMName[30];
 	double mMPrice;
-	int mMStock, mMMinimum, mMReorder;
+	int mMStock, mMMinimum, mMReorder, rDay, rMonth, rYear;
 
 
 
@@ -216,6 +227,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 	printf("  MERCHANDISE STOCK IN HAND    : %d\n", matchData.MStock);
 	printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", matchData.MMinimum);
 	printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
+	printf("  MERCHANDISE LAST REORDER DATE: %d-%d-%d\n", matchData.reorderDate.day, matchData.reorderDate.month, matchData.reorderDate.year);
 	printf("  =====================================================\n\n");
 
 	printf("    Which data you will like to change \n");
@@ -226,6 +238,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 	printf("    4. Stock Quantity\n");
 	printf("    5. Minimum Level\n");
 	printf("    6. Reorder Quantity\n");
+	printf("    7. Last Reorder Date\n");
 	printf("  ======================================\n\n");
 	printf("  Enter your choice :");
 	scanf(" %d", &option);
@@ -242,7 +255,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 
 		for (int k = 0; k < *mDataSize; k++)
 		{
-			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
@@ -256,7 +269,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 
 		for (int k = 0; k < *mDataSize; k++)
 		{
-			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
@@ -270,7 +283,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 
 		for (int k = 0; k < *mDataSize; k++)
 		{
-			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
@@ -284,7 +297,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 
 		for (int k = 0; k < *mDataSize; k++)
 		{
-			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
@@ -298,7 +311,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 
 		for (int k = 0; k < *mDataSize; k++)
 		{
-			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
@@ -309,15 +322,31 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		printf("  Enter New Merchandise Reorder Quantity   :");
 		scanf(" %d", &mMReorder);
 		MIS[matchNumber].MReorder = mMReorder;
+
 		for (int k = 0; k < *mDataSize; k++)
 		{
-			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
 		printf("  ==========================================");
 		break;
 
+	case 7:
+		printf("  Enter New Merchandise Last Reorder Date (dd mm yy):");
+		scanf(" %d %d %d", &rDay, &rMonth, &rYear);
+		MIS[matchNumber].reorderDate.day = rDay;
+		MIS[matchNumber].reorderDate.month = rMonth;
+		MIS[matchNumber].reorderDate.year = rYear;
+
+		for (int k = 0; k < *mDataSize; k++)
+		{
+			fprintf(MMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
+		}
+		printf("  ==========================================");
+		printf("\n    Merchandise data change sucessful...\n");
+		printf("  ==========================================");
+		break;
 	default:
 
 		printf("  ======================================");
@@ -363,7 +392,8 @@ void search(MerchandiseInStock MIS[], int mDataSize)
 		printf("  MERCHANDISE STOCK IN HAND    : %d\n", matchData.MStock);
 		printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", matchData.MMinimum);
 		printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
-		printf("  =====================================================\n");
+		printf("  MERCHANDISE LAST REORDER DATE: %d-%d-%d\n", matchData.reorderDate.day, matchData.reorderDate.month, matchData.reorderDate.year);
+		printf("  =====================================================\n\n");
 		printf("  Press 'Y' to continue to search merchandise or 'N' back to menu :");
 		scanf(" %c", &option);
 
@@ -407,6 +437,7 @@ void deleteData(MerchandiseInStock MIS[], int* mDataSize)
 		printf("  MERCHANDISE STOCK IN HAND    : %d\n", matchData.MStock);
 		printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", matchData.MMinimum);
 		printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
+		printf("  MERCHANDISE LAST REORDER DATE: %d-%d-%d\n", matchData.reorderDate.day, matchData.reorderDate.month, matchData.reorderDate.year);
 		printf("  =====================================================\n\n");
 
 		printf("Press 'Y' if you want to delete this merchandise data : ");
@@ -426,8 +457,10 @@ void deleteData(MerchandiseInStock MIS[], int* mDataSize)
 
 			for (int k = 0; k < *mDataSize; k++)
 			{
-				fprintf(DMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+				fprintf(DMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 			}
+
+
 
 			fclose(DMD);
 			printf("  ============================================\n");
@@ -459,7 +492,7 @@ void deleteData(MerchandiseInStock MIS[], int* mDataSize)
 void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize)
 {
 	char option;
-	int  selection, quantity, qReoerder;
+	int  selection, quantity, qReoerder, rDay, rMonth, rYear;
 
 	do
 	{
@@ -491,7 +524,8 @@ void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize)
 		printf("  MERCHANDISE STOCK IN HAND    : %d\n", matchData.MStock);
 		printf("  MERCHANDISE MINIMUM LEVEL    : %d\n", matchData.MMinimum);
 		printf("  MERCHANDISE REORDER QUANTITY : %d\n", matchData.MReorder);
-		printf("  =====================================================\n");
+		printf("  MERCHANDISE LAST REORDER DATE: %d-%d-%d\n", matchData.reorderDate.day, matchData.reorderDate.month, matchData.reorderDate.year);
+		printf("  =====================================================\n\n");
 		printf("\n  Restock in :");
 		printf("\n              1. Manually ");
 		printf("\n              2. Automatically ");
@@ -508,6 +542,9 @@ void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize)
 			printf("  =============================================\n");
 			printf("    Enter the restock quantity : ");
 			scanf(" %d", &quantity);
+			printf("    Enter restock date (dd mm yy): ");
+			scanf(" %d %d %d", &rDay, &rMonth, &rYear);
+
 			MIS[matchNumber].MStock += quantity;
 			printf("  =======================\n");
 			printf("    Restock sucessfully\n");
@@ -515,15 +552,20 @@ void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize)
 
 			for (int k = 0; k < *mDataSize; k++)
 			{
-				fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+				fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 			}
 			break;
 
 		case 2:
+			printf("  =============================================\n");
+			printf("    Enter restock date (dd mm yy): ");
+			scanf(" %d %d %d", &rDay, &rMonth, &rYear);
+
 			MIS[matchNumber].MStock += MIS[matchNumber].MReorder;
+
 			for (int k = 0; k < *mDataSize; k++)
 			{
-				fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder);
+				fprintf(RMD, "%s|%s|%.2lf|%d|%d|%d|%d-%d-%d|\n", MIS[k].MCode, MIS[k].MName, MIS[k].MPrice, MIS[k].MStock, MIS[k].MMinimum, MIS[k].MReorder, MIS[k].reorderDate.day, MIS[k].reorderDate.month, MIS[k].reorderDate.year);
 			}
 			printf("  =======================\n");
 			printf("    Restock sucessfully\n");
@@ -545,7 +587,6 @@ void restockMerchandise(MerchandiseInStock MIS[], int* mDataSize)
 	} while (toupper(option) != 'N');
 }
 
-
 void merchandiseList(MerchandiseInStock MIS[], int mDataSize)
 {
 	int number;
@@ -558,13 +599,14 @@ void merchandiseList(MerchandiseInStock MIS[], int mDataSize)
 
 		printf("    NO.%d\n", number);
 		printf("  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-		printf("    Code             : %s\n    Name             : %s\n    Price(RM)        : %.2lf\n    Stock Quantity   : %d\n    Minimum Level    : %d\n    Reorder Quantity : %d\n", MIS[i].MCode, MIS[i].MName, MIS[i].MPrice, MIS[i].MStock, MIS[i].MMinimum, MIS[i].MReorder);
+		printf("    Code             : %s\n    Name             : %s\n    Price(RM)        : %.2lf\n    Stock Quantity   : %d\n    Minimum Level    : %d\n    Reorder Quantity : %d\n    Last Reorder Date: %d-%d-%d\n", MIS[i].MCode, MIS[i].MName, MIS[i].MPrice, MIS[i].MStock, MIS[i].MMinimum, MIS[i].MReorder, MIS[i].reorderDate.day, MIS[i].reorderDate.month, MIS[i].reorderDate.year);
 		printf("  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n");
 		printf("------------------------------------------------------\n\n");
 
 	}
 	system("pause");
 }
+
 void displayData(MerchandiseInStock MIS[], int mDataSize)
 {
 	system("cls");
