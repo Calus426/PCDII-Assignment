@@ -695,6 +695,7 @@ void modifyMember(Member memberInfo[], int memberSize)
 	int newDay, newMonth, newYear, wantedIndex;
 	int dateCheck = 0;
 	int matchcount = 0, selectEdit;
+	int edited=0;
 	Member matchMember[2];
 
 	display(memberInfo, memberSize);
@@ -756,6 +757,7 @@ void modifyMember(Member memberInfo[], int memberSize)
 			case 'Y':
 				do
 				{
+					printf("\n");
 					selectEdit = 0;
 					printf("1.Edit Name\n");
 					printf("2.Edit Member Phone Number\n");
@@ -773,6 +775,7 @@ void modifyMember(Member memberInfo[], int memberSize)
 						rewind(stdin);
 						scanf("%[^\n]", &newName);
 						strcpy(memberInfo[wantedIndex].name, newName);
+						edited = 1;
 						break;
 
 					case 2:
@@ -785,6 +788,7 @@ void modifyMember(Member memberInfo[], int memberSize)
 								printf("Invalid Phone number(between 10 to 11 number).Please reenter.\n");
 						} while (strlen(newPhoneNo) > 11 || strlen(newPhoneNo) < 9);
 						strcpy(memberInfo[wantedIndex].memberPhone, newPhoneNo);
+						edited = 1;
 						break;
 
 					case 3:
@@ -862,6 +866,7 @@ void modifyMember(Member memberInfo[], int memberSize)
 						memberInfo[wantedIndex].joinDate.day = newDay;
 						memberInfo[wantedIndex].joinDate.month = newMonth;
 						memberInfo[wantedIndex].joinDate.year = newYear;
+						edited = 1;
 						break;
 
 					case 4:
@@ -886,25 +891,33 @@ void modifyMember(Member memberInfo[], int memberSize)
 							}
 						}
 						strcpy(memberInfo[wantedIndex].memberIC, newIC);
+						edited = 1;
 						break;
 
-					case 5: {
-
-					
-						FILE *editPtr = fopen("member.bin", "wb");
-						for (int i = 0; i < memberSize; i++)
+					case 5: 
+						if (edited == 1)
 						{
-							fwrite(&memberInfo[i], sizeof memberInfo[i], 1, editPtr);
-						}
-						
-						
-						fclose(editPtr); 
-						printf("Edit member sucessfully!\n");
-						system("pause");
-						break;
-					}
-					default:printf("Enter valid selection!\n\n"); system("pause");
 
+
+							FILE* editPtr = fopen("member.bin", "wb");
+							for (int i = 0; i < memberSize; i++)
+							{
+								fwrite(&memberInfo[i], sizeof memberInfo[i], 1, editPtr);
+							}
+
+
+							fclose(editPtr);
+							printf("Edit member sucessfully!\n");
+							printf("\n");
+							displayResult(memberInfo, wantedIndex);
+							system("pause");
+							break;
+						}
+
+						else
+							break;
+
+					default:printf("Enter valid selection!\n\n"); 
 
 					}
 

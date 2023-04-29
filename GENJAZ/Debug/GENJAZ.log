@@ -1,7 +1,7 @@
 ﻿  Member_Information.c
 F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(256,23): warning C4018: '<': signed/unsigned mismatch
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1030,11): warning C4098: 'report_buyMost': 'void' function returning a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1025,7): warning C4101: 'num': unreferenced local variable
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1112,11): warning C4098: 'report_highestSpent': 'void' function returning a value
-F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1107,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1043,11): warning C4098: 'report_buyMost': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1038,7): warning C4101: 'num': unreferenced local variable
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1125,11): warning C4098: 'report_highestSpent': 'void' function returning a value
+F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Member_Information.c(1120,7): warning C4101: 'num': unreferenced local variable
   GENJAZ.vcxproj -> F:\DCS\dcs y1 sem3\PCD 2\Assignment\PCDII-Assignment\GENJAZ\Debug\GENJAZ.exe
