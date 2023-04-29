@@ -205,8 +205,8 @@ void addMember(Member memberInfo[], int memberSize)
 
 		if (ptr == NULL)  //ensure the file can be opened
 		{
-			printf("Unable to open file");
-			exit(-1);
+			printf("Unable to open file.\n");
+			return;
 		}
 
 		system("cls");
@@ -618,6 +618,7 @@ void memberSearch(Member memberInfo[], int memberSize)
 			}
 			else
 			{
+				printf("\n\n");
 				detailDisplay(matchMember, matchcount);
 			}
 
@@ -649,6 +650,7 @@ void memberSearch(Member memberInfo[], int memberSize)
 			}
 			else
 			{
+				printf("\n\n");	
 				detailDisplay(matchMember, matchcount);
 			}
 			break;
@@ -886,14 +888,28 @@ void modifyMember(Member memberInfo[], int memberSize)
 						strcpy(memberInfo[wantedIndex].memberIC, newIC);
 						break;
 
-					case 5:break;
+					case 5: {
 
+					
+						FILE *editPtr = fopen("member.bin", "wb");
+						for (int i = 0; i < memberSize; i++)
+						{
+							fwrite(&memberInfo[i], sizeof memberInfo[i], 1, editPtr);
+						}
+						
+						
+						fclose(editPtr); 
+						printf("Edit member sucessfully!\n");
+						system("pause");
+						break;
+					}
 					default:printf("Enter valid selection!\n\n"); system("pause");
 
 
 					}
 
 				} while (selectEdit != 5);
+
 			case 'n':
 			case 'N':
 				break;
