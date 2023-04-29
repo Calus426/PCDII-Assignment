@@ -578,6 +578,7 @@ void memberSearch(Member memberInfo[], int memberSize)
 			}
 			else
 			{
+				printf("\n\n");
 				detailDisplay(matchMember, matchcount);
 			}
 
@@ -662,7 +663,7 @@ int searchMenu()
 {
 	int choice;
 	printf("======================================\n");
-	printf("\t\tSearch function\n");
+	printf("\t   Search function\n");
 	printf("======================================\n");
 	printf("1. Search by Member ID\n");
 	printf("2. Search by UpLine ID\n");

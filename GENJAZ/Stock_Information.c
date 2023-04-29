@@ -292,7 +292,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 
 	case 2:
@@ -306,7 +306,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 
 	case 3:
@@ -320,7 +320,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 
 	case 4:
@@ -334,7 +334,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 
 	case 5:
@@ -348,7 +348,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 
 	case 6:
@@ -362,7 +362,7 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 
 	case 7:
@@ -378,13 +378,13 @@ void modifyData(MerchandiseInStock MIS[], int* mDataSize)
 		}
 		printf("  ==========================================");
 		printf("\n    Merchandise data change sucessful...\n");
-		printf("  ==========================================");
+		printf("  ==========================================\n");
 		break;
 	default:
 
 		printf("  ======================================");
 		printf("\n    Wrong input please try again....\n");
-		printf("  ======================================");
+		printf("  ======================================\n");
 		break;
 	}
 
