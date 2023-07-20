@@ -1,0 +1,10 @@
+ST0001|Samantha|abc123|Software Engineer|RM9,800|+60 3344-5566|F|0|
+ST0002|Benjamin|benjamin123|Marketing Manager|RM12,500|+60 3222-8899|M|0|
+ST0003|Mohamad|mohamad123|Web Security|RM10,000|+60 4585-2561|M|0|
+ST0004|Jimmy|jimmy123|Human Resources Manager|25,000|+60 6455 5251|M|0|
+ST0005|Olivia|olivia123|Financial Analyst|RM8,900|+60 3742-1919|F|0|
+ST0006|Jacob|jocab123|Project Manager|RM13,200|+60 3838-2222|M|0|
+ST0007|Isabella|isabella123|Sales Executive|RM6,700|+60 3276-9321|F|0|
+ST0008|Noah|noah123|Customer Service RepresentativRM4,500|RM4,500|+60 3661-1245|M|0|
+ST0009|Sophia|sopiah123|Graphic Designer|RM6,800|+60 3789-0077|F|0|
+ST00010|Lucas|lucas123|Operations Manager|RM15,000|+60 3865-1092|M|0|
